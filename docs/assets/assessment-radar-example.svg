@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 455" role="img" aria-labelledby="title desc">
+  <title id="title">六维任务自检图，合成示例</title>
+  <desc id="desc">工程交付2，模型与上下文1，Agent与工具2，知识与检索1，可靠性与权限0，评测与优化1。自行记录，未独立核验；并非用户真实结果。</desc>
+  <rect width="720" height="455" fill="#ffffff" />
+  <text fill="#17212b" font-family="sans-serif" x="24" y="30" font-size="19">六维任务自检图 · 合成示例</text>
+  <text fill="#17212b" font-family="sans-serif" x="24" y="54" font-size="13">自行记录，未独立核验；0–3 为任务档位，不计算总分或面积</text>
+  <polygon points="360.00,188.33 396.08,209.17 396.08,250.83 360.00,271.67 323.92,250.83 323.92,209.17" fill="none" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="367" y="202.33333333333334" font-size="12">1</text>
+  <polygon points="360.00,146.67 432.17,188.33 432.17,271.67 360.00,313.33 287.83,271.67 287.83,188.33" fill="none" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="367" y="160.66666666666669" font-size="12">2</text>
+  <polygon points="360.00,105.00 468.25,167.50 468.25,292.50 360.00,355.00 251.75,292.50 251.75,167.50" fill="none" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="367" y="119.0" font-size="12">3</text>
+  <line x1="360" y1="230" x2="360.0" y2="105.0" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="360.0" text-anchor="middle" font-size="14" y="79.0">工程交付</text>
+  <text fill="#17212b" font-family="sans-serif" x="360.0" text-anchor="middle" font-size="14" y="98.0">2 档</text>
+  <line x1="360" y1="230" x2="468.2531754730548" y2="167.5" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="482.2531754730548" text-anchor="start" font-size="14" y="163.5">模型与上下文</text>
+  <text fill="#17212b" font-family="sans-serif" x="482.2531754730548" text-anchor="start" font-size="14" y="182.5">1 档</text>
+  <line x1="360" y1="230" x2="468.25317547305485" y2="292.5" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="482.25317547305485" text-anchor="start" font-size="14" y="288.5">Agent 与工具</text>
+  <text fill="#17212b" font-family="sans-serif" x="482.25317547305485" text-anchor="start" font-size="14" y="307.5">2 档</text>
+  <line x1="360" y1="230" x2="360.0" y2="355.0" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="360.0" text-anchor="middle" font-size="14" y="379.0">知识与检索</text>
+  <text fill="#17212b" font-family="sans-serif" x="360.0" text-anchor="middle" font-size="14" y="398.0">1 档</text>
+  <line x1="360" y1="230" x2="251.7468245269452" y2="292.50000000000006" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="237.7468245269452" text-anchor="end" font-size="14" y="288.50000000000006">可靠性与权限</text>
+  <text fill="#17212b" font-family="sans-serif" x="237.7468245269452" text-anchor="end" font-size="14" y="307.50000000000006">0 档</text>
+  <line x1="360" y1="230" x2="251.7468245269452" y2="167.49999999999997" stroke="#d5dce5" stroke-width="1" />
+  <text fill="#17212b" font-family="sans-serif" x="237.7468245269452" text-anchor="end" font-size="14" y="163.49999999999997">评测与优化</text>
+  <text fill="#17212b" font-family="sans-serif" x="237.7468245269452" text-anchor="end" font-size="14" y="182.49999999999997">1 档</text>
+  <polygon points="360.00,146.67 396.08,209.17 432.17,271.67 360.00,271.67 360.00,230.00 323.92,209.17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linejoin="round" />
+  <circle cx="360.0" cy="146.66666666666669" r="4" fill="#2563eb" />
+  <circle cx="396.0843918243516" cy="209.16666666666666" r="4" fill="#2563eb" />
+  <circle cx="432.1687836487032" cy="271.66666666666663" r="4" fill="#2563eb" />
+  <circle cx="360.0" cy="271.6666666666667" r="4" fill="#2563eb" />
+  <circle cx="360.0" cy="230.0" r="4" fill="#2563eb" />
+  <circle cx="323.9156081756484" cy="209.16666666666666" r="4" fill="#2563eb" />
+  <text fill="#17212b" font-family="sans-serif" x="24" y="433" font-size="13">0 基础待补   1 情境通过   2 实现自检   3 变式复检   — 未测（不补零）</text>
+</svg>

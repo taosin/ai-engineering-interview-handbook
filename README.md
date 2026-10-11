@@ -18,6 +18,7 @@
 | --- | --- |
 | 不知道从哪里开始 | [学习与成长总览](roadmap/README.md) · [起点自测](roadmap/start.md) |
 | 按阶段完成一个项目 | [能力里程碑与验收](roadmap/milestones.md) |
+| 了解六维能力测试设计 | [测评与雷达图方案](docs/assessment-design.md)（方案，待实施） |
 | 按目标岗位准备 | [4 条岗位学习与复习路线](paths/README.md) |
 | 学过但记不牢，或临近面试 | [复习机制](roadmap/review.md) · [面试前两周](roadmap/interview-sprint.md) |
 | 已有作品，继续提升 | [长期成长标准](roadmap/growth.md) |
