@@ -1,0 +1,723 @@
+[
+  {
+    "id": "Q001",
+    "topic": "agent-architecture",
+    "question": "用户提交任务之后，到 Agent 返回最终结果，中间经过哪些模块？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S01"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q002",
+    "topic": "agent-architecture",
+    "question": "模型决定调用工具后，工具结果怎样进入下一轮推理？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S01"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q003",
+    "topic": "agent-architecture",
+    "question": "Agent 循环何时继续、何时结束？完成条件怎么判断？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S01"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q004",
+    "topic": "agent-architecture",
+    "question": "Planner、Executor、Critic 各承担什么职责，与 ReAct 如何取舍？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S02"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q005",
+    "topic": "agent-architecture",
+    "question": "多个 Agent 同时执行时，瓶颈可能在哪？如何限制并发？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S02"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q006",
+    "topic": "agent-architecture",
+    "question": "如果让 Agent 自动优化广告投放，你会怎样设计决策与执行流程？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S02"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q007",
+    "topic": "memory-context",
+    "question": "聊天里提取的信息，满足什么条件才能成为可信的长期记忆？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S03"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "边界补充",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q008",
+    "topic": "memory-context",
+    "question": "新旧记忆互相矛盾时，如何合并、更新和保留依据？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S03"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "边界补充",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q009",
+    "topic": "memory-context",
+    "question": "多 Agent 应共享哪些状态，各自隔离哪些上下文？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S03"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "边界补充",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q010",
+    "topic": "memory-context",
+    "question": "一个 Agent 很久没有参与讨论，再次被调用时如何补齐必要信息？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S03"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "边界补充",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q011",
+    "topic": "memory-context",
+    "question": "上下文越来越长时，什么时候压缩，保留哪些内容？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S04"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q012",
+    "topic": "memory-context",
+    "question": "怎样验证摘要没有丢掉关键约束和任务细节？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S03",
+      "S04"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q013",
+    "topic": "tools-permissions",
+    "question": "如何确定一个 MCP 工具的功能范围和参数粒度？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S05"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q014",
+    "topic": "tools-permissions",
+    "question": "在你的系统里，MCP 与 Skill 分别负责什么？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S05"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q015",
+    "topic": "tools-permissions",
+    "question": "模型能查询数据库时，如何阻止越权读取或大范围扫库？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S05"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q016",
+    "topic": "tools-permissions",
+    "question": "接入多个 MCP Server 时，如何处理协议版本兼容？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S06"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q017",
+    "topic": "tools-permissions",
+    "question": "如何适配 stdio、SSE 和 Streamable HTTP 等通信方式？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S06"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q018",
+    "topic": "tools-permissions",
+    "question": "人工应在哪些执行节点介入，哪些动作需要确认？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S05"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q019",
+    "topic": "rag-knowledge",
+    "question": "领域知识检索为什么同时使用关键词和向量？结果如何融合？",
+    "roles": [
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S07"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q020",
+    "topic": "rag-knowledge",
+    "question": "怎样阻止碰巧解决问题、实际归因错误的案例进入知识库？",
+    "roles": [
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S07"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q021",
+    "topic": "rag-knowledge",
+    "question": "不依赖逐条人工审核，如何控制知识入库质量？",
+    "roles": [
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S07"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q022",
+    "topic": "rag-knowledge",
+    "question": "父子分块为什么这样设计？块大小如何确定？",
+    "roles": [
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S08"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q023",
+    "topic": "rag-knowledge",
+    "question": "如何选择重排模型、召回数量和相关性阈值？",
+    "roles": [
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S08"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q024",
+    "topic": "rag-knowledge",
+    "question": "如何用检索指标证明改进有效？大量合成测试样本会带来什么偏差？",
+    "roles": [
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S08"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q025",
+    "topic": "reliability",
+    "question": "一个通常几分钟完成的任务突然慢了数倍，如何定位原因？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S04"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q026",
+    "topic": "reliability",
+    "question": "怎样保证模型生成的工具参数可用、调用过程可靠？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S04"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q027",
+    "topic": "reliability",
+    "question": "外部操作已经成功，但保存执行检查点之前进程崩溃，恢复后怎样避免重复操作？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S09"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q028",
+    "topic": "reliability",
+    "question": "主任务与子任务之间怎样传递状态和大量结果？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S09"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q029",
+    "topic": "reliability",
+    "question": "执行过程偏离目标时，如何纠正，避免反复循环？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S09"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q030",
+    "topic": "reliability",
+    "question": "从失败案例生成 Skill 时，如何防止错误经验或恶意内容污染后续执行？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S09"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q031",
+    "topic": "fullstack",
+    "question": "SSE 与 WebSocket 如何选择？业务需要什么通信能力？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S10"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q032",
+    "topic": "fullstack",
+    "question": "对话产品的会话表、消息表应该怎样设计？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S06"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q033",
+    "topic": "fullstack",
+    "question": "流式聊天的界面状态、浏览器缓存和持久化历史如何配合？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S07"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q034",
+    "topic": "fullstack",
+    "question": "实时热点榜单如何支撑高并发，怎样选择数据结构和存储？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S10"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q035",
+    "topic": "fullstack",
+    "question": "多个请求同时修改同一业务状态，怎样保证判断与更新的一致性？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q036",
+    "topic": "fullstack",
+    "question": "缓存写入成功后异步落库，如何应对消息丢失、重复消费和最终状态不一致？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q037",
+    "topic": "ai-coding-evaluation",
+    "question": "现场展示一次使用 AI 完成需求的过程，你如何提供上下文和拆分工作？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q038",
+    "topic": "ai-coding-evaluation",
+    "question": "如何把一道编程题描述清楚，让 AI 覆盖输入、输出和边界条件？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q039",
+    "topic": "ai-coding-evaluation",
+    "question": "AI 参与开发后，哪些设计、检查和决策仍由你负责？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q040",
+    "topic": "ai-coding-evaluation",
+    "question": "测试驱动与规格驱动的开发方式，你怎样实际使用？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q041",
+    "topic": "ai-coding-evaluation",
+    "question": "比较两个 Agent 方案时，怎样保证测试环境和任务条件一致？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S01"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q042",
+    "topic": "ai-coding-evaluation",
+    "question": "修改 Skill 后，如何证明效果提高，而不是只在少数示例上变好？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S01"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q043",
+    "topic": "coding",
+    "question": "用两个栈实现队列，再考虑多线程访问。",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S10"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q044",
+    "topic": "coding",
+    "question": "实现 LRU 缓存，并加入过期与并发约束。",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S11"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q045",
+    "topic": "coding",
+    "question": "实现最长递增子序列。",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S06"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q046",
+    "topic": "coding",
+    "question": "用数组实现映射结构，解释冲突与扩容。",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S01"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q047",
+    "topic": "coding",
+    "question": "按不同值类型合并嵌套 JSON，且保留原输入不变。",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S12"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  },
+  {
+    "id": "Q048",
+    "topic": "coding",
+    "question": "从给定数字集合构造小于指定整数的最大数。",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S04"
+    ],
+    "type": "面经问题归纳",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-08"
+  }
+]
