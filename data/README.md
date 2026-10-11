@@ -63,8 +63,8 @@
 
 指南的 `question_ids` 只能引用已有 Q 题，`reference_ids` 只能引用 T 技术资料。练习的 `guide_ids` 只能引用 G 指南。`status` 支持两种状态：
 
-- `specification`：提供练习规范，没有可运行参考实现，禁止声明 `implementation`。当前 L02–L04 属于此类。
-- `reference-implementation`：附可运行的本地参考实现，必须提供 `implementation` 对象。当前仅 L01 属于此类；状态表示存在实现，不代替实际执行记录或学习者能力验收。
+- `specification`：提供练习规范，没有可运行参考实现，禁止声明 `implementation`。当前 L02、L04 属于此类。
+- `reference-implementation`：附可运行的本地参考实现，必须提供 `implementation` 对象。当前 L01、L03 属于此类；状态表示存在实现，不代替实际执行记录或学习者能力验收。
 
 `implementation` 仅含 `path`、`run_command`、`test_command`。`path` 是仓库根目录下 `examples/` 内已存在文件的相对路径，不得使用绝对路径、目录穿越或指向目录外的符号链接；命令是在仓库根目录运行的单行说明，由页面展示，数据校验与构建不会执行它们。CI 单独运行明确配置的标准库测试。`rubric` 的每项含 `dimension`、正整数 `points`、`full_credit`，合计 10 分。
 
@@ -81,6 +81,7 @@
 | entries / start_body | 三类起点摘要，以及行为自测和分流正文 |
 | through_project / assumptions / progression_rule | 贯穿项目、适用前提和证据推进规则 |
 | milestones | M0 条件式补课与 M1–M6 主线；入门条件、步骤、产物、验收、回退、专注工时区间及引用 |
+| milestones.acceptance.id | 稳定验收 ID（如 M4-C1），不可因重排数组而换号；测评建议可精确关联 |
 | milestones.depends_on | 指向数组中更早的阶段；已有等价证据可免做重复学习，不表示免除依赖能力 |
 | pace_modes | 每周投入小时和活动分钟数；活动合计必须与小时一致 |
 | roles | 与 catalog 同 ID、同名称的岗位；这里维护项目交付点，catalog 继续维护精选题目 |
@@ -102,3 +103,11 @@ python3 scripts/practice.py --query SSE
 ```
 
 相同数据、筛选条件与 seed 会得到相同抽样结果。不指定 sample 时按稳定题号顺序输出；脚本只读取本地题库，不访问模型或外部服务。
+
+## assessment.json
+
+独立 schema v1，内容类型为原创自检试用规则，不混入 Q/S 来源计数。`assessment_version`、`rubric_version` 记录规则版本；六个 `dimensions` 按 D1–D6 固定排序，每轴关联情境与实践两个任务，共 AT01–AT12。
+
+情境包含两个明确改变约束的 `variants`，保留稳定 `exposure_key` 与可比组；实践包含基础断言和 `transfer` 的变化约束/回归/取舍断言。每条 `criterion` 有固定 ID、判据、关键失败标记及 `recommendation`，建议只引用已存在的 Q/G/L/M 和阶段验收 ID。
+
+Python 校验内容引用后，从同一源生成 `assessment/manual.md` 与 `assessment/definition.json`。后者附源定义规范 JSON（UTF-8、键排序、无额外空格）的 SHA-256，以及由现有目录计算的可信 GitHub 导航链接；导航链接不参与评分规则哈希。JS 核心负责作答校验、派生档位、历史和个人备份导入，不读取导入文件声明的分数作为依据。个人记录与公开定义使用不同结构，不能将备份作为公开规则导入。

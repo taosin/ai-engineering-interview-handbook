@@ -8,6 +8,7 @@ import re
 import sys
 from learning import load_learning, validate_learning
 from roadmap import load_roadmap, validate_roadmap
+from assessment import load_assessment, validate_assessment
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {'historical', 'original', 'platform-index', 'search-index'}
@@ -114,6 +115,7 @@ if __name__ == '__main__':
         validate_learning(learning, qs, cat)
         roadmap = load_roadmap(ROOT)
         validate_roadmap(roadmap, qs, cat, learning)
+        validate_assessment(load_assessment(ROOT), qs, learning, roadmap, cat)
         check_markdown_links()
         print(f"Validated {len(qs)} questions, {len(ss)} interview sources, {len(learning['guides'])} guides, {len(learning['labs'])} labs, {len(roadmap['milestones'])} milestones, metadata, routes and local links.")
     except (ValueError, KeyError, TypeError, OSError) as exc:

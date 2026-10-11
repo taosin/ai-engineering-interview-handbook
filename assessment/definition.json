@@ -1,0 +1,3610 @@
+{
+  "schema_version": 1,
+  "assessment_version": "0.1.0",
+  "rubric_version": "0.1.0",
+  "status": "self_check_trial",
+  "title": "AI 工程任务自检 · 试用版",
+  "notice": "自行记录，未独立核验。情境答案可自动核对；项目档位仅根据本人填写的实际证据与判断计算。样例未经真实用户试评，不代表认证、招聘结论或完整领域能力。",
+  "roles": [
+    "ai-fullstack",
+    "agent-engineer",
+    "llm-application",
+    "agent-infra"
+  ],
+  "role_priorities": {
+    "ai-fullstack": [
+      "D1",
+      "D2",
+      "D3",
+      "D5",
+      "D6",
+      "D4"
+    ],
+    "agent-engineer": [
+      "D3",
+      "D5",
+      "D2",
+      "D6",
+      "D4",
+      "D1"
+    ],
+    "llm-application": [
+      "D2",
+      "D4",
+      "D6",
+      "D1",
+      "D3",
+      "D5"
+    ],
+    "agent-infra": [
+      "D5",
+      "D3",
+      "D6",
+      "D1",
+      "D2",
+      "D4"
+    ]
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "工程开发与交付",
+      "scenario_task_id": "AT01",
+      "practice_task_id": "AT02"
+    },
+    {
+      "id": "D2",
+      "name": "模型与上下文",
+      "scenario_task_id": "AT03",
+      "practice_task_id": "AT04"
+    },
+    {
+      "id": "D3",
+      "name": "Agent 与工具",
+      "scenario_task_id": "AT05",
+      "practice_task_id": "AT06"
+    },
+    {
+      "id": "D4",
+      "name": "知识与检索",
+      "scenario_task_id": "AT07",
+      "practice_task_id": "AT08"
+    },
+    {
+      "id": "D5",
+      "name": "可靠性与权限",
+      "scenario_task_id": "AT09",
+      "practice_task_id": "AT10"
+    },
+    {
+      "id": "D6",
+      "name": "评测与优化",
+      "scenario_task_id": "AT11",
+      "practice_task_id": "AT12"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "AT01",
+      "type": "scenario",
+      "dimension_id": "D1",
+      "task_version": "1",
+      "title": "流式交互与任务身份",
+      "prompt": "按题内明确的业务约定作答；不知道可明确选择。整轴提交后才反馈。",
+      "variants": [
+        {
+          "id": "AT01-A",
+          "exposure_key": "AT01:A:core-1",
+          "comparison_group": "D1-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "服务端对任务 T1 依次发送 (e1,A)、(e2,B)，断线重放 (e2,B)、(e3,B)。相同事件 ID 表示同一追加事件，不同 ID 即便文本相同也都追加。随后用户开启 T2，T1 的旧响应才到；取消 T2 的请求超时，服务端尚未确认。 任务终态以服务端持久状态为准，浏览器刷新后本地内存不保留。",
+          "criteria": [
+            {
+              "id": "AT01-A-C1",
+              "label": "T1 重放完成后的文本",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "按事件 ID 去重；e3 的 B 必须保留。",
+              "recommendation": {
+                "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+                "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+                "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "ABB",
+              "options": [
+                {
+                  "value": "AB",
+                  "label": "AB"
+                },
+                {
+                  "value": "ABB",
+                  "label": "ABB"
+                },
+                {
+                  "value": "ABBB",
+                  "label": "ABBB"
+                }
+              ]
+            },
+            {
+              "id": "AT01-A-C2",
+              "label": "T1 旧响应是否可以覆盖当前 T2 面板",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "当前任务身份不同，应隔离旧任务结果。",
+              "recommendation": {
+                "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+                "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+                "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT01-A-C3",
+              "label": "取消请求超时后，T2 能否立即标记已取消",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "请求超时只表示未收到确认。",
+              "recommendation": {
+                "reason": "取消请求被误当成已结束任务，前后端状态可能不一致。",
+                "action": "在 L02 比较取消已确认、取消超时、完成先到三种情况。",
+                "deliverable": "交付最终服务端状态及刷新后页面的实际输出。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT01-A-C4",
+              "label": "刷新后恢复运行状态的依据",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "跨刷新恢复需要持久任务身份与状态。",
+              "recommendation": {
+                "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+                "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+                "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "server",
+              "options": [
+                {
+                  "value": "server",
+                  "label": "服务端持久状态与事件位置"
+                },
+                {
+                  "value": "memory",
+                  "label": "上次窗口的内存变量"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "AT01-B",
+          "exposure_key": "AT01:B:core-1",
+          "comparison_group": "D1-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "页面重新打开后取得 T3 快照：文本 AB、已应用游标 e2；重放返回 (e2,B)、(e3,C)。游标含自身，事件按序。随后另一个窗口取消 T3，但服务端先提交 completed；取消接口回报终态 completed。",
+          "criteria": [
+            {
+              "id": "AT01-B-C1",
+              "label": "合并快照与重放后的文本",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "快照已包含 e2，重放只应用后续 e3。",
+              "recommendation": {
+                "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+                "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+                "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "ABC",
+              "options": [
+                {
+                  "value": "ABC",
+                  "label": "ABC"
+                },
+                {
+                  "value": "ABBC",
+                  "label": "ABBC"
+                },
+                {
+                  "value": "BC",
+                  "label": "BC"
+                }
+              ]
+            },
+            {
+              "id": "AT01-B-C2",
+              "label": "这个明确采用先提交终态的协议中，最终应显示",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "取消操作回报已存在的终态，不能覆盖 completed。",
+              "recommendation": {
+                "reason": "取消请求被误当成已结束任务，前后端状态可能不一致。",
+                "action": "在 L02 比较取消已确认、取消超时、完成先到三种情况。",
+                "deliverable": "交付最终服务端状态及刷新后页面的实际输出。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "completed",
+              "options": [
+                {
+                  "value": "completed",
+                  "label": "已完成"
+                },
+                {
+                  "value": "cancelled",
+                  "label": "已取消"
+                },
+                {
+                  "value": "running",
+                  "label": "运行中"
+                }
+              ]
+            },
+            {
+              "id": "AT01-B-C3",
+              "label": "是否可以只清空本地文本并依靠重放重建，却不保存快照游标",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "快照与重放边界必须一致。",
+              "recommendation": {
+                "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+                "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+                "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT01-B-C4",
+              "label": "T4 当前面板能否接受 T3 的迟到终态",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "结果应按任务身份归属，不能覆盖另一任务。",
+              "recommendation": {
+                "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+                "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+                "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+                "question_ids": [
+                  "Q033",
+                  "Q062",
+                  "Q065"
+                ],
+                "guide_ids": [
+                  "G04"
+                ],
+                "lab_ids": [
+                  "L02"
+                ],
+                "milestone_ids": [
+                  "M5"
+                ],
+                "acceptance_ids": [
+                  "M5-C1",
+                  "M5-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AT02",
+      "type": "practice",
+      "dimension_id": "D1",
+      "task_version": "1",
+      "title": "可恢复的最小 AI 页面",
+      "prompt": "实现任务提交、流式展示、刷新恢复与取消确认；可以使用确定性 stub。实际运行 AT01-A 的重放输入与新旧任务交错，保存页面状态和服务端轨迹。",
+      "criteria": [
+        {
+          "id": "AT02-P1",
+          "label": "e1=A,e2=B,e2=B,e3=B 的最终文本",
+          "input_type": "text",
+          "critical": false,
+          "explanation": "不同 ID 的相同文本仍各出现一次。",
+          "recommendation": {
+            "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+            "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+            "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+            "question_ids": [
+              "Q033",
+              "Q062",
+              "Q065"
+            ],
+            "guide_ids": [
+              "G04"
+            ],
+            "lab_ids": [
+              "L02"
+            ],
+            "milestone_ids": [
+              "M5"
+            ],
+            "acceptance_ids": [
+              "M5-C1",
+              "M5-C3"
+            ]
+          },
+          "expected": "ABB"
+        },
+        {
+          "id": "AT02-P2",
+          "label": "T1 旧响应覆盖 T2 面板的次数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "记录交错运行的实际覆盖次数。",
+          "recommendation": {
+            "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+            "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+            "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+            "question_ids": [
+              "Q033",
+              "Q062",
+              "Q065"
+            ],
+            "guide_ids": [
+              "G04"
+            ],
+            "lab_ids": [
+              "L02"
+            ],
+            "milestone_ids": [
+              "M5"
+            ],
+            "acceptance_ids": [
+              "M5-C1",
+              "M5-C3"
+            ]
+          },
+          "expected": 0
+        },
+        {
+          "id": "AT02-P3",
+          "label": "取消超时尚未确认时是否显示已取消",
+          "input_type": "choice",
+          "critical": false,
+          "explanation": "等待权威状态，而非把请求发出等同完成。",
+          "recommendation": {
+            "reason": "取消请求被误当成已结束任务，前后端状态可能不一致。",
+            "action": "在 L02 比较取消已确认、取消超时、完成先到三种情况。",
+            "deliverable": "交付最终服务端状态及刷新后页面的实际输出。",
+            "question_ids": [
+              "Q033",
+              "Q062",
+              "Q065"
+            ],
+            "guide_ids": [
+              "G04"
+            ],
+            "lab_ids": [
+              "L02"
+            ],
+            "milestone_ids": [
+              "M5"
+            ],
+            "acceptance_ids": [
+              "M5-C1",
+              "M5-C3"
+            ]
+          },
+          "expected": "no",
+          "options": [
+            {
+              "value": "yes",
+              "label": "是"
+            },
+            {
+              "value": "no",
+              "label": "否"
+            }
+          ]
+        },
+        {
+          "id": "AT02-P4",
+          "label": "刷新后任务身份、内容和运行终态可由持久状态恢复",
+          "input_type": "self",
+          "critical": false,
+          "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+          "recommendation": {
+            "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+            "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+            "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+            "question_ids": [
+              "Q033",
+              "Q062",
+              "Q065"
+            ],
+            "guide_ids": [
+              "G04"
+            ],
+            "lab_ids": [
+              "L02"
+            ],
+            "milestone_ids": [
+              "M5"
+            ],
+            "acceptance_ids": [
+              "M5-C1",
+              "M5-C3"
+            ]
+          }
+        }
+      ],
+      "transfer": {
+        "constraint": "改为快照含 e2 的 T3 回放，并让两个窗口分别完成和取消同一任务；按服务端先写入的终态收敛。先写预测再运行，回归原来的重放输入。",
+        "criteria": [
+          {
+            "id": "AT02-T1",
+            "label": "快照 AB/e2 加 e2=B,e3=C 的实际文本",
+            "input_type": "text",
+            "critical": false,
+            "explanation": "快照游标防止重复应用。",
+            "recommendation": {
+              "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+              "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+              "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+              "question_ids": [
+                "Q033",
+                "Q062",
+                "Q065"
+              ],
+              "guide_ids": [
+                "G04"
+              ],
+              "lab_ids": [
+                "L02"
+              ],
+              "milestone_ids": [
+                "M5"
+              ],
+              "acceptance_ids": [
+                "M5-C1",
+                "M5-C3"
+              ]
+            },
+            "expected": "ABC"
+          },
+          {
+            "id": "AT02-T2",
+            "label": "两窗口最终状态收敛并回归旧响应隔离",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "取消请求被误当成已结束任务，前后端状态可能不一致。",
+              "action": "在 L02 比较取消已确认、取消超时、完成先到三种情况。",
+              "deliverable": "交付最终服务端状态及刷新后页面的实际输出。",
+              "question_ids": [
+                "Q033",
+                "Q062",
+                "Q065"
+              ],
+              "guide_ids": [
+                "G04"
+              ],
+              "lab_ids": [
+                "L02"
+              ],
+              "milestone_ids": [
+                "M5"
+              ],
+              "acceptance_ids": [
+                "M5-C1",
+                "M5-C3"
+              ]
+            }
+          },
+          {
+            "id": "AT02-T3",
+            "label": "说明持久事件、快照或刷新频率的代价及选择",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "事件与任务身份可能混淆，导致重复显示或旧结果覆盖。",
+              "action": "运行 L02 的重放与旧响应用例，再核对 Q065。",
+              "deliverable": "交付事件 ID、任务 ID 与最终页面状态的逐行对应记录。",
+              "question_ids": [
+                "Q033",
+                "Q062",
+                "Q065"
+              ],
+              "guide_ids": [
+                "G04"
+              ],
+              "lab_ids": [
+                "L02"
+              ],
+              "milestone_ids": [
+                "M5"
+              ],
+              "acceptance_ids": [
+                "M5-C1",
+                "M5-C3"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "AT03",
+      "type": "scenario",
+      "dimension_id": "D2",
+      "task_version": "1",
+      "title": "上下文预算与可执行输出",
+      "prompt": "按题内明确的业务约定作答；不知道可明确选择。整轴提交后才反馈。",
+      "variants": [
+        {
+          "id": "AT03-A",
+          "exposure_key": "AT03:A:core-1",
+          "comparison_group": "D2-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "模型窗口上限 1000 token。本轮已有输入 700、工具结果预留 150、输出预留 200；无自动超窗截断。系统约束禁止透出密钥，用户要求精确 JSON，返回却不是合法 JSON。",
+          "criteria": [
+            {
+              "id": "AT03-A-C1",
+              "label": "最少还需要减少多少 token 才能容纳预算",
+              "input_type": "number",
+              "critical": false,
+              "explanation": "700+150+200=1050，超过窗口 50。",
+              "recommendation": {
+                "reason": "上下文预算或约束保留尚无可追踪依据。",
+                "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+                "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+                "question_ids": [
+                  "Q011",
+                  "Q012",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C1",
+                  "M1-C2"
+                ]
+              },
+              "expected": 50
+            },
+            {
+              "id": "AT03-A-C2",
+              "label": "压缩时优先保留哪项",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "约束应可追踪地保留。",
+              "recommendation": {
+                "reason": "上下文预算或约束保留尚无可追踪依据。",
+                "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+                "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+                "question_ids": [
+                  "Q011",
+                  "Q012",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C1",
+                  "M1-C2"
+                ]
+              },
+              "expected": "constraint",
+              "options": [
+                {
+                  "value": "constraint",
+                  "label": "禁止透出密钥等关键约束"
+                },
+                {
+                  "value": "greeting",
+                  "label": "完整寒暄"
+                }
+              ]
+            },
+            {
+              "id": "AT03-A-C3",
+              "label": "非法 JSON 可否直接作为工具参数执行",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "先解析与校验，失败不能执行。",
+              "recommendation": {
+                "reason": "可解析输出不等于可执行或事实正确。",
+                "action": "把 Q026 的参数校验落实为拒绝分支，并核对 Q055 的采样边界。",
+                "deliverable": "交付非法结构、业务越界、缺少事实依据三种实际输出。",
+                "question_ids": [
+                  "Q026",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT03-A-C4",
+              "label": "温度 0 是否保证回答事实正确",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "采样配置不是事实证明。",
+              "recommendation": {
+                "reason": "可解析输出不等于可执行或事实正确。",
+                "action": "把 Q026 的参数校验落实为拒绝分支，并核对 Q055 的采样边界。",
+                "deliverable": "交付非法结构、业务越界、缺少事实依据三种实际输出。",
+                "question_ids": [
+                  "Q026",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "AT03-B",
+          "exposure_key": "AT03:B:core-1",
+          "comparison_group": "D2-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "窗口足够，但压缩后丢失了用户要求的付款币种，原文仍可重新读取；模型返回语法合法 JSON，其中金额缺少来源。工具参数规定 amount 必须是正数，模型给 -3；采样温度设为 0。",
+          "criteria": [
+            {
+              "id": "AT03-B-C1",
+              "label": "付款币种丢失后优先如何处理",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "可获取的必要约束应恢复后使用。",
+              "recommendation": {
+                "reason": "上下文预算或约束保留尚无可追踪依据。",
+                "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+                "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+                "question_ids": [
+                  "Q011",
+                  "Q012",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C1",
+                  "M1-C2"
+                ]
+              },
+              "expected": "refetch",
+              "options": [
+                {
+                  "value": "refetch",
+                  "label": "重新读取可靠原文恢复币种"
+                },
+                {
+                  "value": "guess",
+                  "label": "根据常见货币猜测"
+                }
+              ]
+            },
+            {
+              "id": "AT03-B-C2",
+              "label": "JSON 格式合法是否足以确认金额正确",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "格式与事实依据是不同检查。",
+              "recommendation": {
+                "reason": "可解析输出不等于可执行或事实正确。",
+                "action": "把 Q026 的参数校验落实为拒绝分支，并核对 Q055 的采样边界。",
+                "deliverable": "交付非法结构、业务越界、缺少事实依据三种实际输出。",
+                "question_ids": [
+                  "Q026",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT03-B-C3",
+              "label": "amount=-3 是否能交给仅接受正数的业务工具",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "业务约束校验独立于 JSON 解析。",
+              "recommendation": {
+                "reason": "可解析输出不等于可执行或事实正确。",
+                "action": "把 Q026 的参数校验落实为拒绝分支，并核对 Q055 的采样边界。",
+                "deliverable": "交付非法结构、业务越界、缺少事实依据三种实际输出。",
+                "question_ids": [
+                  "Q026",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT03-B-C4",
+              "label": "温度 0 能否弥补上下文缺失",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "确定的采样不能补回缺失事实。",
+              "recommendation": {
+                "reason": "上下文预算或约束保留尚无可追踪依据。",
+                "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+                "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+                "question_ids": [
+                  "Q011",
+                  "Q012",
+                  "Q055"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M1"
+                ],
+                "acceptance_ids": [
+                  "M1-C1",
+                  "M1-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AT04",
+      "type": "practice",
+      "dimension_id": "D2",
+      "task_version": "1",
+      "title": "预算表与输出边界",
+      "prompt": "为最小应用记录模型配置与 stub/真实模式，设置输入、工具结果、输出预算；运行超预算、关键约束压缩、非法结构和业务参数越界。至少提供故障或边界的实际原始输出。",
+      "criteria": [
+        {
+          "id": "AT04-P1",
+          "label": "700+150+200 对 1000 窗口的超额 token",
+          "input_type": "number",
+          "critical": false,
+          "explanation": "本练习给定输入下，此项预期为“50”。请用实际运行记录核对“700+150+200 对 1000 窗口的超额 token”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "上下文预算或约束保留尚无可追踪依据。",
+            "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+            "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+            "question_ids": [
+              "Q011",
+              "Q012",
+              "Q055"
+            ],
+            "guide_ids": [],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M1"
+            ],
+            "acceptance_ids": [
+              "M1-C1",
+              "M1-C2"
+            ]
+          },
+          "expected": 50
+        },
+        {
+          "id": "AT04-P2",
+          "label": "非法结构或越界参数实际进入业务工具的次数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“0”。请用实际运行记录核对“非法结构或越界参数实际进入业务工具的次数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "可解析输出不等于可执行或事实正确。",
+            "action": "把 Q026 的参数校验落实为拒绝分支，并核对 Q055 的采样边界。",
+            "deliverable": "交付非法结构、业务越界、缺少事实依据三种实际输出。",
+            "question_ids": [
+              "Q026",
+              "Q055"
+            ],
+            "guide_ids": [],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M1"
+            ],
+            "acceptance_ids": [
+              "M1-C2"
+            ]
+          },
+          "expected": 0
+        },
+        {
+          "id": "AT04-P3",
+          "label": "压缩前后关键约束逐项对应，缺失时恢复可靠来源或停止",
+          "input_type": "self",
+          "critical": false,
+          "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+          "recommendation": {
+            "reason": "上下文预算或约束保留尚无可追踪依据。",
+            "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+            "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+            "question_ids": [
+              "Q011",
+              "Q012",
+              "Q055"
+            ],
+            "guide_ids": [],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M1"
+            ],
+            "acceptance_ids": [
+              "M1-C1",
+              "M1-C2"
+            ]
+          }
+        },
+        {
+          "id": "AT04-P4",
+          "label": "区分格式通过、业务校验通过与事实有依据三种状态",
+          "input_type": "self",
+          "critical": false,
+          "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+          "recommendation": {
+            "reason": "可解析输出不等于可执行或事实正确。",
+            "action": "把 Q026 的参数校验落实为拒绝分支，并核对 Q055 的采样边界。",
+            "deliverable": "交付非法结构、业务越界、缺少事实依据三种实际输出。",
+            "question_ids": [
+              "Q026",
+              "Q055"
+            ],
+            "guide_ids": [],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M1"
+            ],
+            "acceptance_ids": [
+              "M1-C2"
+            ]
+          }
+        }
+      ],
+      "transfer": {
+        "constraint": "工具突然返回长文本且原用户约束不在当前摘要中；按分段读取或重新取得原文处理，不靠猜测。先预测预算与保留内容，再运行并回归原非法输出用例。",
+        "criteria": [
+          {
+            "id": "AT04-T1",
+            "label": "新长结果导致关键约束丢失后未经恢复执行的次数",
+            "input_type": "number",
+            "critical": true,
+            "explanation": "本练习给定输入下，此项预期为“0”。请用实际运行记录核对“新长结果导致关键约束丢失后未经恢复执行的次数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "可解析输出不等于可执行或事实正确。",
+              "action": "把 Q026 的参数校验落实为拒绝分支，并核对 Q055 的采样边界。",
+              "deliverable": "交付非法结构、业务越界、缺少事实依据三种实际输出。",
+              "question_ids": [
+                "Q026",
+                "Q055"
+              ],
+              "guide_ids": [],
+              "lab_ids": [],
+              "milestone_ids": [
+                "M1"
+              ],
+              "acceptance_ids": [
+                "M1-C2"
+              ]
+            },
+            "expected": 0
+          },
+          {
+            "id": "AT04-T2",
+            "label": "预算重新分配可追踪且旧非法输出用例仍被拦截",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "上下文预算或约束保留尚无可追踪依据。",
+              "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+              "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+              "question_ids": [
+                "Q011",
+                "Q012",
+                "Q055"
+              ],
+              "guide_ids": [],
+              "lab_ids": [],
+              "milestone_ids": [
+                "M1"
+              ],
+              "acceptance_ids": [
+                "M1-C1",
+                "M1-C2"
+              ]
+            }
+          },
+          {
+            "id": "AT04-T3",
+            "label": "说明截断、压缩或按需读取在成本与信息丢失上的取舍",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "上下文预算或约束保留尚无可追踪依据。",
+              "action": "结合 Q011、Q012 写出预算表并运行约束保留用例。",
+              "deliverable": "交付输入、预算分项、保留的约束和模型实际输出。",
+              "question_ids": [
+                "Q011",
+                "Q012",
+                "Q055"
+              ],
+              "guide_ids": [],
+              "lab_ids": [],
+              "milestone_ids": [
+                "M1"
+              ],
+              "acceptance_ids": [
+                "M1-C1",
+                "M1-C2"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "AT05",
+      "type": "scenario",
+      "dimension_id": "D3",
+      "task_version": "1",
+      "title": "工具执行预算与会话隔离",
+      "prompt": "按题内明确的业务约定作答；不知道可明确选择。整轴提交后才反馈。",
+      "variants": [
+        {
+          "id": "AT05-A",
+          "exposure_key": "AT05:A:core-1",
+          "comparison_group": "D3-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "此流程合同规定：每个工具提案（包括参数校验失败）都消耗一次预算，预算 2。第 1 个提案参数错误被拦截，第 2 个合法并调用，第 3 个仍被模型提出。另有独立会话 S2。",
+          "criteria": [
+            {
+              "id": "AT05-A-C1",
+              "label": "前三个提案最多实际发出几次业务工具调用",
+              "input_type": "number",
+              "critical": true,
+              "explanation": "非法提案不执行，第三次已超提案预算。",
+              "recommendation": {
+                "reason": "工具参数、循环预算与停止条件需要分别验证。",
+                "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+                "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+                "question_ids": [
+                  "Q003",
+                  "Q026",
+                  "Q029"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C1",
+                  "M2-C2"
+                ]
+              },
+              "expected": 1
+            },
+            {
+              "id": "AT05-A-C2",
+              "label": "第三个提案应如何处理",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "停止合同必须由执行层落实。",
+              "recommendation": {
+                "reason": "工具参数、循环预算与停止条件需要分别验证。",
+                "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+                "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+                "question_ids": [
+                  "Q003",
+                  "Q026",
+                  "Q029"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C1",
+                  "M2-C2"
+                ]
+              },
+              "expected": "stop",
+              "options": [
+                {
+                  "value": "stop",
+                  "label": "停止并记录预算耗尽"
+                },
+                {
+                  "value": "retry",
+                  "label": "继续无限重试"
+                }
+              ]
+            },
+            {
+              "id": "AT05-A-C3",
+              "label": "预算计数是否可只在模型提示词中实现",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "服务端状态负责执行预算。",
+              "recommendation": {
+                "reason": "工具参数、循环预算与停止条件需要分别验证。",
+                "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+                "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+                "question_ids": [
+                  "Q003",
+                  "Q026",
+                  "Q029"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C1",
+                  "M2-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT05-A-C4",
+              "label": "S1 结果可否不带会话身份直接写入 S2",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "会话状态不可混写。",
+              "recommendation": {
+                "reason": "并发会话可能共享了不该共享的执行状态。",
+                "action": "为 Q009 增加双会话交错执行用例。",
+                "deliverable": "交付两个会话 ID 与各自调用轨迹，证明结果没有串入。",
+                "question_ids": [
+                  "Q009",
+                  "Q026"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "AT05-B",
+          "exposure_key": "AT05:B:core-1",
+          "comparison_group": "D3-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "另一流程明确只对真正发出的工具调用计数，参数校验失败不消耗调用预算，但另设 3 次提案上限。调用预算 2；三个提案按“非法、合法、合法”出现。会话 S1 与 S2 并行且状态必须隔离。",
+          "criteria": [
+            {
+              "id": "AT05-B-C1",
+              "label": "此合同下三个提案实际发出的调用数",
+              "input_type": "number",
+              "critical": false,
+              "explanation": "非法提案不占调用预算，两个合法提案各调用一次。",
+              "recommendation": {
+                "reason": "工具参数、循环预算与停止条件需要分别验证。",
+                "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+                "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+                "question_ids": [
+                  "Q003",
+                  "Q026",
+                  "Q029"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C1",
+                  "M2-C2"
+                ]
+              },
+              "expected": 2
+            },
+            {
+              "id": "AT05-B-C2",
+              "label": "三个提案处理后已消耗的提案额度",
+              "input_type": "number",
+              "critical": false,
+              "explanation": "提案上限与调用预算分别计数。",
+              "recommendation": {
+                "reason": "工具参数、循环预算与停止条件需要分别验证。",
+                "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+                "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+                "question_ids": [
+                  "Q003",
+                  "Q026",
+                  "Q029"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C1",
+                  "M2-C2"
+                ]
+              },
+              "expected": 3
+            },
+            {
+              "id": "AT05-B-C3",
+              "label": "第 4 个合法提案是否仍可执行",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "提案额度和调用额度均已达到上限。",
+              "recommendation": {
+                "reason": "工具参数、循环预算与停止条件需要分别验证。",
+                "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+                "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+                "question_ids": [
+                  "Q003",
+                  "Q026",
+                  "Q029"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C1",
+                  "M2-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT05-B-C4",
+              "label": "两个会话能否共享一个可变“当前工具结果”字段",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "应按会话与调用身份隔离。",
+              "recommendation": {
+                "reason": "并发会话可能共享了不该共享的执行状态。",
+                "action": "为 Q009 增加双会话交错执行用例。",
+                "deliverable": "交付两个会话 ID 与各自调用轨迹，证明结果没有串入。",
+                "question_ids": [
+                  "Q009",
+                  "Q026"
+                ],
+                "guide_ids": [],
+                "lab_ids": [],
+                "milestone_ids": [
+                  "M2"
+                ],
+                "acceptance_ids": [
+                  "M2-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AT06",
+      "type": "practice",
+      "dimension_id": "D3",
+      "task_version": "1",
+      "title": "有边界的工具循环",
+      "prompt": "实现可检查的工具循环，基础合同按 AT05-A：最多 2 个提案，非法参数也占提案预算。记录参数检查、提案数、调用数、停止原因；再交错运行两个独立会话。",
+      "criteria": [
+        {
+          "id": "AT06-P1",
+          "label": "非法、合法、第三提案序列的实际业务调用数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“1”。请用实际运行记录核对“非法、合法、第三提案序列的实际业务调用数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "工具参数、循环预算与停止条件需要分别验证。",
+            "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+            "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+            "question_ids": [
+              "Q003",
+              "Q026",
+              "Q029"
+            ],
+            "guide_ids": [
+              "G01"
+            ],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M2"
+            ],
+            "acceptance_ids": [
+              "M2-C1",
+              "M2-C2"
+            ]
+          },
+          "expected": 1
+        },
+        {
+          "id": "AT06-P2",
+          "label": "预算耗尽后是否还发出工具调用",
+          "input_type": "choice",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“否”。请用实际运行记录核对“预算耗尽后是否还发出工具调用”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "工具参数、循环预算与停止条件需要分别验证。",
+            "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+            "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+            "question_ids": [
+              "Q003",
+              "Q026",
+              "Q029"
+            ],
+            "guide_ids": [
+              "G01"
+            ],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M2"
+            ],
+            "acceptance_ids": [
+              "M2-C1",
+              "M2-C2"
+            ]
+          },
+          "expected": "no",
+          "options": [
+            {
+              "value": "yes",
+              "label": "是"
+            },
+            {
+              "value": "no",
+              "label": "否"
+            }
+          ]
+        },
+        {
+          "id": "AT06-P3",
+          "label": "交错运行结果写入错误会话的次数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“0”。请用实际运行记录核对“交错运行结果写入错误会话的次数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "并发会话可能共享了不该共享的执行状态。",
+            "action": "为 Q009 增加双会话交错执行用例。",
+            "deliverable": "交付两个会话 ID 与各自调用轨迹，证明结果没有串入。",
+            "question_ids": [
+              "Q009",
+              "Q026"
+            ],
+            "guide_ids": [],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M2"
+            ],
+            "acceptance_ids": [
+              "M2-C3"
+            ]
+          },
+          "expected": 0
+        },
+        {
+          "id": "AT06-P4",
+          "label": "工具结果通过调用身份进入对应下一轮，并记录明确结束原因",
+          "input_type": "self",
+          "critical": false,
+          "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+          "recommendation": {
+            "reason": "工具参数、循环预算与停止条件需要分别验证。",
+            "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+            "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+            "question_ids": [
+              "Q003",
+              "Q026",
+              "Q029"
+            ],
+            "guide_ids": [
+              "G01"
+            ],
+            "lab_ids": [],
+            "milestone_ids": [
+              "M2"
+            ],
+            "acceptance_ids": [
+              "M2-C1",
+              "M2-C2"
+            ]
+          }
+        }
+      ],
+      "transfer": {
+        "constraint": "改用 AT05-B 的双预算合同：3 次提案上限、2 次实际调用上限，非法提案不占调用额度。先预测轨迹，再运行并回归原合同。",
+        "criteria": [
+          {
+            "id": "AT06-T1",
+            "label": "非法、合法、合法三个提案的实际调用数",
+            "input_type": "number",
+            "critical": false,
+            "explanation": "本练习给定输入下，此项预期为“2”。请用实际运行记录核对“非法、合法、合法三个提案的实际调用数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "工具参数、循环预算与停止条件需要分别验证。",
+              "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+              "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+              "question_ids": [
+                "Q003",
+                "Q026",
+                "Q029"
+              ],
+              "guide_ids": [
+                "G01"
+              ],
+              "lab_ids": [],
+              "milestone_ids": [
+                "M2"
+              ],
+              "acceptance_ids": [
+                "M2-C1",
+                "M2-C2"
+              ]
+            },
+            "expected": 2
+          },
+          {
+            "id": "AT06-T2",
+            "label": "第 4 个提案能否越过上限调用",
+            "input_type": "choice",
+            "critical": true,
+            "explanation": "本练习给定输入下，此项预期为“否”。请用实际运行记录核对“第 4 个提案能否越过上限调用”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "工具参数、循环预算与停止条件需要分别验证。",
+              "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+              "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+              "question_ids": [
+                "Q003",
+                "Q026",
+                "Q029"
+              ],
+              "guide_ids": [
+                "G01"
+              ],
+              "lab_ids": [],
+              "milestone_ids": [
+                "M2"
+              ],
+              "acceptance_ids": [
+                "M2-C1",
+                "M2-C2"
+              ]
+            },
+            "expected": "no",
+            "options": [
+              {
+                "value": "yes",
+                "label": "是"
+              },
+              {
+                "value": "no",
+                "label": "否"
+              }
+            ]
+          },
+          {
+            "id": "AT06-T3",
+            "label": "新旧合同回归通过，并说明计数规则与资源保护的取舍",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "工具参数、循环预算与停止条件需要分别验证。",
+              "action": "先解释 Q003，再执行固定次数预算和非法参数用例。",
+              "deliverable": "交付每轮校验、实际工具调用计数与停止原因。",
+              "question_ids": [
+                "Q003",
+                "Q026",
+                "Q029"
+              ],
+              "guide_ids": [
+                "G01"
+              ],
+              "lab_ids": [],
+              "milestone_ids": [
+                "M2"
+              ],
+              "acceptance_ids": [
+                "M2-C1",
+                "M2-C2"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "AT07",
+      "type": "scenario",
+      "dimension_id": "D4",
+      "task_version": "1",
+      "title": "知识范围、版本与无答案",
+      "prompt": "按题内明确的业务约定作答；不知道可明确选择。整轴提交后才反馈。",
+      "variants": [
+        {
+          "id": "AT07-A",
+          "exposure_key": "AT07:A:core-1",
+          "comparison_group": "D4-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "订单业务有文档 A（2025 版）、B（2026 当前版），另一业务文档 C 语义最相似但范围不同。用户问当前订单规则；B 有对应段落。如果该段落不在任何可用资料中，应明确资料不足。",
+          "criteria": [
+            {
+              "id": "AT07-A-C1",
+              "label": "当前订单规则应优先采用哪份适用文档",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "业务范围与时间版本共同决定适用性。",
+              "recommendation": {
+                "reason": "检索相关不等于业务与时间范围正确。",
+                "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+                "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "B",
+              "options": [
+                {
+                  "value": "A",
+                  "label": "A"
+                },
+                {
+                  "value": "B",
+                  "label": "B"
+                },
+                {
+                  "value": "C",
+                  "label": "C"
+                }
+              ]
+            },
+            {
+              "id": "AT07-A-C2",
+              "label": "回答使用 B 段落，引用能否随意指向 A",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "引用应定位实际支撑答案的版本与片段。",
+              "recommendation": {
+                "reason": "检索相关不等于业务与时间范围正确。",
+                "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+                "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT07-A-C3",
+              "label": "没有适用段落时应怎样回答",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "无证据不能伪造依据。",
+              "recommendation": {
+                "reason": "没有适用证据时仍给确定回答会掩盖知识缺口。",
+                "action": "为 Q024 的评测集加入无答案与版本冲突用例。",
+                "deliverable": "交付拒答原因、缺失证据及检索和回答失败的分别归类。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "unknown",
+              "options": [
+                {
+                  "value": "unknown",
+                  "label": "说明资料不足"
+                },
+                {
+                  "value": "invent",
+                  "label": "补出听起来合理的规则"
+                }
+              ]
+            },
+            {
+              "id": "AT07-A-C4",
+              "label": "向量相似度最高是否足以越过业务范围限制",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "相似性不能替代范围过滤。",
+              "recommendation": {
+                "reason": "检索相关不等于业务与时间范围正确。",
+                "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+                "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "AT07-B",
+          "exposure_key": "AT07:B:core-1",
+          "comparison_group": "D4-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "用户这次明确问“2025 年 6 月当时的订单规则”。A 在该时点有效；B 是 2026 生效版本。另一个查询命中同一时点、同一范围而互相冲突的 D/E，无法确认权威。",
+          "criteria": [
+            {
+              "id": "AT07-B-C1",
+              "label": "历史时点查询应选择哪一版",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "历史问题需要当时有效版本，不能机械使用最新。",
+              "recommendation": {
+                "reason": "检索相关不等于业务与时间范围正确。",
+                "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+                "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "A",
+              "options": [
+                {
+                  "value": "A",
+                  "label": "A"
+                },
+                {
+                  "value": "B",
+                  "label": "B"
+                }
+              ]
+            },
+            {
+              "id": "AT07-B-C2",
+              "label": "能否为了只留最新而删除所有历史规则",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "仍需支持历史时间范围的查询。",
+              "recommendation": {
+                "reason": "检索相关不等于业务与时间范围正确。",
+                "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+                "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT07-B-C3",
+              "label": "D/E 冲突且权威不明时怎样处理",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "未解决的冲突不能合成确定结论。",
+              "recommendation": {
+                "reason": "没有适用证据时仍给确定回答会掩盖知识缺口。",
+                "action": "为 Q024 的评测集加入无答案与版本冲突用例。",
+                "deliverable": "交付拒答原因、缺失证据及检索和回答失败的分别归类。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "uncertain",
+              "options": [
+                {
+                  "value": "uncertain",
+                  "label": "标明冲突并请求确认依据"
+                },
+                {
+                  "value": "merge",
+                  "label": "拼合为一个确定规则"
+                }
+              ]
+            },
+            {
+              "id": "AT07-B-C4",
+              "label": "引用应同时保留时间版本与原文定位吗",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "定位是复核适用范围的条件。",
+              "recommendation": {
+                "reason": "检索相关不等于业务与时间范围正确。",
+                "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+                "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+                "question_ids": [
+                  "Q023",
+                  "Q024",
+                  "Q056"
+                ],
+                "guide_ids": [
+                  "G05"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C1",
+                  "M3-C2"
+                ]
+              },
+              "expected": "yes",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AT08",
+      "type": "practice",
+      "dimension_id": "D4",
+      "task_version": "1",
+      "title": "可核对的检索回答",
+      "prompt": "构造微型文档集：订单业务 A 为 2025 年 6 月有效版，B 为 2026 当前版；C 属于其他业务且语义相近。当前查询的适用依据只在 B，另设任何文档都无依据的问题。本轮当前查询日期固定为 2026-10-11，运行当前规则查询，保留完整候选、过滤理由、选用片段、回答及引用。可用确定性 stub，但须如实标模式；这是原创订单夹具，L03 报销示例仅供方法参考。",
+      "criteria": [
+        {
+          "id": "AT08-P1",
+          "label": "当前订单查询选用文档",
+          "input_type": "choice",
+          "critical": false,
+          "explanation": "本练习给定输入下，此项预期为“2026 当前版 B”。请用实际运行记录核对“当前订单查询选用文档”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "检索相关不等于业务与时间范围正确。",
+            "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+            "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+            "question_ids": [
+              "Q023",
+              "Q024",
+              "Q056"
+            ],
+            "guide_ids": [
+              "G05"
+            ],
+            "lab_ids": [
+              "L03"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C1",
+              "M3-C2"
+            ]
+          },
+          "expected": "B",
+          "options": [
+            {
+              "value": "A",
+              "label": "2025 版 A"
+            },
+            {
+              "value": "B",
+              "label": "2026 当前版 B"
+            },
+            {
+              "value": "C",
+              "label": "其他业务 C"
+            }
+          ]
+        },
+        {
+          "id": "AT08-P2",
+          "label": "引用未支撑实际答案的用例数量",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“0”。请用实际运行记录核对“引用未支撑实际答案的用例数量”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "检索相关不等于业务与时间范围正确。",
+            "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+            "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+            "question_ids": [
+              "Q023",
+              "Q024",
+              "Q056"
+            ],
+            "guide_ids": [
+              "G05"
+            ],
+            "lab_ids": [
+              "L03"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C1",
+              "M3-C2"
+            ]
+          },
+          "expected": 0
+        },
+        {
+          "id": "AT08-P3",
+          "label": "无适用依据用例是否明确资料不足",
+          "input_type": "choice",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“是”。请用实际运行记录核对“无适用依据用例是否明确资料不足”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "没有适用证据时仍给确定回答会掩盖知识缺口。",
+            "action": "为 Q024 的评测集加入无答案与版本冲突用例。",
+            "deliverable": "交付拒答原因、缺失证据及检索和回答失败的分别归类。",
+            "question_ids": [
+              "Q023",
+              "Q024",
+              "Q056"
+            ],
+            "guide_ids": [
+              "G05"
+            ],
+            "lab_ids": [
+              "L03"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C1",
+              "M3-C2"
+            ]
+          },
+          "expected": "yes",
+          "options": [
+            {
+              "value": "yes",
+              "label": "是"
+            },
+            {
+              "value": "no",
+              "label": "否"
+            }
+          ]
+        },
+        {
+          "id": "AT08-P4",
+          "label": "至少分别标记检索未命中、适用性错误、生成无依据三类失败",
+          "input_type": "self",
+          "critical": false,
+          "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+          "recommendation": {
+            "reason": "没有适用证据时仍给确定回答会掩盖知识缺口。",
+            "action": "为 Q024 的评测集加入无答案与版本冲突用例。",
+            "deliverable": "交付拒答原因、缺失证据及检索和回答失败的分别归类。",
+            "question_ids": [
+              "Q023",
+              "Q024",
+              "Q056"
+            ],
+            "guide_ids": [
+              "G05"
+            ],
+            "lab_ids": [
+              "L03"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C1",
+              "M3-C2"
+            ]
+          }
+        }
+      ],
+      "transfer": {
+        "constraint": "增加明确的历史时点查询，以及同范围同时间但权威未知的冲突文档。先预测选择与不确定分支，再运行并回归当前版本和无答案用例。",
+        "criteria": [
+          {
+            "id": "AT08-T1",
+            "label": "2025 年 6 月的查询选用文档",
+            "input_type": "choice",
+            "critical": false,
+            "explanation": "本练习给定输入下，此项预期为“当时有效的 A”。请用实际运行记录核对“2025 年 6 月的查询选用文档”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "检索相关不等于业务与时间范围正确。",
+              "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+              "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+              "question_ids": [
+                "Q023",
+                "Q024",
+                "Q056"
+              ],
+              "guide_ids": [
+                "G05"
+              ],
+              "lab_ids": [
+                "L03"
+              ],
+              "milestone_ids": [
+                "M3"
+              ],
+              "acceptance_ids": [
+                "M3-C1",
+                "M3-C2"
+              ]
+            },
+            "expected": "A",
+            "options": [
+              {
+                "value": "A",
+                "label": "当时有效的 A"
+              },
+              {
+                "value": "B",
+                "label": "后来生效的 B"
+              }
+            ]
+          },
+          {
+            "id": "AT08-T2",
+            "label": "权威未知的冲突是否如实暴露",
+            "input_type": "choice",
+            "critical": true,
+            "explanation": "本练习给定输入下，此项预期为“是”。请用实际运行记录核对“权威未知的冲突是否如实暴露”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "没有适用证据时仍给确定回答会掩盖知识缺口。",
+              "action": "为 Q024 的评测集加入无答案与版本冲突用例。",
+              "deliverable": "交付拒答原因、缺失证据及检索和回答失败的分别归类。",
+              "question_ids": [
+                "Q023",
+                "Q024",
+                "Q056"
+              ],
+              "guide_ids": [
+                "G05"
+              ],
+              "lab_ids": [
+                "L03"
+              ],
+              "milestone_ids": [
+                "M3"
+              ],
+              "acceptance_ids": [
+                "M3-C1",
+                "M3-C2"
+              ]
+            },
+            "expected": "yes",
+            "options": [
+              {
+                "value": "yes",
+                "label": "是"
+              },
+              {
+                "value": "no",
+                "label": "否"
+              }
+            ]
+          },
+          {
+            "id": "AT08-T3",
+            "label": "当前与历史回归均可复核，说明保留版本的维护和检索代价",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "检索相关不等于业务与时间范围正确。",
+              "action": "执行 L03 的租户与版本切换，再逐条核对引用。",
+              "deliverable": "交付查询约束、候选文档、选用版本和引用定位。",
+              "question_ids": [
+                "Q023",
+                "Q024",
+                "Q056"
+              ],
+              "guide_ids": [
+                "G05"
+              ],
+              "lab_ids": [
+                "L03"
+              ],
+              "milestone_ids": [
+                "M3"
+              ],
+              "acceptance_ids": [
+                "M3-C1",
+                "M3-C2"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "AT09",
+      "type": "scenario",
+      "dimension_id": "D5",
+      "task_version": "1",
+      "title": "副作用恢复与可信授权",
+      "prompt": "按题内明确的业务约定作答；不知道可明确选择。整轴提交后才反馈。",
+      "variants": [
+        {
+          "id": "AT09-A",
+          "exposure_key": "AT09:A:core-1",
+          "comparison_group": "D5-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "库存初始 10。逻辑订单 O1 要扣 2；工具已提交成功，Agent 保存检查点前崩溃。工具支持按稳定 operation key 原子去重与查询。可信登录租户为 A，检索文档要求改用 B。若另一工具既不支持幂等也不能查询，调用超时则结果未知。",
+          "criteria": [
+            {
+              "id": "AT09-A-C1",
+              "label": "O1 恢复应使用什么 operation key",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "重试身份须保持为同一业务操作。",
+              "recommendation": {
+                "reason": "重复副作用优先于继续增加功能。",
+                "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+                "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+                "question_ids": [
+                  "Q027"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [
+                  "L01"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C1"
+                ]
+              },
+              "expected": "same",
+              "options": [
+                {
+                  "value": "same",
+                  "label": "调用前持久化的原 key"
+                },
+                {
+                  "value": "new",
+                  "label": "每次重试新建 key"
+                }
+              ]
+            },
+            {
+              "id": "AT09-A-C2",
+              "label": "O1 恢复完成后正确库存",
+              "input_type": "number",
+              "critical": true,
+              "explanation": "同一逻辑订单只扣一次。",
+              "recommendation": {
+                "reason": "重复副作用优先于继续增加功能。",
+                "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+                "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+                "question_ids": [
+                  "Q027"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [
+                  "L01"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C1"
+                ]
+              },
+              "expected": 8
+            },
+            {
+              "id": "AT09-A-C3",
+              "label": "文档要求切到租户 B 能否扩大权限",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "不可信内容不改变服务端授权。",
+              "recommendation": {
+                "reason": "模型或检索内容不能扩大服务端授权。",
+                "action": "先做 G02 的信任边界检查，结合 L03 的租户隔离记录，再验收 M4-C2。",
+                "deliverable": "交付可信身份、资源范围与越权请求零调用记录。",
+                "question_ids": [
+                  "Q015",
+                  "Q094"
+                ],
+                "guide_ids": [
+                  "G02"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT09-A-C4",
+              "label": "不支持幂等与查询的超时如何记录",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "无可验证结果时不能假成功或盲重试。",
+              "recommendation": {
+                "reason": "结果未知被误报成功或换键重试可能造成重复操作。",
+                "action": "在 L01 运行未知结果与无幂等能力场景，记录停止边界。",
+                "deliverable": "交付同一个 operation key 的查询轨迹、未知状态与终止原因。",
+                "question_ids": [
+                  "Q027"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [
+                  "L01"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C3"
+                ]
+              },
+              "expected": "unknown",
+              "options": [
+                {
+                  "value": "unknown",
+                  "label": "未知，停止自动重试并协调"
+                },
+                {
+                  "value": "success",
+                  "label": "直接标成功"
+                },
+                {
+                  "value": "retry",
+                  "label": "换 key 重试"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "AT09-B",
+          "exposure_key": "AT09:B:core-1",
+          "comparison_group": "D5-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "库存初始 10。O1、O2 是两个独立且合法的订单，各扣 2；每个都可能重试。工具按 operation key 原子去重。O1 已提交但查询结果时网络断开，不能把查询失败当不存在。服务端可信授权仅租户 A。",
+          "criteria": [
+            {
+              "id": "AT09-B-C1",
+              "label": "O1 与 O2 是否应该共享同一个 operation key",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "去重范围是同一个逻辑操作，不是所有订单。",
+              "recommendation": {
+                "reason": "重复副作用优先于继续增加功能。",
+                "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+                "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+                "question_ids": [
+                  "Q027"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [
+                  "L01"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C1"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT09-B-C2",
+              "label": "两个合法独立订单各完成一次后的库存",
+              "input_type": "number",
+              "critical": true,
+              "explanation": "两个独立订单应产生两次合法副作用。",
+              "recommendation": {
+                "reason": "重复副作用优先于继续增加功能。",
+                "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+                "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+                "question_ids": [
+                  "Q027"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [
+                  "L01"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C1"
+                ]
+              },
+              "expected": 6
+            },
+            {
+              "id": "AT09-B-C3",
+              "label": "O1 结果查询网络失败是否等于未执行",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "查询失败与业务不存在是不同状态。",
+              "recommendation": {
+                "reason": "结果未知被误报成功或换键重试可能造成重复操作。",
+                "action": "在 L01 运行未知结果与无幂等能力场景，记录停止边界。",
+                "deliverable": "交付同一个 operation key 的查询轨迹、未知状态与终止原因。",
+                "question_ids": [
+                  "Q027"
+                ],
+                "guide_ids": [
+                  "G01"
+                ],
+                "lab_ids": [
+                  "L01"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT09-B-C4",
+              "label": "模型参数写 tenant=B 是否可越过 A 的授权",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "资源范围由可信服务端身份决定。",
+              "recommendation": {
+                "reason": "模型或检索内容不能扩大服务端授权。",
+                "action": "先做 G02 的信任边界检查，结合 L03 的租户隔离记录，再验收 M4-C2。",
+                "deliverable": "交付可信身份、资源范围与越权请求零调用记录。",
+                "question_ids": [
+                  "Q015",
+                  "Q094"
+                ],
+                "guide_ids": [
+                  "G02"
+                ],
+                "lab_ids": [
+                  "L03"
+                ],
+                "milestone_ids": [
+                  "M4"
+                ],
+                "acceptance_ids": [
+                  "M4-C2"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AT10",
+      "type": "practice",
+      "dimension_id": "D5",
+      "task_version": "1",
+      "title": "恢复、幂等与权限边界",
+      "prompt": "恢复部分可使用 L01 参考实现或自己的项目：运行工具提交后、Agent 检查点前中断并恢复，再补两个独立合法订单和结果不可查询。权限部分另按 G02/L03 或自己项目建立可信租户 A 对 B 资源的拒绝用例，L01 本身不提供权限验收。分别保留实际原始输出；这些局部记录不代表你的业务系统或整个 M4 已通过。",
+      "criteria": [
+        {
+          "id": "AT10-P1",
+          "label": "同一逻辑订单经历中断与重试后的副作用次数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“1”。请用实际运行记录核对“同一逻辑订单经历中断与重试后的副作用次数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "重复副作用优先于继续增加功能。",
+            "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+            "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+            "question_ids": [
+              "Q027"
+            ],
+            "guide_ids": [
+              "G01"
+            ],
+            "lab_ids": [
+              "L01"
+            ],
+            "milestone_ids": [
+              "M4"
+            ],
+            "acceptance_ids": [
+              "M4-C1"
+            ]
+          },
+          "expected": 1
+        },
+        {
+          "id": "AT10-P2",
+          "label": "两个独立合法订单完成后的副作用总次数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“2”。请用实际运行记录核对“两个独立合法订单完成后的副作用总次数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "重复副作用优先于继续增加功能。",
+            "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+            "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+            "question_ids": [
+              "Q027"
+            ],
+            "guide_ids": [
+              "G01"
+            ],
+            "lab_ids": [
+              "L01"
+            ],
+            "milestone_ids": [
+              "M4"
+            ],
+            "acceptance_ids": [
+              "M4-C1"
+            ]
+          },
+          "expected": 2
+        },
+        {
+          "id": "AT10-P3",
+          "label": "不支持幂等与查询的未知结果最终状态",
+          "input_type": "choice",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“未知并停止自动重试”。请用实际运行记录核对“不支持幂等与查询的未知结果最终状态”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "结果未知被误报成功或换键重试可能造成重复操作。",
+            "action": "在 L01 运行未知结果与无幂等能力场景，记录停止边界。",
+            "deliverable": "交付同一个 operation key 的查询轨迹、未知状态与终止原因。",
+            "question_ids": [
+              "Q027"
+            ],
+            "guide_ids": [
+              "G01"
+            ],
+            "lab_ids": [
+              "L01"
+            ],
+            "milestone_ids": [
+              "M4"
+            ],
+            "acceptance_ids": [
+              "M4-C3"
+            ]
+          },
+          "expected": "unknown",
+          "options": [
+            {
+              "value": "unknown",
+              "label": "未知并停止自动重试"
+            },
+            {
+              "value": "success",
+              "label": "成功"
+            },
+            {
+              "value": "retry",
+              "label": "盲重试"
+            }
+          ]
+        },
+        {
+          "id": "AT10-P4",
+          "label": "可信租户 A 请求 B 资源实际发出的越权业务调用次数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“0”。请用实际运行记录核对“可信租户 A 请求 B 资源实际发出的越权业务调用次数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "模型或检索内容不能扩大服务端授权。",
+            "action": "先做 G02 的信任边界检查，结合 L03 的租户隔离记录，再验收 M4-C2。",
+            "deliverable": "交付可信身份、资源范围与越权请求零调用记录。",
+            "question_ids": [
+              "Q015",
+              "Q094"
+            ],
+            "guide_ids": [
+              "G02"
+            ],
+            "lab_ids": [
+              "L03"
+            ],
+            "milestone_ids": [
+              "M4"
+            ],
+            "acceptance_ids": [
+              "M4-C2"
+            ]
+          },
+          "expected": 0
+        }
+      ],
+      "transfer": {
+        "constraint": "为同一 operation key 加入两个 worker 的并发调用，并改变中断位置到工具响应刚返回；先预测结果，再运行。回归原中断、独立订单和权限测试，并说明下游幂等能力缺失时的停止边界。",
+        "criteria": [
+          {
+            "id": "AT10-T1",
+            "label": "双 worker 对同一逻辑操作造成的副作用总次数",
+            "input_type": "number",
+            "critical": true,
+            "explanation": "本练习给定输入下，此项预期为“1”。请用实际运行记录核对“双 worker 对同一逻辑操作造成的副作用总次数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "重复副作用优先于继续增加功能。",
+              "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+              "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+              "question_ids": [
+                "Q027"
+              ],
+              "guide_ids": [
+                "G01"
+              ],
+              "lab_ids": [
+                "L01"
+              ],
+              "milestone_ids": [
+                "M4"
+              ],
+              "acceptance_ids": [
+                "M4-C1"
+              ]
+            },
+            "expected": 1
+          },
+          {
+            "id": "AT10-T2",
+            "label": "新中断与全部旧用例有可定位的实际输出，未知未假成功",
+            "input_type": "self",
+            "critical": true,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "结果未知被误报成功或换键重试可能造成重复操作。",
+              "action": "在 L01 运行未知结果与无幂等能力场景，记录停止边界。",
+              "deliverable": "交付同一个 operation key 的查询轨迹、未知状态与终止原因。",
+              "question_ids": [
+                "Q027"
+              ],
+              "guide_ids": [
+                "G01"
+              ],
+              "lab_ids": [
+                "L01"
+              ],
+              "milestone_ids": [
+                "M4"
+              ],
+              "acceptance_ids": [
+                "M4-C3"
+              ]
+            }
+          },
+          {
+            "id": "AT10-T3",
+            "label": "说明幂等存储、结果查询或人工协调的成本与能力前提",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "重复副作用优先于继续增加功能。",
+              "action": "先修复重复副作用，再做 M4-C1 恢复验收；Q027 → G01 → L01。",
+              "deliverable": "交付工具提交后中断、恢复后副作用仍一次的原始运行记录。",
+              "question_ids": [
+                "Q027"
+              ],
+              "guide_ids": [
+                "G01"
+              ],
+              "lab_ids": [
+                "L01"
+              ],
+              "milestone_ids": [
+                "M4"
+              ],
+              "acceptance_ids": [
+                "M4-C1"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "AT11",
+      "type": "scenario",
+      "dimension_id": "D6",
+      "task_version": "1",
+      "title": "全量任务与回归口径",
+      "prompt": "按题内明确的业务约定作答；不知道可明确选择。整轴提交后才反馈。",
+      "variants": [
+        {
+          "id": "AT11-A",
+          "exposure_key": "AT11:A:core-1",
+          "comparison_group": "D6-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "固定 4 个分配任务：2 个合格成功、1 个重复副作用、1 个超时；仅合格成功计有效成功。候选总成本 12，基线 8。耗时排序为 100、200、300、1000 毫秒，P95 按 nearest-rank：取第 ceil(0.95×N) 项。发布门槛要求无重复副作用。",
+          "criteria": [
+            {
+              "id": "AT11-A-C1",
+              "label": "有效成功率（填写百分数，如 50）",
+              "input_type": "number",
+              "critical": true,
+              "explanation": "分母是全部 4 个分配任务，分子只有 2。",
+              "recommendation": {
+                "reason": "只统计返回记录会把超时、失败与缺失从分母中藏掉。",
+                "action": "按 G03 的固定样本口径运行 L04，再复算指标。",
+                "deliverable": "交付全部任务清单、失败分类与可重复的分子分母计算。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": 50
+            },
+            {
+              "id": "AT11-A-C2",
+              "label": "成本相对基线增加百分之几",
+              "input_type": "number",
+              "critical": false,
+              "explanation": "(12-8)/8=50%。",
+              "recommendation": {
+                "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+                "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+                "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": 50
+            },
+            {
+              "id": "AT11-A-C3",
+              "label": "按给定 nearest-rank 定义的 P95 毫秒数",
+              "input_type": "number",
+              "critical": false,
+              "explanation": "ceil(0.95×4)=4，取第 4 项。",
+              "recommendation": {
+                "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+                "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+                "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": 1000
+            },
+            {
+              "id": "AT11-A-C4",
+              "label": "该候选是否满足给定发布门槛",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "重复副作用违反明确门槛。",
+              "recommendation": {
+                "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+                "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+                "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "AT11-B",
+          "exposure_key": "AT11:B:core-1",
+          "comparison_group": "D6-foundation-1",
+          "eligible_for_assessment": true,
+          "prompt": "固定分配 5 个任务：记录显示 2 个合格成功、1 个重复副作用、1 个超时，另 1 个结果与耗时均缺失。只确认已验证成功；不能删除缺失任务。候选成本下降 20%，但合格成功率下降，发布门槛要求成功率不下降且无重复副作用。",
+          "criteria": [
+            {
+              "id": "AT11-B-C1",
+              "label": "固定分配任务中已验证的有效成功比例（百分数）",
+              "input_type": "number",
+              "critical": true,
+              "explanation": "2/5=40%；缺失不是已验证成功，且必须单列。",
+              "recommendation": {
+                "reason": "只统计返回记录会把超时、失败与缺失从分母中藏掉。",
+                "action": "按 G03 的固定样本口径运行 L04，再复算指标。",
+                "deliverable": "交付全部任务清单、失败分类与可重复的分子分母计算。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": 40
+            },
+            {
+              "id": "AT11-B-C2",
+              "label": "能否删除缺失任务后宣称全量成功率为 50%",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "缺失仍在分母，同时说明缺失类型。",
+              "recommendation": {
+                "reason": "只统计返回记录会把超时、失败与缺失从分母中藏掉。",
+                "action": "按 G03 的固定样本口径运行 L04，再复算指标。",
+                "deliverable": "交付全部任务清单、失败分类与可重复的分子分母计算。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT11-B-C3",
+              "label": "能否从 4 条已知耗时声称已得到全部 5 个任务的 P95",
+              "input_type": "choice",
+              "critical": false,
+              "explanation": "缺失耗时下不能声称全量分位数。",
+              "recommendation": {
+                "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+                "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+                "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            },
+            {
+              "id": "AT11-B-C4",
+              "label": "成本下降是否足以满足给定发布门槛",
+              "input_type": "choice",
+              "critical": true,
+              "explanation": "给定门槛中的质量与副作用要求未满足。",
+              "recommendation": {
+                "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+                "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+                "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+                "question_ids": [
+                  "Q041",
+                  "Q042",
+                  "Q058"
+                ],
+                "guide_ids": [
+                  "G03"
+                ],
+                "lab_ids": [
+                  "L04"
+                ],
+                "milestone_ids": [
+                  "M3"
+                ],
+                "acceptance_ids": [
+                  "M3-C2",
+                  "M3-C3"
+                ]
+              },
+              "expected": "no",
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "是"
+                },
+                {
+                  "value": "no",
+                  "label": "否"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AT12",
+      "type": "practice",
+      "dimension_id": "D6",
+      "task_version": "1",
+      "title": "保留失败的评测报告",
+      "prompt": "建立固定四任务夹具：2 个合格成功、1 个重复副作用、1 个超时，只有合格成功计有效成功。耗时排序为 100、200、300、1000 毫秒；P95 按 nearest-rank 取第 ceil(0.95×N) 项。保留原始记录并计算成功率、总成本、P95，再在固定输入、配置与版本下比较基线和候选；发布门槛至少要求无重复副作用。",
+      "criteria": [
+        {
+          "id": "AT12-P1",
+          "label": "纳入分母的固定分配任务数",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“4”。请用实际运行记录核对“纳入分母的固定分配任务数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "只统计返回记录会把超时、失败与缺失从分母中藏掉。",
+            "action": "按 G03 的固定样本口径运行 L04，再复算指标。",
+            "deliverable": "交付全部任务清单、失败分类与可重复的分子分母计算。",
+            "question_ids": [
+              "Q041",
+              "Q042",
+              "Q058"
+            ],
+            "guide_ids": [
+              "G03"
+            ],
+            "lab_ids": [
+              "L04"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C2",
+              "M3-C3"
+            ]
+          },
+          "expected": 4
+        },
+        {
+          "id": "AT12-P2",
+          "label": "按四任务夹具算得的有效成功率（百分数）",
+          "input_type": "number",
+          "critical": true,
+          "explanation": "本练习给定输入下，此项预期为“50”。请用实际运行记录核对“按四任务夹具算得的有效成功率（百分数）”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "只统计返回记录会把超时、失败与缺失从分母中藏掉。",
+            "action": "按 G03 的固定样本口径运行 L04，再复算指标。",
+            "deliverable": "交付全部任务清单、失败分类与可重复的分子分母计算。",
+            "question_ids": [
+              "Q041",
+              "Q042",
+              "Q058"
+            ],
+            "guide_ids": [
+              "G03"
+            ],
+            "lab_ids": [
+              "L04"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C2",
+              "M3-C3"
+            ]
+          },
+          "expected": 50
+        },
+        {
+          "id": "AT12-P3",
+          "label": "给定 nearest-rank 口径的 P95 毫秒数",
+          "input_type": "number",
+          "critical": false,
+          "explanation": "本练习给定输入下，此项预期为“1000”。请用实际运行记录核对“给定 nearest-rank 口径的 P95 毫秒数”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+          "recommendation": {
+            "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+            "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+            "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+            "question_ids": [
+              "Q041",
+              "Q042",
+              "Q058"
+            ],
+            "guide_ids": [
+              "G03"
+            ],
+            "lab_ids": [
+              "L04"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C2",
+              "M3-C3"
+            ]
+          },
+          "expected": 1000
+        },
+        {
+          "id": "AT12-P4",
+          "label": "固定输入、配置和版本，按质量/成本/延迟共同解释发布决定",
+          "input_type": "self",
+          "critical": false,
+          "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+          "recommendation": {
+            "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+            "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+            "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+            "question_ids": [
+              "Q041",
+              "Q042",
+              "Q058"
+            ],
+            "guide_ids": [
+              "G03"
+            ],
+            "lab_ids": [
+              "L04"
+            ],
+            "milestone_ids": [
+              "M3"
+            ],
+            "acceptance_ids": [
+              "M3-C2",
+              "M3-C3"
+            ]
+          }
+        }
+      ],
+      "transfer": {
+        "constraint": "改为固定五任务夹具：2 个合格成功、1 个重复副作用、1 个超时、1 个结果和耗时均缺失。只有已验证合格成功计分子，五个分配任务均计分母。先预测成功比例和不可计算项，再运行；回归原四任务夹具，解释缺失与超时为何分开记录。",
+        "criteria": [
+          {
+            "id": "AT12-T1",
+            "label": "五任务夹具的已验证成功比例（百分数）",
+            "input_type": "number",
+            "critical": true,
+            "explanation": "本练习给定输入下，此项预期为“40”。请用实际运行记录核对“五任务夹具的已验证成功比例（百分数）”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "只统计返回记录会把超时、失败与缺失从分母中藏掉。",
+              "action": "按 G03 的固定样本口径运行 L04，再复算指标。",
+              "deliverable": "交付全部任务清单、失败分类与可重复的分子分母计算。",
+              "question_ids": [
+                "Q041",
+                "Q042",
+                "Q058"
+              ],
+              "guide_ids": [
+                "G03"
+              ],
+              "lab_ids": [
+                "L04"
+              ],
+              "milestone_ids": [
+                "M3"
+              ],
+              "acceptance_ids": [
+                "M3-C2",
+                "M3-C3"
+              ]
+            },
+            "expected": 40
+          },
+          {
+            "id": "AT12-T2",
+            "label": "是否把缺失耗时当成 0 并宣称全量 P95",
+            "input_type": "choice",
+            "critical": true,
+            "explanation": "本练习给定输入下，此项预期为“否”。请用实际运行记录核对“是否把缺失耗时当成 0 并宣称全量 P95”；字段匹配只能检查本人报告值，不能独立证明代码行为。",
+            "recommendation": {
+              "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+              "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+              "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+              "question_ids": [
+                "Q041",
+                "Q042",
+                "Q058"
+              ],
+              "guide_ids": [
+                "G03"
+              ],
+              "lab_ids": [
+                "L04"
+              ],
+              "milestone_ids": [
+                "M3"
+              ],
+              "acceptance_ids": [
+                "M3-C2",
+                "M3-C3"
+              ]
+            },
+            "expected": "no",
+            "options": [
+              {
+                "value": "yes",
+                "label": "是"
+              },
+              {
+                "value": "no",
+                "label": "否"
+              }
+            ]
+          },
+          {
+            "id": "AT12-T3",
+            "label": "回归旧口径并说明保留全量任务对成本、采集和发布判断的代价",
+            "input_type": "self",
+            "critical": false,
+            "explanation": "开放判断由本人据证据自检；系统只能检查字段齐全，不能确认项目实现。",
+            "recommendation": {
+              "reason": "质量、成本、延迟需要在同一条件下共同比较。",
+              "action": "结合 Q041、Q042 复跑基线与候选，保留回归阈值。",
+              "deliverable": "交付固定数据与版本、两版原始输出、代价和发布决定。",
+              "question_ids": [
+                "Q041",
+                "Q042",
+                "Q058"
+              ],
+              "guide_ids": [
+                "G03"
+              ],
+              "lab_ids": [
+                "L04"
+              ],
+              "milestone_ids": [
+                "M3"
+              ],
+              "acceptance_ids": [
+                "M3-C2",
+                "M3-C3"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "feedback_policy": {
+    "foundation_only": "仅完成情境且实践、变式全部未运行：反馈只曝光当前情境变式。",
+    "shared_practice": "实践或变式中存在实际尝试（reported 段内 ran/failed）并提交后：共享解析保守地使本领域全部情境变式曝光，后续均为练习。",
+    "scope": "草稿不反馈；未运行判据不展示预期或解析。已完成的早期独立记录保留，不因之后的解析而倒改。",
+    "critical_history": "当前版本已完成记录（包括练习）的关键失败按稳定判据保存；只有该判据后续明确通过才解除，未运行不清除。此提醒不改变当前图档位。"
+  },
+  "content_hash": "df3463ddc5fff55a72700ddebeee5cdb2a3b1311a2485ed78d6841674564f711",
+  "reference_urls": {
+    "Q001": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q001",
+    "Q002": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q002",
+    "Q003": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q003",
+    "Q004": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q004",
+    "Q005": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q005",
+    "Q006": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q006",
+    "Q007": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q007",
+    "Q008": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q008",
+    "Q009": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q009",
+    "Q010": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q010",
+    "Q011": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q011",
+    "Q012": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q012",
+    "Q013": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q013",
+    "Q014": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q014",
+    "Q015": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q015",
+    "Q016": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q016",
+    "Q017": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q017",
+    "Q018": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q018",
+    "Q019": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q019",
+    "Q020": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q020",
+    "Q021": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q021",
+    "Q022": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q022",
+    "Q023": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q023",
+    "Q024": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q024",
+    "Q025": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q025",
+    "Q026": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q026",
+    "Q027": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q027",
+    "Q028": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q028",
+    "Q029": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q029",
+    "Q030": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q030",
+    "Q031": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q031",
+    "Q032": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q032",
+    "Q033": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q033",
+    "Q034": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q034",
+    "Q035": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q035",
+    "Q036": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q036",
+    "Q037": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q037",
+    "Q038": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q038",
+    "Q039": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q039",
+    "Q040": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q040",
+    "Q041": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/10-evaluation.md#q041",
+    "Q042": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/10-evaluation.md#q042",
+    "Q043": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/08-coding.md#q043",
+    "Q044": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/08-coding.md#q044",
+    "Q045": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/08-coding.md#q045",
+    "Q046": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/08-coding.md#q046",
+    "Q047": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/08-coding.md#q047",
+    "Q048": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/08-coding.md#q048",
+    "Q049": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/09-llm-foundations.md#q049",
+    "Q050": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/09-llm-foundations.md#q050",
+    "Q051": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/09-llm-foundations.md#q051",
+    "Q052": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q052",
+    "Q053": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q053",
+    "Q054": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q054",
+    "Q055": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/09-llm-foundations.md#q055",
+    "Q056": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q056",
+    "Q057": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q057",
+    "Q058": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/10-evaluation.md#q058",
+    "Q059": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q059",
+    "Q060": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q060",
+    "Q061": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q061",
+    "Q062": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q062",
+    "Q063": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q063",
+    "Q064": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q064",
+    "Q065": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q065",
+    "Q066": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q066",
+    "Q067": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q067",
+    "Q068": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q068",
+    "Q069": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q069",
+    "Q070": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q070",
+    "Q071": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/10-evaluation.md#q071",
+    "Q072": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q072",
+    "Q073": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q073",
+    "Q074": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q074",
+    "Q075": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/06-fullstack.md#q075",
+    "Q076": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/07-ai-coding-evaluation.md#q076",
+    "Q077": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q077",
+    "Q078": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q078",
+    "Q079": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q079",
+    "Q080": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q080",
+    "Q081": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q081",
+    "Q082": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q082",
+    "Q083": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q083",
+    "Q084": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q084",
+    "Q085": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/10-evaluation.md#q085",
+    "Q086": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q086",
+    "Q087": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q087",
+    "Q088": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q088",
+    "Q089": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/04-rag-knowledge.md#q089",
+    "Q090": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q090",
+    "Q091": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q091",
+    "Q092": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q092",
+    "Q093": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q093",
+    "Q094": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q094",
+    "Q095": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q095",
+    "Q096": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/01-agent-architecture.md#q096",
+    "Q097": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/05-reliability.md#q097",
+    "Q098": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q098",
+    "Q099": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/02-memory-context.md#q099",
+    "Q100": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/10-evaluation.md#q100",
+    "Q101": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/03-tools-permissions.md#q101",
+    "Q102": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/09-llm-foundations.md#q102",
+    "G01": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/guides/execution-recovery.md",
+    "G02": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/guides/tool-authorization.md",
+    "G03": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/guides/evaluation-regression.md",
+    "G04": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/guides/streaming-reconnect-cancellation.md",
+    "G05": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/guides/rag-chunking-retrieval-evaluation.md",
+    "G06": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/guides/prompt-kv-cache-latency-cost.md",
+    "L01": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/labs/recovery-after-tool-commit.md",
+    "L02": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/labs/stream-replay-and-cancellation.md",
+    "L03": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/labs/retrieval-tenant-and-version.md",
+    "L04": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/learning/labs/evaluation-missing-failures.md",
+    "M0": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m0",
+    "M0-C1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m0-c1",
+    "M0-C2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m0-c2",
+    "M0-C3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m0-c3",
+    "M1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m1",
+    "M1-C1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m1-c1",
+    "M1-C2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m1-c2",
+    "M1-C3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m1-c3",
+    "M2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m2",
+    "M2-C1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m2-c1",
+    "M2-C2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m2-c2",
+    "M2-C3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m2-c3",
+    "M3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m3",
+    "M3-C1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m3-c1",
+    "M3-C2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m3-c2",
+    "M3-C3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m3-c3",
+    "M4": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m4",
+    "M4-C1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m4-c1",
+    "M4-C2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m4-c2",
+    "M4-C3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m4-c3",
+    "M5": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m5",
+    "M5-C1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m5-c1",
+    "M5-C2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m5-c2",
+    "M5-C3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m5-c3",
+    "M6": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m6",
+    "M6-C1": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m6-c1",
+    "M6-C2": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m6-c2",
+    "M6-C3": "https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/milestones.md#m6-c3"
+  }
+}

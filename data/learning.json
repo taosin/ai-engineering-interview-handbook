@@ -404,7 +404,7 @@
       "id": "L03",
       "slug": "retrieval-tenant-and-version",
       "title": "相似内容排第一，却不属于这个用户",
-      "status": "specification",
+      "status": "reference-implementation",
       "question_ids": [
         "Q015",
         "Q022",
@@ -462,7 +462,12 @@
           "points": 2,
           "full_credit": "审计路径与检索评价口径清晰，并提供回归记录。"
         }
-      ]
+      ],
+      "implementation": {
+        "path": "examples/l03_retrieval/README.md",
+        "run_command": "python3 examples/l03_retrieval/run.py",
+        "test_command": "python3 -m unittest discover -s examples/l03_retrieval -p \"test_*.py\" -v"
+      }
     },
     {
       "id": "L04",

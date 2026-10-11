@@ -18,14 +18,15 @@
 | --- | --- |
 | 不知道从哪里开始 | [学习与成长总览](roadmap/README.md) · [起点自测](roadmap/start.md) |
 | 按阶段完成一个项目 | [能力里程碑与验收](roadmap/milestones.md) |
-| 了解六维能力测试设计 | [测评与雷达图方案](docs/assessment-design.md)（方案，待实施） |
+| 做一次六维能力自检 | [在线自检试用版](https://privacy.iamtaoxin.com/ai-engineering-interview-handbook/) · [手工版](assessment/manual.md) · [使用说明](assessment/README.md) |
 | 按目标岗位准备 | [4 条岗位学习与复习路线](paths/README.md) |
 | 学过但记不牢，或临近面试 | [复习机制](roadmap/review.md) · [面试前两周](roadmap/interview-sprint.md) |
 | 已有作品，继续提升 | [长期成长标准](roadmap/growth.md) |
 | 查找具体问题 | [全部题目](questions/README.md) |
 | 练设计、排障、评测或编码 | [按题型练习](indexes/by-type.md) |
 | 理清回答、用故障验证方案 | [原创答题指南与练习](learning/README.md) |
-| 动手修复恢复后的重复副作用 | [L01 可运行练习与 M4 验收](examples/l01_recovery/README.md) |
+| 动手验证恢复与权限 | [L01 重复副作用](examples/l01_recovery/README.md) · [L03 租户与版本](examples/l03_retrieval/README.md) |
+| 查看完成范围与后续缺口 | [实现与验收状态](docs/completion-status.md) |
 | 准备可核对的项目经历 | [项目复盘模板](templates/project-evidence.md) |
 | 检查原帖及日期 | [来源档案](SOURCES.md) |
 | 理解统计范围与不确定性 | [整理方法](METHODOLOGY.md) |

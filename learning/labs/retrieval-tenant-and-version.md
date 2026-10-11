@@ -4,13 +4,26 @@
 
 **内容类型：原创故障练习**。场景、数据与评分均为编者设计；不计入面经题数。
 
-**执行状态：练习规范（specification）**。本页提供要求与预期断言，尚未附可运行参考实现，也未宣称这些故障用例已经执行通过。
+**执行状态：可运行参考实现（reference-implementation，本地模拟）**。仓库附运行入口与标准库测试；实际结果以对应代码版本、运行命令和原始输出为准。参考实现通过测试不代表学习者已独立掌握，也不代表 M4 全部验收通过。
 
 用三个合成知识片段，检查 RAG 在租户、日期和证据不足时是否保持正确边界。
 
 关联题目：[Q015](../../questions/03-tools-permissions.md#q015) · [Q022](../../questions/04-rag-knowledge.md#q022) · [Q024](../../questions/04-rag-knowledge.md#q024) · [Q089](../../questions/04-rag-knowledge.md#q089) · [Q094](../../questions/03-tools-permissions.md#q094) · [Q097](../../questions/05-reliability.md#q097)
 
 阅读准备：[G02 · 工具与 MCP 的授权边界](../guides/tool-authorization.md) · [G05 · 用证据验证分块和检索的取舍](../guides/rag-chunking-retrieval-evaluation.md)
+
+## 本地运行
+
+[参考实现与验收说明](../../examples/l03_retrieval/README.md)
+
+在仓库根目录运行：
+
+```sh
+python3 examples/l03_retrieval/run.py
+python3 -m unittest discover -s examples/l03_retrieval -p "test_*.py" -v
+```
+
+这里只验证实现所列的本地模拟场景。恢复结果、权限检查与完整项目回归分别报告；未覆盖项仍为待验证。
 
 ## 给定条件
 

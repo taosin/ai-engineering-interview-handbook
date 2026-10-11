@@ -2,16 +2,44 @@ name: Validate handbook
 on:
   push:
   pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: handbook-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
       - run: python3 scripts/build.py --check
       - run: python3 scripts/validate.py
       - run: python3 -m unittest discover -s examples/l01_recovery -p "test_*.py" -v
+      - run: python3 -m unittest discover -s examples/l03_retrieval -p "test_*.py" -v
+      - run: node --test tests/assessment.test.mjs
+      - run: python3 scripts/package_assessment.py
+      - uses: actions/upload-pages-artifact@v4
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validate
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy public self-check
+        id: deployment
+        uses: actions/deploy-pages@v4

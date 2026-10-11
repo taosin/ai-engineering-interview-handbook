@@ -121,6 +121,8 @@ def validate_roadmap(data, questions, catalog, learning):
         strings(artifact.get('contents'), f'{mid} artifact contents')
         acceptance = items(milestone.get('acceptance'), f'{mid} acceptance')
         require(len(acceptance) == 3, f'{mid} must have three observable acceptance checks')
+        require({check.get('id') for check in acceptance} == {f'{mid}-C{i}' for i in range(1,4)},
+                f'{mid} acceptance IDs must be stable, unique C1–C3')
         for check in acceptance:
             text(check.get('observable'), f'{mid} observable check')
             text(check.get('evidence'), f'{mid} acceptance evidence')
@@ -366,7 +368,7 @@ def render_roadmap(data, qlink, guide_link, lab_link):
         lines += ['', '### 学习与动手', ''] + [f'{index}. {step}' for index, step in enumerate(milestone['learning_and_building_steps'], 1)]
         lines += ['', f"### 一个可提交产物：{milestone['artifact']['name']}", ''] + _bullets(milestone['artifact']['contents'])
         lines += ['', '### 三项可观察验收', '', '| 需要观察到的结果 | 留下的证据 |', '| --- | --- |']
-        lines += [f"| {_cell(check['observable'])} | {_cell(check['evidence'])} |" for check in milestone['acceptance']]
+        lines += [f"| <a id=\"{check['id'].lower()}\"></a>**{check['id']}** · {_cell(check['observable'])} | {_cell(check['evidence'])} |" for check in milestone['acceptance']]
         lines += ['', '### 未通过时怎么回退', '', milestone['fallback'], '', '### 相关题目、指南与练习', '']
         if milestone.get('reference_note'):
             lines += [milestone['reference_note'], '']

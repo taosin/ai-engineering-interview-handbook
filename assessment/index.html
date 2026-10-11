@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f4ec">
+  <meta name="description" content="AI 工程学习手册的六维任务自检试用版。按情境与实践记录整理学习缺口，数据保存在当前浏览器。">
+  <title>六维自检 · AI 工程学习手册</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header page-width">
+    <a class="brand" href="https://github.com/taosin/ai-engineering-interview-handbook">
+      <span class="brand-mark" aria-hidden="true">六</span>
+      <span>AI 工程学习手册<small>ENGINEERING, WITH EVIDENCE</small></span>
+    </a>
+    <nav class="header-nav" aria-label="页内导航">
+      <a href="#dimensions">选择领域</a>
+      <a href="#records">记录与备份</a>
+      <a href="https://github.com/taosin/ai-engineering-interview-handbook/blob/main/docs/assessment-design.md">设计说明 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main" class="page-width">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> 六维自检试用版</p>
+        <h1 id="page-title">下一步，<br>从具体证据开始。</h1>
+        <p class="hero-description">先判断情境，再记录实践。看清哪些条件已经满足，<br class="wide-only">把下一次学习变成一个能检查的产物。</p>
+        <p class="boundary">自行记录，未独立核验。尚未开展真实用户试评，不代表招聘评价或能力认证。</p>
+      </div>
+      <aside class="setup-card" aria-labelledby="setup-heading">
+        <p class="eyebrow">01 / 先选方向</p>
+        <h2 id="setup-heading">让建议贴近你的目标</h2>
+        <label for="role-select">目标岗位</label>
+        <select id="role-select" disabled><option value="">正在读取任务…</option></select>
+        <label for="foundation-select">编程与交付基础（A1 / A2）</label>
+        <select id="foundation-select" disabled>
+          <option value="unknown">尚未核对入口自测</option>
+          <option value="ready">已按要求独立完成</option>
+          <option value="needs-foundation">还有基础缺口</option>
+        </select>
+        <p class="field-help">这项记录只影响学习建议，不折算成雷达档位。<a href="https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/start.md">查看 A1 / A2 要求 ↗</a></p>
+      </aside>
+    </section>
+
+    <div id="storage-notice" class="notice" role="alert" hidden></div>
+    <div id="flash" class="flash" role="status" aria-live="polite" tabindex="-1"></div>
+    <noscript><p class="notice">此页面需要 JavaScript 才能保存记录与绘图。你仍可阅读<a href="https://github.com/taosin/ai-engineering-interview-handbook/blob/main/docs/assessment-design.md">自检任务与规则</a>。</p></noscript>
+
+    <section class="overview-grid" aria-label="当前记录与下一步">
+      <article class="panel chart-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">你的记录 / YOUR RECORD</p><h2>任务自检图</h2></div>
+          <span id="coverage" class="count-pill">0 / 6 领域</span>
+        </div>
+        <div id="radar" class="radar" aria-busy="true"><p class="loading">正在读取自检定义…</p></div>
+        <p id="chart-caption" class="chart-caption">未测不是 0。完成一轴后显示一个点；六轴都有记录时才连线。</p>
+        <p id="version-label" class="microcopy"></p>
+      </article>
+      <article class="panel next-panel" aria-labelledby="next-heading">
+        <p class="eyebrow">只推进一个主要产物</p>
+        <h2 id="next-heading">接下来，做什么？</h2>
+        <div id="next-step"><p class="muted">从一个领域开始。推荐会随着具体缺口更新，不按图形面积或历史最高档决定。</p></div>
+      </article>
+    </section>
+
+    <section class="panel detail-panel" aria-labelledby="detail-heading">
+      <div class="panel-heading"><h2 id="detail-heading">图背后的记录</h2><p class="microcopy">0–3 是顺序档位，不计算平均分</p></div>
+      <div class="table-scroll"><table id="dimension-table">
+        <caption class="visually-hidden">六个领域的当前完整自检档位、日期和限制</caption>
+        <thead><tr><th scope="col">领域</th><th scope="col">当前档位</th><th scope="col">记录与边界</th></tr></thead>
+        <tbody id="dimension-table-body"></tbody>
+      </table></div>
+    </section>
+
+    <section id="dimensions" class="section-block" aria-labelledby="dimensions-heading">
+      <div class="section-heading"><div><p class="eyebrow">02 / 一次专注一个领域</p><h2 id="dimensions-heading">选择这次要检查的能力</h2></div><p>不必一次做完六轴。已有项目可以复用，断言分别记录。</p></div>
+      <div id="dimension-cards" class="dimension-grid"></div>
+    </section>
+
+    <section id="workspace" class="section-block workspace" aria-labelledby="workspace-heading">
+      <div class="section-heading"><div><p class="eyebrow">03 / 情境 → 实践 → 完整提交</p><h2 id="workspace-heading" tabindex="-1">本次任务</h2></div><span id="workspace-status" class="tag">尚未开始</span></div>
+      <div id="task-workspace" class="panel empty-workspace"><span class="empty-symbol" aria-hidden="true">＋</span><h3>从上方选一个领域</h3><p>先查看任务与允许资源，再开始记录。草稿不会改变当前图。</p></div>
+    </section>
+
+    <section id="records" class="section-block" aria-labelledby="records-heading">
+      <div class="section-heading"><div><p class="eyebrow">保留过程，也保留回退</p><h2 id="records-heading">记录与备份</h2></div><p>当前取最新完整有效记录，不取历史最高档。</p></div>
+      <div class="records-grid">
+        <div class="panel"><h3>尝试历史</h3><div id="history-list"><p class="muted">尚无个人记录。</p></div></div>
+        <aside class="panel backup-panel" aria-labelledby="backup-heading">
+          <h3 id="backup-heading">只保存在当前浏览器</h3>
+          <p>答案、片段与证据定位不会上传。更换浏览器或清理网站数据前，请下载备份。</p>
+          <div class="button-stack">
+            <button id="export-button" class="button secondary" type="button" disabled>下载 JSON 备份 <span aria-hidden="true">↓</span></button>
+            <button id="import-button" class="button secondary" type="button" disabled>合并导入备份 <span aria-hidden="true">↑</span></button>
+            <input id="import-file" class="visually-hidden" type="file" accept=".json,application/json" tabindex="-1" aria-label="选择 JSON 备份文件">
+          </div>
+          <p class="field-help">备份含个人答案与证据，请自行保管。导入不会抹去已完成历史或已看答案的记录。</p>
+          <details class="clear-details"><summary>清除本机记录</summary><p>清除不可撤销。请先下载备份；清除记录也不能使已看过的解答变成独立作答。</p><button id="clear-button" class="button danger" type="button" disabled>确认清除本机全部记录</button></details>
+          <p id="save-status" class="microcopy" aria-live="polite">正在检查保存状态…</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="reading-note" aria-label="使用边界">
+      <h2>把图当作线索，把产物留作证据。</h2>
+      <p>基础情境依据题内条件核对；实践只判断填报内容是否满足规范，不证明你实际运行过程序。主要解法由 AI 或他人提供时，请记录为辅助练习。完成参考示例，也不等于通过整个学习阶段。</p>
+      <div class="resource-links"><a href="https://github.com/taosin/ai-engineering-interview-handbook/blob/main/roadmap/README.md">学习与成长路线 ↗</a><a href="https://github.com/taosin/ai-engineering-interview-handbook/blob/main/questions/README.md">102 道来源题库 ↗</a><a href="https://github.com/taosin/ai-engineering-interview-handbook/blob/main/METHODOLOGY.md">内容与证据边界 ↗</a></div>
+    </section>
+  </main>
+  <footer class="site-footer page-width"><span>AI Engineering Interview Handbook</span><p>应用不发送答卷；静态托管方仍可能记录访问日志。</p><a href="https://github.com/taosin/ai-engineering-interview-handbook">开源仓库 ↗</a></footer>
+</body>
+</html>
