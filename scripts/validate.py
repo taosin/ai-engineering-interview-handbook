@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import sys
+from learning import load_learning, validate_learning
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {'historical', 'original', 'platform-index', 'search-index'}
@@ -108,8 +109,10 @@ if __name__ == '__main__':
     try:
         qs, ss, cat = load_data()
         validate_data(qs, ss, cat)
+        learning = load_learning(ROOT)
+        validate_learning(learning, qs, cat)
         check_markdown_links()
-        print(f'Validated {len(qs)} questions, {len(ss)} sources, metadata, routes and local links.')
+        print(f"Validated {len(qs)} questions, {len(ss)} interview sources, {len(learning['guides'])} guides, {len(learning['labs'])} labs, metadata, routes and local links.")
     except (ValueError, KeyError, TypeError, OSError) as exc:
         print(f'Validation failed: {exc}', file=sys.stderr)
         sys.exit(1)

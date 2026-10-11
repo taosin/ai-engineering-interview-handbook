@@ -57,3 +57,5 @@ Prompt Caching 与 KV Cache 分别指什么？
 **来源支持的追问变体（不单独计题）**：如何提升模型缓存命中率，Spring AI 应用侧需要怎样配合？
 
 来源：[S27](../SOURCES.md#s27) — 正文第 6 项后半。
+
+**原创答题指南**：[G06 · 分清缓存层次，再证明成本和延迟收益](../learning/guides/prompt-kv-cache-latency-cost.md)

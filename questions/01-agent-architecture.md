@@ -89,6 +89,8 @@ Planner、Executor、Critic 各承担什么职责，与 ReAct 如何取舍？
 
 - [S13 · 商汤大模型算法应用实习面经（已 offer）](../SOURCES.md#s13) — 二面：按视频和任务特征动态路由多模型。
 
+**原创答题指南**：[G06 · 分清缓存层次，再证明成本和延迟收益](../learning/guides/prompt-kv-cache-latency-cost.md)
+
 ## Q077
 
 企业的数据库和业务各不相同，Data Agent怎样支持新企业接入？

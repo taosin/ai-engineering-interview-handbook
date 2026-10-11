@@ -53,4 +53,15 @@
 - **模型基础与推理性能**：[Q049](../questions/09-llm-foundations.md#q049) · [Q050](../questions/09-llm-foundations.md#q050) · [Q051](../questions/09-llm-foundations.md#q051) · [Q055](../questions/09-llm-foundations.md#q055)
 - **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q071](../questions/10-evaluation.md#q071) · [Q100](../questions/10-evaluation.md#q100)
 
+## 回答与验证
+
+以下为本项目原创研习材料；可以先回答关联题，再用指南和故障练习检查方案。
+
+- [G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)
+- [G04 · 流式任务的断线恢复与取消](../learning/guides/streaming-reconnect-cancellation.md)
+- [G05 · 用证据验证分块和检索的取舍](../learning/guides/rag-chunking-retrieval-evaluation.md)
+- [G06 · 分清缓存层次，再证明成本和延迟收益](../learning/guides/prompt-kv-cache-latency-cost.md)
+
+[全部故障练习](../learning/README.md) · [项目复盘模板](../templates/project-evidence.md)
+
 [全部岗位](README.md) · [返回首页](../README.md)

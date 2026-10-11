@@ -6,6 +6,8 @@
 
 **102 道归纳题 · 10 个主题 · 27 个来源条目 · 4 条岗位路线 · 6 类练习题型**
 
+另有 **6 份原创答题指南、4 个故障练习和 1 份项目复盘模板**，单独标注内容类型与技术依据。
+
 从公开个人面经中归纳问题，保留稳定题号、原帖定位和日期口径。按岗位准备、按主题查漏，或按题型练习。
 
 ## 选择入口
@@ -15,6 +17,8 @@
 | 按目标岗位准备 | [4 条岗位路线](paths/README.md) |
 | 查找具体问题 | [全部题目](questions/README.md) |
 | 练设计、排障、评测或编码 | [按题型练习](indexes/by-type.md) |
+| 理清回答、用故障验证方案 | [原创答题指南与练习](learning/README.md) |
+| 准备可核对的项目经历 | [项目复盘模板](templates/project-evidence.md) |
 | 检查原帖及日期 | [来源档案](SOURCES.md) |
 | 理解统计范围与不确定性 | [整理方法](METHODOLOGY.md) |
 
@@ -46,11 +50,12 @@
 - 先用岗位路线选择一组题，结合真实项目口述，再追问故障与验证细节。
 - 项目表达建议：业务目标 → 约束 → 方案选择 → 实现 → 失败案例 → 验证结果。
 - 编码题先明确输入输出、边界和复杂度；原帖条件不完整时应主动说明假设。
-- 题库目前提供有来源的问题，不提供统一“标准答案”；岗位标签和准备目标是编者建议。
+- 先独立回答，再参考指南并完成故障练习；把真实证据填入复盘模板。指南是编者建议，不是企业标准答案。
+- 面经题、原创指南和合成练习分别计数。技术资料支持机制解释，不能替代原帖证明题目出处。
 
 ## 数据与维护
 
-题目、来源与分类以 [`data/`](data/README.md) 中的 JSON 为唯一内容源。主题页、岗位路线、题型索引及首页由同一份数据生成。
+题目、来源、分类与原创研习内容保存在 [`data/`](data/README.md) 的 JSON 中。主题页、岗位路线、指南、练习和阅读索引统一生成；项目复盘模板等维护文档单独编辑。
 
 ```sh
 python3 scripts/build.py
@@ -66,6 +71,10 @@ python3 scripts/practice.py --topic reliability --sample 3 --seed 42
 ```
 
 [贡献指南](CONTRIBUTING.md) · [更新记录](CHANGELOG.md) · [提交 Issue](https://github.com/taosin/ai-engineering-interview-handbook/issues/new/choose)
+
+## 参考与致谢
+
+感谢 [agent-interview-hub](https://github.com/Zchary1106/agent-interview-hub) 对资料组织的启发。本项目独立维护题库与研习内容；参考范围、所读版本及内容边界见[致谢说明](ACKNOWLEDGEMENTS.md)。
 
 ## 许可
 

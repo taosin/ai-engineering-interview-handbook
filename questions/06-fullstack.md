@@ -33,6 +33,8 @@ SSE 与 WebSocket 如何选择？业务需要什么通信能力？
 
 - [S10 · 字节 Agent 开发一面](../SOURCES.md#s10) — 第 4 项：SSE 与 WebSocket。
 
+**原创答题指南**：[G04 · 流式任务的断线恢复与取消](../learning/guides/streaming-reconnect-cancellation.md)
+
 ## Q032
 
 对话产品的会话表、消息表应该怎样设计？
@@ -48,6 +50,8 @@ SSE 与 WebSocket 如何选择？业务需要什么通信能力？
 **题型**：方案设计 · **适用岗位（编者建议）**：AI 全栈、Agent 工程师
 
 - [S07 · 某中厂 AI 全栈工程师社招一面](../SOURCES.md#s07) — 第 5 项：会话三层存储。
+
+**原创答题指南**：[G04 · 流式任务的断线恢复与取消](../learning/guides/streaming-reconnect-cancellation.md)
 
 ## Q034
 
@@ -101,6 +105,8 @@ SSE 与 WebSocket 如何选择？业务需要什么通信能力？
 
 - [S15 · 卓望——全栈开发技术面面经](../SOURCES.md#s15) — 第六部分第1—3项。
 
+**原创答题指南**：[G04 · 流式任务的断线恢复与取消](../learning/guides/streaming-reconnect-cancellation.md)
+
 ## Q065
 
 SSE推送模型输出和节点进度时，断线后怎样从上次位置继续？
@@ -108,6 +114,8 @@ SSE推送模型输出和节点进度时，断线后怎样从上次位置继续�
 **题型**：方案设计 · **适用岗位（编者建议）**：AI 全栈、Agent 工程师
 
 - [S16 · 满帮ai全栈 一面](../SOURCES.md#s16) — 正文第8—9项。
+
+**原创答题指南**：[G04 · 流式任务的断线恢复与取消](../learning/guides/streaming-reconnect-cancellation.md)
 
 ## Q066
 

@@ -1,6 +1,6 @@
-# 数据结构（schema v2）
+# 数据结构（题库 v2；研习 v1）
 
-三个 UTF-8 JSON 文件是题目、来源与阅读视图的内容源。`scripts/build.py` 生成 Markdown；`scripts/validate.py` 检查引用与局部结构；`scripts/build.py --check` 检查视图是否同步。
+四个 UTF-8 JSON 文件是题目、来源、分类与原创研习的内容源。`scripts/build.py` 生成 Markdown；`scripts/validate.py` 检查引用与局部结构；`scripts/build.py --check` 检查视图是否同步。`templates/` 中的复盘模板及维护文档直接编辑 Markdown。
 
 ## questions.json
 
@@ -50,6 +50,22 @@
 包含 schema 版本、首版与当前检索窗口、主题及稳定文件路径、题型名称、岗位路线和旧锚点兼容关系。岗位路线只维护精选题号；全部适用题由题目 roles 自动生成。
 
 新增主题、题型或来源性质时，须同时调整校验规则和文档，不要通过随意新增字段绕过数据约束。
+
+## learning.json
+
+独立 schema v1，不改变 Q/S 题库结构或计数。顶层 `kind` 固定为“原创研习内容”，`updated` 表示本次内容更新时间。
+
+| 数组 | 必需字段与含义 |
+| --- | --- |
+| technical_sources | T 编号、title、url、checked_on、supports；技术资料及所支持的具体机制 |
+| guides | G 编号、slug、title、intro、question_ids、short_answer、key_points、pitfalls、drill、reference_ids |
+| labs | L 编号、slug、title、status、scenario、question_ids、guide_ids、setup、inject、deliverables、checks、rubric |
+
+指南的 `question_ids` 只能引用已有 Q 题，`reference_ids` 只能引用 T 技术资料。练习的 `guide_ids` 只能引用 G 指南；当前 `status` 只允许 `specification`，表示提供练习规范、没有可运行参考实现。`rubric` 的每项含 `dimension`、正整数 `points`、`full_credit`，合计 10 分。
+
+文件路径从 slug 生成，不能用任意路径或目录穿越。ID 和同类型 slug 唯一，引用必须存在；技术资料须被至少一份指南引用，检查日期不得晚于内容更新时间。页面、题目与指南的双向链接以及首页数量由生成器维护。
+
+技术资料不进入 S 面经来源统计；指南与练习不进入 Q 题数。编辑指导与真实面经的边界见[整理方法](../METHODOLOGY.md)。
 
 ## 本地筛选
 

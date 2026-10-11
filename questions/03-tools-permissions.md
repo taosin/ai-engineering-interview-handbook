@@ -29,6 +29,8 @@
 
 - [S05 · 深信服 Agent 开发一面](../SOURCES.md#s05) — 正文：MCP 工具粒度。
 
+**原创答题指南**：[G02 · 工具与 MCP 的授权边界](../learning/guides/tool-authorization.md)
+
 ## Q014
 
 在你的系统里，MCP 与 Skill 分别负责什么？
@@ -44,6 +46,8 @@
 **题型**：方案设计 · **适用岗位（编者建议）**：Agent 工程师、Agent Infra
 
 - [S05 · 深信服 Agent 开发一面](../SOURCES.md#s05) — 正文：模型扫库与权限泄露。
+
+**原创答题指南**：[G02 · 工具与 MCP 的授权边界](../learning/guides/tool-authorization.md)
 
 ## Q016
 
@@ -69,6 +73,8 @@
 
 - [S05 · 深信服 Agent 开发一面](../SOURCES.md#s05) — 正文：人工介入次数与节点。
 
+**原创答题指南**：[G02 · 工具与 MCP 的授权边界](../learning/guides/tool-authorization.md)
+
 ## Q081
 
 可调用工具从十来个增长到上千个后，如何保持工具选择的准确性？
@@ -84,6 +90,8 @@
 **题型**：原理与比较 · **适用岗位（编者建议）**：Agent 工程师、AI 全栈
 
 - [S21 · 百度 AIGC 多模态智能体算法工程师二面](../SOURCES.md#s21) — 正文5.1-5.2。
+
+**原创答题指南**：[G02 · 工具与 MCP 的授权边界](../learning/guides/tool-authorization.md)
 
 ## Q086
 
@@ -108,6 +116,8 @@ Computer Use 如何把模型决策转为电脑操作？操控本地电脑与云�
 **题型**：方案设计 · **适用岗位（编者建议）**：Agent 工程师、Agent Infra、AI 全栈
 
 - [S25 · Agent 开发面经](../SOURCES.md#s25) — 一面第8-9题合并；不据作者参考解答宣称某种防护有效。
+
+**原创答题指南**：[G02 · 工具与 MCP 的授权边界](../learning/guides/tool-authorization.md)
 
 ## Q101
 

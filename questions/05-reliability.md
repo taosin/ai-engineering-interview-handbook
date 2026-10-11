@@ -42,6 +42,8 @@
 
 - [S09 · 名创优品 Agent 开发实习一面](../SOURCES.md#s09) — 第 4 项：外部任务成功、checkpoint 前宕机。
 
+**原创答题指南**：[G01 · Agent 执行恢复与幂等](../learning/guides/execution-recovery.md)
+
 ## Q028
 
 主任务与子任务之间怎样传递状态和大量结果？
@@ -49,6 +51,8 @@
 **题型**：方案设计 · **适用岗位（编者建议）**：Agent 工程师、Agent Infra
 
 - [S09 · 名创优品 Agent 开发实习一面](../SOURCES.md#s09) — 第 3、12 项：主子图状态及任务结果传递。
+
+**原创答题指南**：[G01 · Agent 执行恢复与幂等](../learning/guides/execution-recovery.md)
 
 ## Q029
 
@@ -81,6 +85,8 @@
 **题型**：方案设计 · **适用岗位（编者建议）**：Agent Infra、Agent 工程师
 
 - [S23 · 27届秋招-腾讯WXG-微信读书-一面（已挂）](../SOURCES.md#s23) — 实习相关第4小问。
+
+**原创答题指南**：[G01 · Agent 执行恢复与幂等](../learning/guides/execution-recovery.md)
 
 ## Q097
 

@@ -23,6 +23,8 @@
 
 - [S01 · 火山引擎 Managed Agent 一面](../SOURCES.md#s01) — 二、项目经历深挖：同环境 benchmark。
 
+**原创答题指南**：[G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)
+
 ## Q042
 
 修改 Skill 后，如何证明效果提高，而不是只在少数示例上变好？
@@ -30,6 +32,8 @@
 **题型**：验证与评测 · **适用岗位（编者建议）**：Agent 工程师、LLM 应用开发、Agent Infra、AI 全栈
 
 - [S01 · 火山引擎 Managed Agent 一面](../SOURCES.md#s01) — 三、Agent 原理：验证 Skill 更新效果。
+
+**原创答题指南**：[G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)
 
 ## Q058
 
@@ -39,6 +43,8 @@ AI称代码和单测都已通过，你还会怎样核验交付结果？
 
 - [S15 · 卓望——全栈开发技术面面经](../SOURCES.md#s15) — 第一部分第3—4、7项。
 
+**原创答题指南**：[G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)
+
 ## Q071
 
 如何量化意图识别效果，并区分措辞相似而实际目的不同的请求？
@@ -46,6 +52,8 @@ AI称代码和单测都已通过，你还会怎样核验交付结果？
 **题型**：验证与评测 · **适用岗位（编者建议）**：Agent 工程师、LLM 应用开发
 
 - [S18 · 迅雷 Agent一面](../SOURCES.md#s18) — 正文第1项的问句；未采用括号中的回答。
+
+**原创答题指南**：[G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)
 
 ## Q085
 
@@ -55,6 +63,8 @@ AI称代码和单测都已通过，你还会怎样核验交付结果？
 
 - [S22 · 27届秋招-蚂蚁-财富技术部-一面（电话面）](../SOURCES.md#s22) — 第10题。
 
+**原创答题指南**：[G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)
+
 ## Q100
 
 用另一个 Agent 评审结论时，评审者也可能产生幻觉，怎样结合非模型校验确认事实依据？
@@ -62,3 +72,5 @@ AI称代码和单测都已通过，你还会怎样核验交付结果？
 **题型**：验证与评测 · **适用岗位（编者建议）**：Agent 工程师、LLM 应用开发
 
 - [S26 · 秋招-字节跳动-抖音电商-Agent开发一/二/三面](../SOURCES.md#s26) — 二面F第2、3题。
+
+**原创答题指南**：[G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)

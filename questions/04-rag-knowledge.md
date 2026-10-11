@@ -26,6 +26,8 @@
 
 - [S07 · 某中厂 AI 全栈工程师社招一面](../SOURCES.md#s07) — 第 4 项：混合检索与融合。
 
+**原创答题指南**：[G05 · 用证据验证分块和检索的取舍](../learning/guides/rag-chunking-retrieval-evaluation.md)
+
 ## Q020
 
 怎样阻止碰巧解决问题、实际归因错误的案例进入知识库？
@@ -50,6 +52,8 @@
 
 - [S08 · 小红书 Agentic 端侧推理优化实习生一面](../SOURCES.md#s08) — 端侧 RAG：父子索引与块大小。
 
+**原创答题指南**：[G05 · 用证据验证分块和检索的取舍](../learning/guides/rag-chunking-retrieval-evaluation.md)
+
 ## Q023
 
 如何选择重排模型、召回数量和相关性阈值？
@@ -57,6 +61,8 @@
 **题型**：方案设计 · **适用岗位（编者建议）**：LLM 应用开发、Agent 工程师、AI 全栈
 
 - [S08 · 小红书 Agentic 端侧推理优化实习生一面](../SOURCES.md#s08) — 医疗智能问答 RAG：重排模型、TOP K 和阈值。
+
+**原创答题指南**：[G05 · 用证据验证分块和检索的取舍](../learning/guides/rag-chunking-retrieval-evaluation.md)
 
 ## Q024
 
@@ -66,6 +72,8 @@
 
 - [S08 · 小红书 Agentic 端侧推理优化实习生一面](../SOURCES.md#s08) — 医疗智能问答 RAG：检索指标与合成样本可信度。
 
+**原创答题指南**：[G05 · 用证据验证分块和检索的取舍](../learning/guides/rag-chunking-retrieval-evaluation.md)
+
 ## Q056
 
 文档按语义分块时，怎样避免把完整句子截断？
@@ -73,6 +81,8 @@
 **题型**：方案设计 · **适用岗位（编者建议）**：LLM 应用开发、Agent 工程师
 
 - [S14 · 腾讯后台 AI 开发面经分享：27 实习](../SOURCES.md#s14) — AI 相关第 4 项。
+
+**原创答题指南**：[G05 · 用证据验证分块和检索的取舍](../learning/guides/rag-chunking-retrieval-evaluation.md)
 
 ## Q078
 
