@@ -1,6 +1,6 @@
-# 数据结构（题库 v2；研习 v1）
+# 数据结构（题库 v2；研习 v1；成长路线 v1）
 
-四个 UTF-8 JSON 文件是题目、来源、分类与原创研习的内容源。`scripts/build.py` 生成 Markdown；`scripts/validate.py` 检查引用与局部结构；`scripts/build.py --check` 检查视图是否同步。`templates/` 中的复盘模板及维护文档直接编辑 Markdown。
+五个 UTF-8 JSON 文件是题目、来源、分类、原创研习与成长路线的内容源。`scripts/build.py` 生成 Markdown；`scripts/validate.py` 检查引用与局部结构；`scripts/build.py --check` 检查视图是否同步。`templates/` 中的 Markdown 和 CSV 模板直接编辑。
 
 ## questions.json
 
@@ -66,6 +66,27 @@
 文件路径从 slug 生成，不能用任意路径或目录穿越。ID 和同类型 slug 唯一，引用必须存在；技术资料须被至少一份指南引用，检查日期不得晚于内容更新时间。页面、题目与指南的双向链接以及首页数量由生成器维护。
 
 技术资料不进入 S 面经来源统计；指南与练习不进入 Q 题数。编辑指导与真实面经的边界见[整理方法](../METHODOLOGY.md)。
+
+## roadmap.json
+
+独立 schema v1，`kind` 固定为“原创学习与成长规划”。阶段、投入时间、验收和复习规则都是编者建议，不是企业要求或研究结论。
+
+| 字段 | 含义 |
+| --- | --- |
+| entries / start_body | 三类起点摘要，以及行为自测和分流正文 |
+| through_project / assumptions / progression_rule | 贯穿项目、适用前提和证据推进规则 |
+| milestones | M0 条件式补课与 M1–M6 主线；入门条件、步骤、产物、验收、回退、专注工时区间及引用 |
+| milestones.depends_on | 指向数组中更早的阶段；已有等价证据可免做重复学习，不表示免除依赖能力 |
+| pace_modes | 每周投入小时和活动分钟数；活动合计必须与小时一致 |
+| roles | 与 catalog 同 ID、同名称的岗位；这里维护项目交付点，catalog 继续维护精选题目 |
+| roles.minimum_checkpoint | 本轮 M5 的最低交付点；还需满足主线 M5 的对照验收，其他交付点用于后续成长 |
+| review_sections / sprint_body | 复习、回退、间隔回看和面试前两周的 Markdown 正文，由数据生成页面 |
+| growth_levels | 可观察的成长能力、各岗位表现、下一步；不对应固定年限或职级 |
+| resources | R 编号的研究与入门资料；记录精确链接、支持范围、局限和核实日期 |
+
+`references` 中的 Q/G/L 必须存在，`resource_ids` 对应 R 学习资料。R 不进入 S 面经源或 T 研习技术资料的计数。M5 的岗位安排由 `roles` 生成链接，避免重复维护两份分支内容。里程碑、岗位交付点和总览中的工时与数量从结构化数据计算。
+
+新增或修改自测/复习正文后，需人工核对行为门槛、日期含义和模板字段是否一致。CI 能检查结构、依赖、时间预算、引用与生成同步，不能证明路线对任意学习者有效，也不安排个人提醒。
 
 ## 本地筛选
 

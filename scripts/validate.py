@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import sys
 from learning import load_learning, validate_learning
+from roadmap import load_roadmap, validate_roadmap
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {'historical', 'original', 'platform-index', 'search-index'}
@@ -111,8 +112,10 @@ if __name__ == '__main__':
         validate_data(qs, ss, cat)
         learning = load_learning(ROOT)
         validate_learning(learning, qs, cat)
+        roadmap = load_roadmap(ROOT)
+        validate_roadmap(roadmap, qs, cat, learning)
         check_markdown_links()
-        print(f"Validated {len(qs)} questions, {len(ss)} interview sources, {len(learning['guides'])} guides, {len(learning['labs'])} labs, metadata, routes and local links.")
+        print(f"Validated {len(qs)} questions, {len(ss)} interview sources, {len(learning['guides'])} guides, {len(learning['labs'])} labs, {len(roadmap['milestones'])} milestones, metadata, routes and local links.")
     except (ValueError, KeyError, TypeError, OSError) as exc:
         print(f'Validation failed: {exc}', file=sys.stderr)
         sys.exit(1)

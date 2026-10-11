@@ -33,4 +33,4 @@
 3. 对每条验证断言提供日志、测试输出或未验证说明，分析一个仍然存在的限制。
 4. 根据证据更新方案，用同一组输入复测；把前后差异写入复盘模板。
 
-[技术资料档案](REFERENCES.md) · [参考项目与致谢](../ACKNOWLEDGEMENTS.md) · [返回题库](../README.md)
+[学习与成长路线](../roadmap/README.md) · [复习机制](../roadmap/review.md) · [技术资料档案](REFERENCES.md) · [参考项目与致谢](../ACKNOWLEDGEMENTS.md) · [返回首页](../README.md)

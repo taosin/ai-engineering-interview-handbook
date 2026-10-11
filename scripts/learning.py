@@ -134,7 +134,7 @@ def render_learning(data, qlink):
               '2. 画出状态变化或数据流，指出最可能失效的位置。',
               '3. 对每条验证断言提供日志、测试输出或未验证说明，分析一个仍然存在的限制。',
               '4. 根据证据更新方案，用同一组输入复测；把前后差异写入复盘模板。', '',
-              '[技术资料档案](REFERENCES.md) · [参考项目与致谢](../ACKNOWLEDGEMENTS.md) · [返回题库](../README.md)']
+              '[学习与成长路线](../roadmap/README.md) · [复习机制](../roadmap/review.md) · [技术资料档案](REFERENCES.md) · [参考项目与致谢](../ACKNOWLEDGEMENTS.md) · [返回首页](../README.md)']
     views[file] = lines
     lines = ['# 技术资料档案', '', '这些一手技术资料用于解释机制，不能证明企业出过某道题。产品行为以所链接版本和当前官方文档为准；本项目的设计取舍与练习判据属于编者建议。', '']
     for source in data['technical_sources']:
