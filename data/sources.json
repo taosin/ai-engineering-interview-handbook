@@ -8,8 +8,20 @@
     "date_kind": "发布时间",
     "notes": "个人复盘；含题库推广链接。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/discuss/917561494512861184",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-08-13；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S02",
@@ -20,8 +32,20 @@
     "date_kind": "帖内面试日期",
     "notes": "应聘公司为小红书，发布平台为牛客。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/f1ed02bfdae04730837753b62e0d58b9",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-08-12；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S03",
@@ -30,10 +54,22 @@
     "url": "https://linux.do/t/topic/2416951",
     "date_label": "2026-06-16",
     "date_kind": "发布时间",
-    "notes": "标题称 4—5 月面试，单场日期未细分；不能确认所有 4 月场次均晚于 4 月 8 日。仅作边界补充。",
+    "notes": "标题称 4—5 月面试，单场日期未细分；不能确认所有 4 月场次均晚于 4 月 8 日（首版窗口）。仅作边界补充。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://linux.do/t/topic/2416951",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-06-16；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S04",
@@ -44,8 +80,20 @@
     "date_kind": "标题中的面试日期",
     "notes": "原页面可能显示相对发布时间；不以“今天”等相对时间判断面试日期。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/discuss/925342611194286080?sourceSSR=dynamic",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-09-03；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S05",
@@ -56,8 +104,20 @@
     "date_kind": "页面编辑时间",
     "notes": "评论可能早于编辑时间；编辑日期不是面试日期。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/45b40914f438434b88b60a21e3d5ec1e",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-08-28；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S06",
@@ -68,8 +128,20 @@
     "date_kind": "帖内面试日期",
     "notes": "应聘公司为小红书，发布平台为牛客。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/discuss/926917172448759808",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-09-08；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S07",
@@ -80,8 +152,20 @@
     "date_kind": "页面编辑时间",
     "notes": "帖内称 9 月初面试；包含作者面后补充的参考回答，本仓库仅整理问题。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/discuss/926232883432296448",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-09-06；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S08",
@@ -92,8 +176,20 @@
     "date_kind": "发布时间",
     "notes": "该岗位偏端侧与模型优化；仅选取与应用工程相关的问题。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/7d354aa6146d467a92bf1132dd33438f",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-09-14；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S09",
@@ -104,8 +200,20 @@
     "date_kind": "发布时间",
     "notes": "个人面试复盘。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/f844a4ac20be44bc9b3f756bd0ebb84c",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-08-26；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S10",
@@ -116,8 +224,20 @@
     "date_kind": "帖内面试日期",
     "notes": "页面于 8 月 24 日编辑。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/discuss/921444774287003648",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-08-12；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S11",
@@ -128,8 +248,20 @@
     "date_kind": "所选面试记录的月份范围",
     "notes": "多场个人面试合集；其中美团全栈面试明确为 2026-08-31。不可把一篇合集计为多个独立作者。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "美团场次正文明确写 2026/08/31；同篇其他场次按各自记录读取，不共用这一日期。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/discuss/932058602422956032",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-08—2026-09；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
   },
   {
     "id": "S12",
@@ -140,7 +272,425 @@
     "date_kind": "发布时间",
     "notes": "原帖通过牛客话题页公开展示；独立链接抓取不稳定。",
     "last_checked": "2026-10-08",
-    "evidence": "公开正文或平台公开展示内容；个人经历未获企业独立确认",
-    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。"
+    "evidence": "首版通过公开正文或平台展示内容整理；不构成企业对面试经历的确认。",
+    "date_caveat": "部分页面只显示月日，年份依据本次检索及帖子上下文归入 2026 年。",
+    "verification": {
+      "status": "historical",
+      "checked_on": "2026-10-08",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/d2cf5165d1184b59879eff5793b7b453",
+      "note": "保留首版核实记录；本轮未逐页重新确认正文。"
+    },
+    "date_evidence": {
+      "raw_label": "首版日期记录：2026-08-27；未保留页面原始时间显示",
+      "year_basis": "页面或帖子上下文；首版未逐条保存完整时间元数据",
+      "precision": "historical-label"
+    },
+    "interview_date": null
+  },
+  {
+    "id": "S13",
+    "title": "商汤大模型算法应用实习面经（已 offer）",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/2762070c2c52472da06bf9ee59518d79",
+    "date_label": "2026-07-18",
+    "date_kind": "发布时间",
+    "notes": "偏大模型算法应用岗位，纳入模型基础与多模型应用的相邻考点。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "公开正文对应记录的 createdAt 按 Asia/Shanghai 换算为 2026-07-18；面试具体日期未写。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/2762070c2c52472da06bf9ee59518d79?sourceSSR=enterprise",
+      "note": "本轮读取正文中的问题区；没有将个人参考回答作为面试问题。"
+    },
+    "date_evidence": {
+      "raw_label": "07-18 18:08；公开记录 createdAt=1784369283000",
+      "year_basis": "公开正文对应记录的 createdAt 按 Asia/Shanghai 换算为 2026-07-18；面试具体日期未写。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "reported_role": "大模型算法应用",
+    "recruitment_type": "实习"
+  },
+  {
+    "id": "S14",
+    "title": "腾讯后台 AI 开发面经分享：27 实习",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/0a54c327f4084c56be3727f204d0132a",
+    "date_label": "2026-05-09",
+    "date_kind": "发布时间",
+    "notes": "帖子中的个人回答未采入。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "对应正文记录的公开时间元数据按 Asia/Shanghai 换算；面试日未明确。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/0a54c327f4084c56be3727f204d0132a?sourceSSR=dynamic",
+      "note": "本轮读取正文中的问题区；没有将个人参考回答作为面试问题。"
+    },
+    "date_evidence": {
+      "raw_label": "05-09 12:45；公开记录 createdAt 与 editTime 对应 2026-05-09",
+      "year_basis": "对应正文记录的公开时间元数据按 Asia/Shanghai 换算；面试日未明确。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "reported_role": "后台 AI 开发",
+    "recruitment_type": "实习"
+  },
+  {
+    "id": "S15",
+    "title": "卓望——全栈开发技术面面经",
+    "platform": "牛客",
+    "url": "https://ac.nowcoder.com/discuss/1705823",
+    "date_label": "2026-10-09",
+    "date_kind": "帖内面试日期",
+    "notes": "个人回忆，非企业官方题库；不把相对编辑日期换算为绝对日期。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "面试日期由正文明确给出，精确到日",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://ac.nowcoder.com/discuss/1705823",
+      "note": "web读取原帖第21—91行；提问与反问、个人感受分区可辨。 仅采问题区。"
+    },
+    "date_evidence": {
+      "raw_label": "正文：2026年10月9日14:00；页面编辑时间为相对日期",
+      "year_basis": "面试日期由正文明确给出，精确到日",
+      "precision": "day"
+    },
+    "interview_date": "2026-10-09",
+    "reported_role": "全栈开发",
+    "recruitment_type": "校招（正文提及校招生与秋招）"
+  },
+  {
+    "id": "S16",
+    "title": "满帮ai全栈 一面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/0dfa45a987bb4c19b6963af6bbeb5815",
+    "date_label": "2026-10-08",
+    "date_kind": "编辑时间",
+    "notes": "年份为上下文推定；归入近期材料，勿声称该日面试。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "编辑月日明确；年份根据2026年检索及2027秋招上下文推定，面试日未写",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/0dfa45a987bb4c19b6963af6bbeb5815",
+      "note": "web读取原帖第46—81行；评论另问面试时间，不能把10月8日直接当面试日。 仅采问题区。"
+    },
+    "date_evidence": {
+      "raw_label": "10-08 17:37 已编辑",
+      "year_basis": "编辑月日明确；年份根据2026年检索及2027秋招上下文推定，面试日未写",
+      "precision": "month-day-year-inferred"
+    },
+    "interview_date": null,
+    "reported_role": "AI全栈",
+    "recruitment_type": "校招（秋招面试记录标签）"
+  },
+  {
+    "id": "S17",
+    "title": "去哪儿旅行 AI全栈开发 AI面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/3a2bb6126e714ff3814b81ce092b5fbd",
+    "date_label": "2026-09-14",
+    "date_kind": "编辑时间",
+    "notes": "AI面指自动面试形式，同时岗位确为AI全栈；省略号表示未记录追问，不自行补题。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "编辑月日明确；结合27秋招标签推定年份，面试日未写",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/3a2bb6126e714ff3814b81ce092b5fbd",
+      "note": "web读取原帖第46—78行；岗位及秋招标签在正文可核对。 仅采问题区。"
+    },
+    "date_evidence": {
+      "raw_label": "09-14 16:55 已编辑",
+      "year_basis": "编辑月日明确；结合27秋招标签推定年份，面试日未写",
+      "precision": "month-day-year-inferred"
+    },
+    "interview_date": null,
+    "reported_role": "AI全栈工程师",
+    "recruitment_type": "2027届秋招（原帖标签）"
+  },
+  {
+    "id": "S18",
+    "title": "迅雷 Agent一面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/932392798559432704",
+    "date_label": "2026-09-23",
+    "date_kind": "编辑时间",
+    "notes": "只取问句；括号内个人回答不视为事实或标准答案。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "原帖同路径公开CDN页面createTime=1790171766000、editTime=1790177133000，按Asia/Shanghai换算；面试日未写",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://api-cdn.nowcoder.com/discuss/932392798559432704?sourceSSR=dynamic",
+      "note": "原帖正文与对应公开页面的创建、编辑时间元数据；仅采正文问句，未采用括号中的个人回答。"
+    },
+    "date_evidence": {
+      "raw_label": "09-23 23:25 已编辑",
+      "year_basis": "原帖同路径公开CDN页面createTime=1790171766000、editTime=1790177133000，按Asia/Shanghai换算；面试日未写",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "reported_role": "Agent开发",
+    "recruitment_type": "未明确"
+  },
+  {
+    "id": "S19",
+    "title": "老虎国际后端实习一二面面经",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/933053709867577344",
+    "date_label": "2026-09-25",
+    "date_kind": "发布时间",
+    "notes": "职位是后端实习，因有Coding Agent和人机协作场景纳入相邻岗位；非专门Agent招聘。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "面试月日由正文给出，年份根据2026年检索上下文推定",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://www.nowcoder.com/discuss/933053709867577344",
+      "note": "web读取原帖第53—136行，清楚分为一面与二面。 仅采问题区。"
+    },
+    "date_evidence": {
+      "raw_label": "正文：9-14一面，9-20二面；页面09-25 17:42",
+      "year_basis": "面试月日由正文给出，年份根据2026年检索上下文推定",
+      "precision": "month-day-year-inferred"
+    },
+    "interview_date": null,
+    "reported_role": "后端开发实习",
+    "recruitment_type": "实习",
+    "interview_dates": [
+      "2026-09-14",
+      "2026-09-20"
+    ]
+  },
+  {
+    "id": "S20",
+    "title": "汇川技术转正实习二面面经",
+    "platform": "Yukiの小窝（个人博客）",
+    "url": "https://www.yukibloom.app/post/hui-chuan-ji-shu-zhuan-zheng-shi-xi-er-mian",
+    "date_label": "2026-09-20",
+    "date_kind": "帖内面试日期",
+    "notes": "作者可编辑博客，未获企业确认；不推定岗位正式名称。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开面经问题；候选人经历未经企业独立确认。",
+    "date_caveat": "正文及页面均明确年份、月日",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://www.yukibloom.app/post/hui-chuan-ji-shu-zhuan-zheng-shi-xi-er-mian",
+      "note": "仅使用面试内容第6—9项；后面的复盘总结、参考实现不作为真题。 仅采问题区。"
+    },
+    "date_evidence": {
+      "raw_label": "面试时间2026_0920-14:30；发布于2026-09-20 14:30",
+      "year_basis": "正文及页面均明确年份、月日",
+      "precision": "day"
+    },
+    "interview_date": "2026-09-20",
+    "reported_role": "原帖未给正式岗位名称（围绕Data Agent与全栈能力）",
+    "recruitment_type": "转正实习"
+  },
+  {
+    "id": "S21",
+    "title": "百度 AIGC 多模态智能体算法工程师二面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/2d033fd6daa04e2aaad2282b75531bbc",
+    "date_label": "2026-09-24",
+    "date_kind": "正文明确面试日期",
+    "notes": "个人记录，未获企业独立确认；没有采用推荐区或评论内容。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开候选人复盘；未经企业独立确认。",
+    "date_caveat": "面试日期来自作者自报；发布时间不是面试时间。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/2d033fd6daa04e2aaad2282b75531bbc?sourceSSR=dynamic",
+      "note": "web正文可见第3.2、4.1-4.2、5.1-5.2问；正文首行明确2026-09-24。公开SSR按uuid精准匹配对象，createdAt/editTime均1790667241000。"
+    },
+    "date_evidence": {
+      "raw_label": "2026-09-24",
+      "year_basis": "面试日期来自作者自报；发布时间不是面试时间。 公开记录发布于 2026-09-29T15:34:01+08:00",
+      "precision": "day"
+    },
+    "interview_date": "2026-09-24",
+    "published_at": "2026-09-29T15:34:01+08:00",
+    "edited_at": "2026-09-29T15:34:01+08:00",
+    "reported_role": "百度 AIGC 多模态智能体算法工程师二面",
+    "recruitment_type": "实习（原帖话题及到岗问题）；二面"
+  },
+  {
+    "id": "S22",
+    "title": "27届秋招-蚂蚁-财富技术部-一面（电话面）",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/02718e9f48ff436f96d6ee8c6f11a47e",
+    "date_label": "2026-08-21",
+    "date_kind": "公开SSR创建时间",
+    "notes": "与S23同一作者，不应统计成两个独立作者。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开候选人复盘；未经企业独立确认。",
+    "date_caveat": "页面展示8月24日为编辑日期；未独立给出面试日，不能写为8月24日面试。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://api-cdn.nowcoder.com/feed/main/detail/02718e9f48ff436f96d6ee8c6f11a47e?sourceSSR=dynamic",
+      "note": "牛客Agent面经话题页展示原帖；公开SSR匹配uuid得到完整题目及createdAt=1787303833000、editTime=1787583358000。选择原帖第3、6-8、10、27题。"
+    },
+    "date_evidence": {
+      "raw_label": "2026-08-21",
+      "year_basis": "页面展示8月24日为编辑日期；未独立给出面试日，不能写为8月24日面试。 公开记录发布于 2026-08-21T17:17:13+08:00",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-08-21T17:17:13+08:00",
+    "edited_at": "2026-08-24T22:55:58+08:00",
+    "reported_role": "原帖标题披露部门，正式岗位名称未单列",
+    "recruitment_type": "2027届秋招；一面（电话面）"
+  },
+  {
+    "id": "S23",
+    "title": "27届秋招-腾讯WXG-微信读书-一面（已挂）",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/3ffc762437274543b6a8f5e2ea6fb535",
+    "date_label": "2026-08-24",
+    "date_kind": "公开SSR创建时间",
+    "notes": "与S22同一作者；容器恢复问题是面试官跨模块追问，作者明确该模块由同事负责。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开候选人复盘；未经企业独立确认。",
+    "date_caveat": "仅发布时间明确，面试日未单列。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://api-cdn.nowcoder.com/feed/main/detail/3ffc762437274543b6a8f5e2ea6fb535?sourceSSR=dynamic",
+      "note": "web正文实习相关第4小问与agent & LLM第2小问；SSR匹配uuid，createdAt/editTime=1787583865000。"
+    },
+    "date_evidence": {
+      "raw_label": "2026-08-24",
+      "year_basis": "仅发布时间明确，面试日未单列。 公开记录发布于 2026-08-24T23:04:25+08:00",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-08-24T23:04:25+08:00",
+    "edited_at": "2026-08-24T23:04:25+08:00",
+    "reported_role": "原帖标题披露部门，正式岗位名称未单列",
+    "recruitment_type": "2027届秋招；一面"
+  },
+  {
+    "id": "S24",
+    "title": "字节 Agent 秋招一面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/929731481189044224",
+    "date_label": "2026-09-16",
+    "date_kind": "公开SSR创建时间",
+    "notes": "仅归纳工具/运行时选型，不沿用原帖有关具体框架能力的未核实说法。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开候选人复盘；未经企业独立确认。",
+    "date_caveat": "正文说当天下午约二面，但未单列面试年月日；只采用可确认的发布日。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://api-cdn.nowcoder.com/discuss/929731481189044224?sourceSSR=dynamic",
+      "note": "web原帖项目第3、4、6题。公开SSR精准匹配id=929731481189044224，createTime=1789537259000、editTime=1789542557000。"
+    },
+    "date_evidence": {
+      "raw_label": "2026-09-16",
+      "year_basis": "正文说当天下午约二面，但未单列面试年月日；只采用可确认的发布日。 公开记录发布于 2026-09-16T13:40:59+08:00",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-09-16T13:40:59+08:00",
+    "edited_at": "2026-09-16T15:09:17+08:00",
+    "reported_role": "Agent 开发",
+    "recruitment_type": "秋招；一面"
+  },
+  {
+    "id": "S25",
+    "title": "Agent 开发面经",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/930572525178748928",
+    "date_label": "2026-09-18",
+    "date_kind": "公开SSR创建时间",
+    "notes": "作者主动隐去公司/岗位与项目隐私；题目后方含参考回答，本研究没有把这些回答再扩写为面试问题。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开候选人复盘；未经企业独立确认。",
+    "date_caveat": "具体面试日和公司未披露；10月9日是编辑时间。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://api-cdn.nowcoder.com/discuss/930572525178748928?sourceSSR=dynamic",
+      "note": "原帖编号问题与后续作者回答可区分；只选一面第4、6、7、8-9、10、11题。SSR精准匹配id，createTime=1789737779000、editTime=1791540239000。"
+    },
+    "date_evidence": {
+      "raw_label": "2026-09-18",
+      "year_basis": "具体面试日和公司未披露；10月9日是编辑时间。 公开记录发布于 2026-09-18T21:22:59+08:00",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-09-18T21:22:59+08:00",
+    "edited_at": "2026-10-09T18:03:59+08:00",
+    "reported_role": "Agent 开发方向；正式岗位名称未披露",
+    "recruitment_type": "未披露；一面、二面"
+  },
+  {
+    "id": "S26",
+    "title": "秋招-字节跳动-抖音电商-Agent开发一/二/三面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/937314680270311424",
+    "date_label": "2026-09-02、2026-09-08、2026-09-15",
+    "date_kind": "正文月日；年份由公开页面创建时间及秋招上下文确定",
+    "notes": "同一候选人多轮复盘；不能视为3个独立样本。未采用作者标明推断的MCP/CLI/Skill问法，只采用明确的性能追问。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开候选人复盘；未经企业独立确认。",
+    "date_caveat": "正文Timeline只写09.02/09.08/09.15，2026年通过10月7日创建时间和当年秋招上下文确定；页面updateTime可能为活跃更新时间，未当作编辑时间。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://ac.nowcoder.com/discuss/1702162?channel=-1&source_id=discuss_tag_discuss_hot_nctrack&type=0",
+      "note": "ac牛客原帖正文含三轮Timeline及二面分节；页面createTime=1791345234000且canonical链接指向discuss/937314680270311424。仅取二面C、E、F、G中明确题目，跳过作者标注按对话推断的问法。"
+    },
+    "date_evidence": {
+      "raw_label": "Timeline: 09.02、09.08、09.15；2026-10-07 发布",
+      "year_basis": "正文Timeline只写09.02/09.08/09.15，2026年通过10月7日创建时间和当年秋招上下文确定；页面updateTime可能为活跃更新时间，未当作编辑时间。 公开记录发布于 2026-10-07T11:53:54+08:00",
+      "precision": "range"
+    },
+    "interview_date": null,
+    "published_at": "2026-10-07T11:53:54+08:00",
+    "edited_at": null,
+    "reported_role": "Agent 开发",
+    "recruitment_type": "秋招；一面、二面、三面"
+  },
+  {
+    "id": "S27",
+    "title": "10.8号顺丰AI全栈一面",
+    "platform": "牛客",
+    "url": "https://ac.nowcoder.com/discuss/1703637",
+    "date_label": "2026-10-08（年份推定）",
+    "date_kind": "标题面试月日",
+    "notes": "原始面经可以直接阅读，但年份仍为推定；不能宣称面试官措辞是协议准确性的权威依据。",
+    "last_checked": "2026-10-11",
+    "evidence": "公开候选人面经问题；未采平台参考回答。",
+    "date_caveat": "面试月日由标题给出；编辑月日来自页面；2026年根据检索时点及当期页面上下文推定，正文未写年份",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-10-11",
+      "evidence_url": "https://ac.nowcoder.com/discuss/1703637",
+      "note": "web已读取原帖：第18—28行包含标题和缓存、推理提问；第15行显示编辑月日。只采用正文问句，排除推荐区和AI牛可乐评论中的解释。"
+    },
+    "date_evidence": {
+      "raw_label": "标题：10.8号顺丰AI全栈一面；页面：编辑于10-08 13:52",
+      "year_basis": "面试月日由标题给出；编辑月日来自页面；2026年根据检索时点及当期页面上下文推定，正文未写年份",
+      "precision": "month-day-year-inferred"
+    },
+    "interview_date": null,
+    "reported_role": "AI 全栈",
+    "recruitment_type": "原帖未明确"
   }
 ]

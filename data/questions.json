@@ -5,14 +5,20 @@
     "question": "用户提交任务之后，到 Agent 返回最终结果，中间经过哪些模块？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S01"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "concept",
+    "source_locators": {
+      "S01": "三、Agent 原理：完整请求链路"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q002",
@@ -20,14 +26,20 @@
     "question": "模型决定调用工具后，工具结果怎样进入下一轮推理？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S01"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "concept",
+    "source_locators": {
+      "S01": "三、Agent 原理：Function Call 与 Tool Result"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q003",
@@ -35,14 +47,21 @@
     "question": "Agent 循环何时继续、何时结束？完成条件怎么判断？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "LLM 应用开发",
+      "Agent Infra"
     ],
     "source_ids": [
       "S01"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "concept",
+    "source_locators": {
+      "S01": "三、Agent 原理：循环继续与结束"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q004",
@@ -57,7 +76,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "concept",
+    "source_locators": {
+      "S02": "第 19—21 项：ReAct 与 Planner、Executor、Critic"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q005",
@@ -65,14 +89,20 @@
     "question": "多个 Agent 同时执行时，瓶颈可能在哪？如何限制并发？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "Agent Infra"
     ],
     "source_ids": [
       "S02"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S02": "第 16—17 项：并发性能与并发量"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q006",
@@ -87,7 +117,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S02": "第 28 项：广告投放自我迭代场景"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q007",
@@ -102,7 +137,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "边界补充",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S03": "阿里国际一面：记忆权威与晋级"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q008",
@@ -117,7 +157,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "边界补充",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S03": "阿里国际一面：记忆合并与冲突"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q009",
@@ -132,7 +177,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "边界补充",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S03": "阿里国际三面：不同 Agent 的 session 与上下文"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q010",
@@ -147,7 +197,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "边界补充",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S03": "阿里国际三面：长时间未参与的 Agent 如何补齐讨论"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q011",
@@ -162,7 +217,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S04": "八股第 5 项：轮次增加时的上下文处理"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q012",
@@ -170,7 +230,8 @@
     "question": "怎样验证摘要没有丢掉关键约束和任务细节？",
     "roles": [
       "Agent 工程师",
-      "Agent Infra"
+      "Agent Infra",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S03",
@@ -178,7 +239,21 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-11",
+    "question_type": "evaluation",
+    "source_locators": {
+      "S03": "阿里国际三面及深信服段：上下文压缩与细节丢失",
+      "S04": "八股第 6 项：压缩信息损失"
+    },
+    "metadata_updated": "2026-10-11",
+    "follow_ups": [
+      {
+        "question": "上下文压缩丢掉中间工具结果后，怎样保留后续排查故障所需的信息？",
+        "source_id": "S17",
+        "locator": "正文第5项最后追问。",
+        "origin": "来源支持的追问变体"
+      }
+    ]
   },
   {
     "id": "Q013",
@@ -193,7 +268,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S05": "正文：MCP 工具粒度"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q014",
@@ -208,7 +288,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "concept",
+    "source_locators": {
+      "S05": "正文：MCP 与 Skill 的边界"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q015",
@@ -223,7 +308,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S05": "正文：模型扫库与权限泄露"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q016",
@@ -238,7 +328,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S06": "项目追问：MCP 版本兼容"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q017",
@@ -253,7 +348,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S06": "项目追问：stdio、HTTP、SSE、Streamable HTTP"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q018",
@@ -268,7 +368,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S05": "正文：人工介入次数与节点"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q019",
@@ -276,6 +381,7 @@
     "question": "领域知识检索为什么同时使用关键词和向量？结果如何融合？",
     "roles": [
       "LLM 应用开发",
+      "Agent 工程师",
       "AI 全栈"
     ],
     "source_ids": [
@@ -283,7 +389,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S07": "第 4 项：混合检索与融合"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q020",
@@ -291,6 +402,7 @@
     "question": "怎样阻止碰巧解决问题、实际归因错误的案例进入知识库？",
     "roles": [
       "LLM 应用开发",
+      "Agent 工程师",
       "AI 全栈"
     ],
     "source_ids": [
@@ -298,7 +410,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S07": "第 6 项：RAG 假案例防污染"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q021",
@@ -306,6 +423,7 @@
     "question": "不依赖逐条人工审核，如何控制知识入库质量？",
     "roles": [
       "LLM 应用开发",
+      "Agent 工程师",
       "AI 全栈"
     ],
     "source_ids": [
@@ -313,7 +431,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S07": "第 7 项：知识入库质量"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q022",
@@ -321,6 +444,7 @@
     "question": "父子分块为什么这样设计？块大小如何确定？",
     "roles": [
       "LLM 应用开发",
+      "Agent 工程师",
       "AI 全栈"
     ],
     "source_ids": [
@@ -328,7 +452,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S08": "端侧 RAG：父子索引与块大小"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q023",
@@ -336,6 +465,7 @@
     "question": "如何选择重排模型、召回数量和相关性阈值？",
     "roles": [
       "LLM 应用开发",
+      "Agent 工程师",
       "AI 全栈"
     ],
     "source_ids": [
@@ -343,7 +473,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S08": "医疗智能问答 RAG：重排模型、TOP K 和阈值"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q024",
@@ -351,14 +486,21 @@
     "question": "如何用检索指标证明改进有效？大量合成测试样本会带来什么偏差？",
     "roles": [
       "LLM 应用开发",
-      "AI 全栈"
+      "Agent 工程师",
+      "AI 全栈",
+      "Agent Infra"
     ],
     "source_ids": [
       "S08"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "evaluation",
+    "source_locators": {
+      "S08": "医疗智能问答 RAG：检索指标与合成样本可信度"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q025",
@@ -366,14 +508,20 @@
     "question": "一个通常几分钟完成的任务突然慢了数倍，如何定位原因？",
     "roles": [
       "Agent 工程师",
-      "Agent Infra"
+      "Agent Infra",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S04"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "debugging",
+    "source_locators": {
+      "S04": "八股第 2—3 项：长任务延迟分析"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q026",
@@ -381,14 +529,21 @@
     "question": "怎样保证模型生成的工具参数可用、调用过程可靠？",
     "roles": [
       "Agent 工程师",
-      "Agent Infra"
+      "Agent Infra",
+      "AI 全栈",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S04"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S04": "八股第 4 项：工具参数与调用可靠性"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q027",
@@ -403,7 +558,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S09": "第 4 项：外部任务成功、checkpoint 前宕机"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q028",
@@ -418,7 +578,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S09": "第 3、12 项：主子图状态及任务结果传递"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q029",
@@ -433,7 +598,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S09": "第 13—14 项：循环爆炸与 ReAct 偏移"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q030",
@@ -441,14 +611,20 @@
     "question": "从失败案例生成 Skill 时，如何防止错误经验或恶意内容污染后续执行？",
     "roles": [
       "Agent 工程师",
-      "Agent Infra"
+      "Agent Infra",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S09"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S09": "第 5 项：bad case 沉淀污染"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q031",
@@ -456,14 +632,20 @@
     "question": "SSE 与 WebSocket 如何选择？业务需要什么通信能力？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S10"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "concept",
+    "source_locators": {
+      "S10": "第 4 项：SSE 与 WebSocket"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q032",
@@ -471,14 +653,20 @@
     "question": "对话产品的会话表、消息表应该怎样设计？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "LLM 应用开发"
     ],
     "source_ids": [
       "S06"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S06": "场景题：会话表和消息表"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q033",
@@ -493,7 +681,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S07": "第 5 项：会话三层存储"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q034",
@@ -508,7 +701,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S10": "第 6 项：热点榜单实时更新"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q035",
@@ -516,14 +714,20 @@
     "question": "多个请求同时修改同一业务状态，怎样保证判断与更新的一致性？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "Agent Infra"
     ],
     "source_ids": [
       "S11"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "design",
+    "source_locators": {
+      "S11": "二面（一个小时 8 分钟）段：并发读写与 Lua 原子裁决"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q036",
@@ -531,14 +735,28 @@
     "question": "缓存写入成功后异步落库，如何应对消息丢失、重复消费和最终状态不一致？",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "Agent Infra"
     ],
     "source_ids": [
       "S11"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-11",
+    "question_type": "design",
+    "source_locators": {
+      "S11": "同一二面段：异步落库、重复消费与最终一致性"
+    },
+    "metadata_updated": "2026-10-11",
+    "follow_ups": [
+      {
+        "question": "消息由多台机器消费，且同时写数据库和Redis时，如何处理重复与部分失败？",
+        "source_id": "S16",
+        "locator": "正文第12—17项。",
+        "origin": "来源支持的追问变体"
+      }
+    ]
   },
   {
     "id": "Q037",
@@ -546,14 +764,19 @@
     "question": "现场展示一次使用 AI 完成需求的过程，你如何提供上下文和拆分工作？",
     "roles": [
       "AI 全栈",
-      "Agent Infra"
+      "Agent 工程师"
     ],
     "source_ids": [
       "S11"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "project",
+    "source_locators": {
+      "S11": "同一二面段：现场 AI Coding 流程演示"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q038",
@@ -561,14 +784,19 @@
     "question": "如何把一道编程题描述清楚，让 AI 覆盖输入、输出和边界条件？",
     "roles": [
       "AI 全栈",
-      "Agent Infra"
+      "Agent 工程师"
     ],
     "source_ids": [
       "S11"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "project",
+    "source_locators": {
+      "S11": "美团 2026/08/31 段：K 组链表题的 Prompt 设计"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q039",
@@ -576,14 +804,19 @@
     "question": "AI 参与开发后，哪些设计、检查和决策仍由你负责？",
     "roles": [
       "AI 全栈",
-      "Agent Infra"
+      "Agent 工程师"
     ],
     "source_ids": [
       "S11"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "project",
+    "source_locators": {
+      "S11": "美团 2026/08/31 段：人与 AI 的角色分工"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q040",
@@ -591,44 +824,63 @@
     "question": "测试驱动与规格驱动的开发方式，你怎样实际使用？",
     "roles": [
       "AI 全栈",
-      "Agent Infra"
+      "Agent 工程师"
     ],
     "source_ids": [
       "S11"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "project",
+    "source_locators": {
+      "S11": "美团 2026/08/31 段：TDD 与 Spec Coding"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q041",
-    "topic": "ai-coding-evaluation",
+    "topic": "evaluation",
     "question": "比较两个 Agent 方案时，怎样保证测试环境和任务条件一致？",
     "roles": [
-      "AI 全栈",
-      "Agent Infra"
+      "Agent 工程师",
+      "LLM 应用开发",
+      "Agent Infra",
+      "AI 全栈"
     ],
     "source_ids": [
       "S01"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "evaluation",
+    "source_locators": {
+      "S01": "二、项目经历深挖：同环境 benchmark"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q042",
-    "topic": "ai-coding-evaluation",
+    "topic": "evaluation",
     "question": "修改 Skill 后，如何证明效果提高，而不是只在少数示例上变好？",
     "roles": [
-      "AI 全栈",
-      "Agent Infra"
+      "Agent 工程师",
+      "LLM 应用开发",
+      "Agent Infra",
+      "AI 全栈"
     ],
     "source_ids": [
       "S01"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "evaluation",
+    "source_locators": {
+      "S01": "三、Agent 原理：验证 Skill 更新效果"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q043",
@@ -643,7 +895,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "coding",
+    "source_locators": {
+      "S10": "代码题及追问：双栈队列、多线程安全"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q044",
@@ -658,7 +915,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "coding",
+    "source_locators": {
+      "S11": "二面（一个小时 8 分钟）段：LRU、过期与并发追问"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q045",
@@ -673,7 +935,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "coding",
+    "source_locators": {
+      "S06": "手撕：最长递增子序列"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q046",
@@ -681,14 +948,20 @@
     "question": "用数组实现映射结构，解释冲突与扩容。",
     "roles": [
       "AI 全栈",
-      "Agent 工程师"
+      "Agent 工程师",
+      "Agent Infra"
     ],
     "source_ids": [
       "S01"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "coding",
+    "source_locators": {
+      "S01": "五、现场手撕：用数组实现 Map"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q047",
@@ -703,7 +976,12 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "coding",
+    "source_locators": {
+      "S12": "手撕：按值类型合并嵌套 JSON，不修改原数据"
+    },
+    "metadata_updated": "2026-10-11"
   },
   {
     "id": "Q048",
@@ -718,6 +996,1093 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08"
+    "last_curated": "2026-10-08",
+    "question_type": "coding",
+    "source_locators": {
+      "S04": "算法：数字集合构造最大数"
+    },
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q049",
+    "topic": "llm-foundations",
+    "question": "如何写出 Self-Attention 的计算过程，并说明 Q、K、V 的含义？",
+    "roles": [
+      "LLM 应用开发",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S13"
+    ],
+    "source_locators": {
+      "S13": "一面第 2 项"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q050",
+    "topic": "llm-foundations",
+    "question": "LoRA 怎样更新模型参数？你会调整哪些超参数、选择哪些模块？",
+    "roles": [
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S13"
+    ],
+    "source_locators": {
+      "S13": "一面第 1 项"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q051",
+    "topic": "llm-foundations",
+    "question": "基于 PPO 的 RLHF 各个模型分别承担什么职责，为何加入 KL 约束？",
+    "roles": [
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S13"
+    ],
+    "source_locators": {
+      "S13": "一面第 3 项"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q052",
+    "topic": "agent-architecture",
+    "question": "推理 Agent 与校验 Agent 给出互相冲突的结论时，系统如何处理？",
+    "roles": [
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S13"
+    ],
+    "source_locators": {
+      "S13": "二面：校验与推理结论冲突"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q053",
+    "topic": "agent-architecture",
+    "question": "面对不同视频任务，怎样结合效果、成本和延迟选择调用哪个模型？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S13"
+    ],
+    "source_locators": {
+      "S13": "二面：按视频和任务特征动态路由多模型"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q054",
+    "topic": "reliability",
+    "question": "全部候选模型均故障时，怎样提供兜底，并在恢复后切回正常服务？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S13"
+    ],
+    "source_locators": {
+      "S13": "二面：模型超时、故障与回切"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q055",
+    "topic": "llm-foundations",
+    "question": "采样温度和 Top-k 分别控制生成过程的什么行为？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S14"
+    ],
+    "source_locators": {
+      "S14": "AI 相关第 6 项"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q056",
+    "topic": "rag-knowledge",
+    "question": "文档按语义分块时，怎样避免把完整句子截断？",
+    "roles": [
+      "LLM 应用开发",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S14"
+    ],
+    "source_locators": {
+      "S14": "AI 相关第 4 项"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q057",
+    "topic": "ai-coding-evaluation",
+    "question": "让 AI 审查代码时，你会怎样设计审查提示词？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S14"
+    ],
+    "source_locators": {
+      "S14": "AI 相关第 2 项"
+    },
+    "type": "面经问题归纳",
+    "question_type": "project",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q058",
+    "topic": "evaluation",
+    "question": "AI称代码和单测都已通过，你还会怎样核验交付结果？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S15"
+    ],
+    "source_locators": {
+      "S15": "第一部分第3—4、7项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "evaluation",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q059",
+    "topic": "ai-coding-evaluation",
+    "question": "AI开始改代码前，你如何检查它提出的技术方案？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S15"
+    ],
+    "source_locators": {
+      "S15": "第一部分第5项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "project",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q060",
+    "topic": "fullstack",
+    "question": "在亿级流水表中查询最近一天的数据，你会如何优化？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S15"
+    ],
+    "source_locators": {
+      "S15": "第三部分第1—2项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q061",
+    "topic": "fullstack",
+    "question": "密码与身份证号的存储方式应如何区分？加盐哈希如何用于登录校验？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S15"
+    ],
+    "source_locators": {
+      "S15": "第五部分第1—3项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q062",
+    "topic": "fullstack",
+    "question": "搜索请求乱序返回时，如何防止旧结果覆盖新结果？取消请求之外还有哪些办法？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S15"
+    ],
+    "source_locators": {
+      "S15": "第六部分第1—3项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q063",
+    "topic": "ai-coding-evaluation",
+    "question": "输入PRD质量和写法不一，如何稳定生成正确的研发文档？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S16"
+    ],
+    "source_locators": {
+      "S16": "正文第2—4项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q064",
+    "topic": "ai-coding-evaluation",
+    "question": "面对命名混乱的遗留系统，Coding Agent怎样准确定位代码，并减少全库扫描？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S16"
+    ],
+    "source_locators": {
+      "S16": "正文第5项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q065",
+    "topic": "fullstack",
+    "question": "SSE推送模型输出和节点进度时，断线后怎样从上次位置继续？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S16"
+    ],
+    "source_locators": {
+      "S16": "正文第8—9项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q066",
+    "topic": "fullstack",
+    "question": "如何设计高效的Excel批量导入，并向运营反馈校验失败的数据和等待状态？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S16"
+    ],
+    "source_locators": {
+      "S16": "正文第20—22项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q067",
+    "topic": "fullstack",
+    "question": "线上 JVM 出现高 CPU 或内存泄漏时如何排查？高 CPU 场景下，怎样从进程进一步定位问题线程？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S17"
+    ],
+    "source_locators": {
+      "S17": "正文第2项及追问。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "debugging",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q068",
+    "topic": "fullstack",
+    "question": "Redis锁过期后被另一客户端取得，旧持有者如何避免误删新锁？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S17"
+    ],
+    "source_locators": {
+      "S17": "正文第3项及追问。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q069",
+    "topic": "ai-coding-evaluation",
+    "question": "选一个真实AI全栈项目，说明交付目标、衡量办法和逐步达成目标的过程。",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S17"
+    ],
+    "source_locators": {
+      "S17": "正文第8项；未扩写省略的追问。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "project",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q070",
+    "topic": "ai-coding-evaluation",
+    "question": "团队成员使用不同Coding Agent时，怎样共同维护并执行开发规范？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S18"
+    ],
+    "source_locators": {
+      "S18": "正文第6项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q071",
+    "topic": "evaluation",
+    "question": "如何量化意图识别效果，并区分措辞相似而实际目的不同的请求？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S18"
+    ],
+    "source_locators": {
+      "S18": "正文第1项的问句；未采用括号中的回答。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "evaluation",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q072",
+    "topic": "ai-coding-evaluation",
+    "question": "多个Coding Agent同时改文件时，如何处理相互冲突的修改？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S19"
+    ],
+    "source_locators": {
+      "S19": "一面CodingAgent第5项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q073",
+    "topic": "fullstack",
+    "question": "人和AI共同编辑文档，怎样防止AI用旧快照覆盖人的新修改？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S19"
+    ],
+    "source_locators": {
+      "S19": "二面文档协作第1—2项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q074",
+    "topic": "fullstack",
+    "question": "Java虚拟线程适合什么任务？使用它是否一定能降低单个请求的延迟？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S19"
+    ],
+    "source_locators": {
+      "S19": "一面JDK第2—3项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q075",
+    "topic": "fullstack",
+    "question": "一个接口需要并发查询六类用户信息再汇总，你会怎样组织执行？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S19"
+    ],
+    "source_locators": {
+      "S19": "一面JDK第4项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q076",
+    "topic": "ai-coding-evaluation",
+    "question": "进入不熟悉的业务领域时，怎样借助AI推进工作并辨别其回答错误？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S19"
+    ],
+    "source_locators": {
+      "S19": "二面AI第2—3项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "project",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q077",
+    "topic": "agent-architecture",
+    "question": "企业的数据库和业务各不相同，Data Agent怎样支持新企业接入？",
+    "roles": [
+      "AI 全栈",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S20"
+    ],
+    "source_locators": {
+      "S20": "面试内容第6项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q078",
+    "topic": "rag-knowledge",
+    "question": "Data Agent的语义层怎样把用户的业务表达映射到数据库表和字段？",
+    "roles": [
+      "AI 全栈",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S20"
+    ],
+    "source_locators": {
+      "S20": "面试内容第8项。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q079",
+    "topic": "agent-architecture",
+    "question": "从传统CRUD转向Agent应用开发，核心工程差异有哪些？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S20"
+    ],
+    "source_locators": {
+      "S20": "面试内容第9项；不采用后面的参考答案。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q080",
+    "topic": "agent-architecture",
+    "question": "业务同时提供页面按钮和 Agent 对话入口时，怎样划分两种入口的职责？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S21"
+    ],
+    "source_locators": {
+      "S21": "正文3.2"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q081",
+    "topic": "tools-permissions",
+    "question": "可调用工具从十来个增长到上千个后，如何保持工具选择的准确性？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S21"
+    ],
+    "source_locators": {
+      "S21": "正文4.1-4.2"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q082",
+    "topic": "tools-permissions",
+    "question": "通过 MCP 接入外部能力与直接调用 API 有什么区别，选择 MCP 的理由是什么？",
+    "roles": [
+      "Agent 工程师",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S21"
+    ],
+    "source_locators": {
+      "S21": "正文5.1-5.2"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q083",
+    "topic": "memory-context",
+    "question": "项目为什么选择 Markdown 文件保存记忆，而不是通过 RAG 召回？两种方案怎样取舍？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S22"
+    ],
+    "source_locators": {
+      "S22": "第3题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q084",
+    "topic": "agent-architecture",
+    "question": "同一项任务采用 Agent Teams、主 Agent 调子 Agent，或固定 Workflow，各有什么收益和代价？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S22"
+    ],
+    "source_locators": {
+      "S22": "第6-8题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q085",
+    "topic": "evaluation",
+    "question": "原本需要人验收的 Agent 流程改为自动交付时，你会怎样保证结果可靠？",
+    "roles": [
+      "Agent 工程师",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S22"
+    ],
+    "source_locators": {
+      "S22": "第10题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "evaluation",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q086",
+    "topic": "tools-permissions",
+    "question": "Skill 如何按需加载，怎样避免每次执行都加载全部内容？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S22"
+    ],
+    "source_locators": {
+      "S22": "第27题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q087",
+    "topic": "reliability",
+    "question": "云端 Agent 的运行容器重启或迁移以后，会话与任务上下文怎样恢复？",
+    "roles": [
+      "Agent Infra",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S23"
+    ],
+    "source_locators": {
+      "S23": "实习相关第4小问"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q088",
+    "topic": "memory-context",
+    "question": "长上下文中的 Lost in the Middle 现象是什么，为什么模型可能忽略中间位置的信息？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S23"
+    ],
+    "source_locators": {
+      "S23": "agent & LLM第2小问"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q089",
+    "topic": "rag-knowledge",
+    "question": "知识文档被多个任务在线更新时，如何避免重复处理和覆盖？为什么更新链路需要消息队列？",
+    "roles": [
+      "LLM 应用开发",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S24"
+    ],
+    "source_locators": {
+      "S24": "项目第3题及4.1、4.2"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q090",
+    "topic": "agent-architecture",
+    "question": "考察一个新的 Agent Harness 时，你会怎样判断它能否融入现有系统，以及是否值得替换现有方案？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S24"
+    ],
+    "source_locators": {
+      "S24": "项目第4题及5.1、5.2"
+    },
+    "type": "面经问题归纳",
+    "question_type": "project",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q091",
+    "topic": "tools-permissions",
+    "question": "Computer Use 如何把模型决策转为电脑操作？操控本地电脑与云端电脑有什么差别？",
+    "roles": [
+      "Agent 工程师",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S24"
+    ],
+    "source_locators": {
+      "S24": "项目第6题及7.1、7.2"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q092",
+    "topic": "agent-architecture",
+    "question": "自动审核系统中，哪些判断交给规则，哪些交给 AI？为什么不能只依赖模型？",
+    "roles": [
+      "Agent 工程师",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S25"
+    ],
+    "source_locators": {
+      "S25": "一面第4、7题；仅面试问题，不采用下方作者解答"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q093",
+    "topic": "memory-context",
+    "question": "你的 Agent 提示词由哪些内容组成，实际输入规模大约有多大？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S25"
+    ],
+    "source_locators": {
+      "S25": "一面第6题；原问包含提示词行数"
+    },
+    "type": "面经问题归纳",
+    "question_type": "project",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q094",
+    "topic": "tools-permissions",
+    "question": "系统怎样处理提示注入和越狱？这些防护措施在输出之前还是之后执行？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S25"
+    ],
+    "source_locators": {
+      "S25": "一面第8-9题合并；不据作者参考解答宣称某种防护有效"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q095",
+    "topic": "agent-architecture",
+    "question": "为长视频设计内容安全审核流程时，你会怎样组织处理步骤？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S25"
+    ],
+    "source_locators": {
+      "S25": "一面第10题；原帖作者自述没有答出"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q096",
+    "topic": "agent-architecture",
+    "question": "怎样设计一个能满足不同用户要求的内容审核框架？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S25"
+    ],
+    "source_locators": {
+      "S25": "一面第11题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q097",
+    "topic": "reliability",
+    "question": "合同原文不完整或有歧义时，怎样输出审核结论，并让读者区分确定关系与疑似关系？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S26"
+    ],
+    "source_locators": {
+      "S26": "二面C第2、3、10题合并"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q098",
+    "topic": "memory-context",
+    "question": "将数百页合同拆给子 Agent 后，汇总结果仍超出上下文窗口，怎样继续处理到最终结果？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S26"
+    ],
+    "source_locators": {
+      "S26": "二面E第1、4、5题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q099",
+    "topic": "memory-context",
+    "question": "渐进式披露如何用于长合同分析，让 Agent 在需要时再获取相关细节？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S26"
+    ],
+    "source_locators": {
+      "S26": "二面E第7题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q100",
+    "topic": "evaluation",
+    "question": "用另一个 Agent 评审结论时，评审者也可能产生幻觉，怎样结合非模型校验确认事实依据？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S26"
+    ],
+    "source_locators": {
+      "S26": "二面F第2、3题"
+    },
+    "type": "面经问题归纳",
+    "question_type": "evaluation",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q101",
+    "topic": "tools-permissions",
+    "question": "以低延迟为目标开放业务能力给 Agent 时，CLI、MCP 与 Skill 的接入和执行方式怎样选择？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S26"
+    ],
+    "source_locators": {
+      "S26": "二面G第8、9题；未采用第7题中作者标注推断的部分"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11"
+  },
+  {
+    "id": "Q102",
+    "topic": "llm-foundations",
+    "question": "Prompt Caching 与 KV Cache 分别指什么？",
+    "roles": [
+      "AI 全栈",
+      "Agent Infra",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S27"
+    ],
+    "source_locators": {
+      "S27": "正文第 6 项前半：对两种缓存的理解"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-10-11",
+    "metadata_updated": "2026-10-11",
+    "follow_ups": [
+      {
+        "question": "如何提升模型缓存命中率，Spring AI 应用侧需要怎样配合？",
+        "source_id": "S27",
+        "locator": "正文第 6 项后半",
+        "origin": "来源支持的追问变体"
+      }
+    ]
   }
 ]

@@ -1,0 +1,270 @@
+{
+  "schema_version": 2,
+  "curated_through": "2026-10-11",
+  "original_window": [
+    "2026-04-08",
+    "2026-10-08"
+  ],
+  "current_window": [
+    "2026-04-11",
+    "2026-10-11"
+  ],
+  "topics": [
+    {
+      "id": "agent-architecture",
+      "title": "Agent 架构与编排",
+      "file": "questions/01-agent-architecture.md",
+      "focus": "用一次完整执行解释规划、行动、观察与终止；说明为何选择单 Agent、多 Agent 或工作流。"
+    },
+    {
+      "id": "memory-context",
+      "title": "记忆与上下文",
+      "file": "questions/02-memory-context.md",
+      "focus": "说明信息何时写入、如何更新、何时召回，以及压缩之后如何验证任务连续性。"
+    },
+    {
+      "id": "tools-permissions",
+      "title": "工具、MCP 与权限",
+      "file": "questions/03-tools-permissions.md",
+      "focus": "围绕工具发现、参数契约、访问范围和授权说明实现；交代故障与兼容处理。"
+    },
+    {
+      "id": "rag-knowledge",
+      "title": "RAG 与知识质量",
+      "file": "questions/04-rag-knowledge.md",
+      "focus": "从数据进入、切分、检索、重排到评测解释链路，并讨论错误证据与过时知识。"
+    },
+    {
+      "id": "reliability",
+      "title": "可靠性与运行恢复",
+      "file": "questions/05-reliability.md",
+      "focus": "用具体失败时间线解释幂等、状态、恢复和降级，区分结果正确与执行成功。"
+    },
+    {
+      "id": "fullstack",
+      "title": "全栈交互与后端工程",
+      "file": "questions/06-fullstack.md",
+      "focus": "从前端体验讲到服务端状态与存储；准备连接中断、并发和一致性的完整过程。"
+    },
+    {
+      "id": "ai-coding-evaluation",
+      "title": "AI Coding 与研发交付",
+      "file": "questions/07-ai-coding-evaluation.md",
+      "focus": "展示需求到提交的实际过程，解释人的决策、代码检查、测试和发布责任。"
+    },
+    {
+      "id": "coding",
+      "title": "现场编码与数据结构",
+      "file": "questions/08-coding.md",
+      "focus": "先明确输入输出与边界，再解释复杂度并验证；不把原帖缺失的条件自行补成真题。"
+    },
+    {
+      "id": "llm-foundations",
+      "title": "模型基础与推理性能",
+      "file": "questions/09-llm-foundations.md",
+      "focus": "区分模型原理和系统优化，能解释成本、延迟、内存与效果之间的取舍。"
+    },
+    {
+      "id": "evaluation",
+      "title": "评测与效果验证",
+      "file": "questions/10-evaluation.md",
+      "focus": "明确任务成功的标准、数据来源和比较条件，并说明失败样本、偏差与回归验证。"
+    }
+  ],
+  "question_types": {
+    "concept": "原理与比较",
+    "design": "方案设计",
+    "debugging": "故障定位",
+    "project": "项目与实践复盘",
+    "evaluation": "验证与评测",
+    "coding": "现场编码"
+  },
+  "roles": [
+    {
+      "id": "ai-fullstack",
+      "name": "AI 全栈",
+      "intro": "面向能把 AI 能力交付到完整产品的工程师。",
+      "stages": [
+        {
+          "title": "交互与服务端基础",
+          "goal": "画清会话、消息、连接与存储的完整链路。",
+          "ids": [
+            "Q031",
+            "Q032",
+            "Q033",
+            "Q034",
+            "Q035",
+            "Q036",
+            "Q062"
+          ]
+        },
+        {
+          "title": "AI 能力集成",
+          "goal": "解释 Agent 执行与知识检索怎样接入业务。",
+          "ids": [
+            "Q001",
+            "Q002",
+            "Q003",
+            "Q019",
+            "Q020",
+            "Q026"
+          ]
+        },
+        {
+          "title": "开发演示与验证",
+          "goal": "用真实任务演示开发过程，并完成可运行的代码题。",
+          "ids": [
+            "Q037",
+            "Q038",
+            "Q039",
+            "Q040",
+            "Q043",
+            "Q044",
+            "Q058"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agent-engineer",
+      "name": "Agent 工程师",
+      "intro": "面向规划、工具、记忆与多 Agent 应用开发。",
+      "stages": [
+        {
+          "title": "执行与工具",
+          "goal": "解释一次调用到完成的过程和权限边界。",
+          "ids": [
+            "Q001",
+            "Q002",
+            "Q003",
+            "Q004",
+            "Q013",
+            "Q015",
+            "Q081"
+          ]
+        },
+        {
+          "title": "状态与记忆",
+          "goal": "解释跨轮次、跨 Agent 的信息管理。",
+          "ids": [
+            "Q007",
+            "Q008",
+            "Q009",
+            "Q010",
+            "Q011",
+            "Q012"
+          ]
+        },
+        {
+          "title": "可靠性与验收",
+          "goal": "用失败案例证明恢复机制和效果验证。",
+          "ids": [
+            "Q025",
+            "Q026",
+            "Q027",
+            "Q029",
+            "Q041",
+            "Q042",
+            "Q100"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "llm-application",
+      "name": "LLM 应用开发",
+      "intro": "面向知识问答、检索增强与模型能力的业务集成。",
+      "stages": [
+        {
+          "title": "数据与检索",
+          "goal": "从知识质量开始解释检索设计。",
+          "ids": [
+            "Q019",
+            "Q020",
+            "Q021",
+            "Q022",
+            "Q023",
+            "Q024",
+            "Q056"
+          ]
+        },
+        {
+          "title": "应用链路",
+          "goal": "解释模型、工具与交互层如何配合。",
+          "ids": [
+            "Q001",
+            "Q002",
+            "Q003",
+            "Q026",
+            "Q031",
+            "Q032",
+            "Q049"
+          ]
+        },
+        {
+          "title": "效果与回归",
+          "goal": "准备实验条件和失败案例，并评估系统修改。",
+          "ids": [
+            "Q012",
+            "Q024",
+            "Q025",
+            "Q030",
+            "Q041",
+            "Q042"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agent-infra",
+      "name": "Agent Infra",
+      "intro": "面向 Agent 运行时、调度、状态恢复与性能平台。",
+      "stages": [
+        {
+          "title": "运行时与隔离",
+          "goal": "说明调度、工具和跨 Agent 状态边界。",
+          "ids": [
+            "Q003",
+            "Q005",
+            "Q009",
+            "Q013",
+            "Q016",
+            "Q017"
+          ]
+        },
+        {
+          "title": "恢复与并发",
+          "goal": "推演崩溃、重复操作、并发和延迟异常。",
+          "ids": [
+            "Q025",
+            "Q026",
+            "Q027",
+            "Q028",
+            "Q035",
+            "Q036",
+            "Q087"
+          ]
+        },
+        {
+          "title": "评测与资源",
+          "goal": "用可复现的评测检查系统变化。",
+          "ids": [
+            "Q011",
+            "Q012",
+            "Q024",
+            "Q041",
+            "Q042",
+            "Q046",
+            "Q102"
+          ]
+        }
+      ]
+    }
+  ],
+  "legacy_anchors": {
+    "questions/07-ai-coding-evaluation.md": [
+      "Q041",
+      "Q042"
+    ]
+  }
+}
