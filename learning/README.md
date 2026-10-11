@@ -21,10 +21,10 @@
 
 ## 故障练习
 
-- [L01 · 工具已经成功，重启后却又执行一次](labs/recovery-after-tool-commit.md)：在本地库存模拟中制造“外部提交成功、Agent 记录未保存”的间隙，验证恢复是否重复扣减。
-- [L02 · 重连后文字重复，旧任务还在更新界面](labs/stream-replay-and-cancellation.md)：用一条短事件流同时检验重放、任务隔离、过期游标和取消确认。
-- [L03 · 相似内容排第一，却不属于这个用户](labs/retrieval-tenant-and-version.md)：用三个合成知识片段，检查 RAG 在租户、日期和证据不足时是否保持正确边界。
-- [L04 · 报告写着全胜，失败任务却没被统计](labs/evaluation-missing-failures.md)：修复一个漏掉超时、重复副作用和重试成本的离线对比报告。
+- [L01 · 工具已经成功，重启后却又执行一次](labs/recovery-after-tool-commit.md)：在本地库存模拟中制造“外部提交成功、Agent 记录未保存”的间隙，验证恢复是否重复扣减。（附本地可运行参考实现）
+- [L02 · 重连后文字重复，旧任务还在更新界面](labs/stream-replay-and-cancellation.md)：用一条短事件流同时检验重放、任务隔离、过期游标和取消确认。（练习规范，尚无参考实现）
+- [L03 · 相似内容排第一，却不属于这个用户](labs/retrieval-tenant-and-version.md)：用三个合成知识片段，检查 RAG 在租户、日期和证据不足时是否保持正确边界。（练习规范，尚无参考实现）
+- [L04 · 报告写着全胜，失败任务却没被统计](labs/evaluation-missing-failures.md)：修复一个漏掉超时、重复副作用和重试成本的离线对比报告。（练习规范，尚无参考实现）
 
 ## 一次练习怎么完成
 

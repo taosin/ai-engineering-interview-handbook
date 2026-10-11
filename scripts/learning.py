@@ -57,7 +57,26 @@ def validate_learning(data, questions, catalog):
                 used_sources.update(item['reference_ids'])
             else:
                 require(nonempty(item['scenario']), 'empty scenario')
-                require(item['status'] == 'specification', 'unsupported lab execution status')
+                require(item['status'] in {'specification', 'reference-implementation'}, 'unsupported lab execution status')
+                if item['status'] == 'specification':
+                    require('implementation' not in item, 'specification must not declare an implementation')
+                else:
+                    implementation = item.get('implementation')
+                    require(isinstance(implementation, dict), 'missing reference implementation')
+                    require(set(implementation) == {'path', 'run_command', 'test_command'}, 'invalid implementation fields')
+                    path = implementation['path']
+                    require(nonempty(path), 'empty implementation path')
+                    parts = path.split('/')
+                    require(parts[0] == 'examples' and len(parts) > 1
+                            and all(part not in {'', '.', '..'} and re.fullmatch(r'[A-Za-z0-9_.-]+', part) for part in parts),
+                            'unsafe implementation path')
+                    root = Path(__file__).resolve().parents[1]
+                    target = (root / path).resolve()
+                    require(target.is_relative_to(root / 'examples') and target.is_file(), 'missing or unsafe implementation file')
+                    for field in ('run_command', 'test_command'):
+                        command = implementation[field]
+                        require(nonempty(command) and '\n' not in command and '\r' not in command and '`' not in command,
+                                f'invalid implementation {field}')
                 require(item['guide_ids'] and set(item['guide_ids']) <= gids, 'unknown lab guide')
                 for field in ('setup', 'inject', 'deliverables', 'checks'):
                     strings(item[field], f'empty lab {field}')
@@ -104,10 +123,19 @@ def render_learning(data, qlink):
 
     for lab in data['labs']:
         file = lab_path(lab)
-        lines = [f"# {lab['id']} · {lab['title']}", '', '**内容类型：原创故障练习**。场景、数据与评分均为编者设计；不计入面经题数。', '', '**执行状态：练习规范（specification）**。本页提供要求与预期断言，尚未附可运行参考实现，也未宣称这些故障用例已经执行通过。', '', lab['scenario'], '',
+        if lab['status'] == 'reference-implementation':
+            status = '**执行状态：可运行参考实现（reference-implementation，本地模拟）**。仓库附运行入口与标准库测试；实际结果以对应代码版本、运行命令和原始输出为准。参考实现通过测试不代表学习者已独立掌握，也不代表 M4 全部验收通过。'
+        else:
+            status = '**执行状态：练习规范（specification）**。本页提供要求与预期断言，尚未附可运行参考实现，也未宣称这些故障用例已经执行通过。'
+        lines = [f"# {lab['id']} · {lab['title']}", '', '**内容类型：原创故障练习**。场景、数据与评分均为编者设计；不计入面经题数。', '', status, '', lab['scenario'], '',
                  '关联题目：' + ' · '.join(qlink(file, qid) for qid in lab['question_ids']), '',
-                 '阅读准备：' + ' · '.join(f"[{gid} · {guides[gid]['title']}](../guides/{guides[gid]['slug']}.md)" for gid in lab['guide_ids']), '',
-                 '## 给定条件', '']
+                 '阅读准备：' + ' · '.join(f"[{gid} · {guides[gid]['title']}](../guides/{guides[gid]['slug']}.md)" for gid in lab['guide_ids']), '']
+        if lab['status'] == 'reference-implementation':
+            implementation = lab['implementation']
+            lines += ['## 本地运行', '', f"[参考实现与验收说明](../../{implementation['path']})", '',
+                      '在仓库根目录运行：', '', '```sh', implementation['run_command'], implementation['test_command'], '```', '',
+                      '这里只验证实现所列的本地模拟场景。恢复结果、权限检查与完整项目回归分别报告；未覆盖项仍为待验证。', '']
+        lines += ['## 给定条件', '']
         lines += bullets(lab['setup'])
         lines += ['', '## 注入故障', ''] + [f'{i}. {v}' for i, v in enumerate(lab['inject'], 1)]
         lines += ['', '## 提交什么', ''] + bullets(lab['deliverables'])
@@ -128,7 +156,7 @@ def render_learning(data, qlink):
     for guide in data['guides']:
         lines += [f"| [{guide['id']} · {guide['title']}](guides/{guide['slug']}.md) | " + ' · '.join(qlink(file, qid) for qid in guide['question_ids']) + ' |']
     lines += ['', '## 故障练习', '']
-    lines += [f"- [{lab['id']} · {lab['title']}](labs/{lab['slug']}.md)：{lab['scenario']}" for lab in data['labs']]
+    lines += [f"- [{lab['id']} · {lab['title']}](labs/{lab['slug']}.md)：{lab['scenario']}（{'附本地可运行参考实现' if lab['status'] == 'reference-implementation' else '练习规范，尚无参考实现'}）" for lab in data['labs']]
     lines += ['', '## 一次练习怎么完成', '',
               '1. 先写目标、已知条件和需要澄清的假设，记录未看指南时的方案。',
               '2. 画出状态变化或数据流，指出最可能失效的位置。',

@@ -61,7 +61,12 @@
 | guides | G 编号、slug、title、intro、question_ids、short_answer、key_points、pitfalls、drill、reference_ids |
 | labs | L 编号、slug、title、status、scenario、question_ids、guide_ids、setup、inject、deliverables、checks、rubric |
 
-指南的 `question_ids` 只能引用已有 Q 题，`reference_ids` 只能引用 T 技术资料。练习的 `guide_ids` 只能引用 G 指南；当前 `status` 只允许 `specification`，表示提供练习规范、没有可运行参考实现。`rubric` 的每项含 `dimension`、正整数 `points`、`full_credit`，合计 10 分。
+指南的 `question_ids` 只能引用已有 Q 题，`reference_ids` 只能引用 T 技术资料。练习的 `guide_ids` 只能引用 G 指南。`status` 支持两种状态：
+
+- `specification`：提供练习规范，没有可运行参考实现，禁止声明 `implementation`。当前 L02–L04 属于此类。
+- `reference-implementation`：附可运行的本地参考实现，必须提供 `implementation` 对象。当前仅 L01 属于此类；状态表示存在实现，不代替实际执行记录或学习者能力验收。
+
+`implementation` 仅含 `path`、`run_command`、`test_command`。`path` 是仓库根目录下 `examples/` 内已存在文件的相对路径，不得使用绝对路径、目录穿越或指向目录外的符号链接；命令是在仓库根目录运行的单行说明，由页面展示，数据校验与构建不会执行它们。CI 单独运行明确配置的标准库测试。`rubric` 的每项含 `dimension`、正整数 `points`、`full_credit`，合计 10 分。
 
 文件路径从 slug 生成，不能用任意路径或目录穿越。ID 和同类型 slug 唯一，引用必须存在；技术资料须被至少一份指南引用，检查日期不得晚于内容更新时间。页面、题目与指南的双向链接以及首页数量由生成器维护。
 

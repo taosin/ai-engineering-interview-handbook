@@ -14,3 +14,4 @@ jobs:
           python-version: '3.12'
       - run: python3 scripts/build.py --check
       - run: python3 scripts/validate.py
+      - run: python3 -m unittest discover -s examples/l01_recovery -p "test_*.py" -v

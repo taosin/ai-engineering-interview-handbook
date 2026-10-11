@@ -25,6 +25,7 @@
 | 查找具体问题 | [全部题目](questions/README.md) |
 | 练设计、排障、评测或编码 | [按题型练习](indexes/by-type.md) |
 | 理清回答、用故障验证方案 | [原创答题指南与练习](learning/README.md) |
+| 动手修复恢复后的重复副作用 | [L01 可运行练习与 M4 验收](examples/l01_recovery/README.md) |
 | 准备可核对的项目经历 | [项目复盘模板](templates/project-evidence.md) |
 | 检查原帖及日期 | [来源档案](SOURCES.md) |
 | 理解统计范围与不确定性 | [整理方法](METHODOLOGY.md) |

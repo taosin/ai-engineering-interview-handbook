@@ -1,0 +1,4600 @@
+{
+  "schema_version": 1,
+  "scope": "L01 本地库存恢复示例；不代表 M4 全部验收通过，不包含租户权限验收；未覆盖完整应用既有回归；不评定学习者能力。",
+  "started_at": "2026-10-11T04:51:06.238685+00:00",
+  "finished_at": "2026-10-11T04:51:13.047132+00:00",
+  "duration_seconds": 6.808,
+  "environment": {
+    "python": "3.11.5",
+    "implementation": "CPython",
+    "sqlite": "3.42.0"
+  },
+  "source_sha256": {
+    "examples/l01_recovery/recovery.py": "9f82d8571cd9da177eabfeb4682d456abe9c96e5f21fd10aac73780503f556fd",
+    "examples/l01_recovery/test_recovery.py": "29a107235340b3236b784ef7e8344cbd662f627bc4eba5d082276befcf72b9bf",
+    "examples/l01_recovery/run.py": "fdd3a5a230bfffeed4874df23806381ca84d9e503853335717eabd497e3bffea"
+  },
+  "tests_run": 21,
+  "successful": true,
+  "summary": {
+    "passed": 21,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0
+  },
+  "cases": [
+    {
+      "id": "test_recovery.RecoveryTests.test_00_broken_retry_reproduces_duplicate_effect",
+      "description": "Broken control: retrying one logical operation with a new key deducts twice.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0458,
+      "evidence": {
+        "expected": {
+          "purpose": "reproduce the known broken retry, not a second legitimate operation",
+          "after_lost_response": {
+            "available": 8,
+            "reservations": 1
+          },
+          "after_wrong_retry": {
+            "available": 6,
+            "reservations": 2
+          },
+          "logical_operations": 1
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "first_write_committed_response_lost": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": null,
+                  "retry_contract": null,
+                  "key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "055fa061-2233-4719-be56-a0914c101602",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266281919000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266281181000,
+                  "kind": "intent_saved",
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266282441000,
+                  "kind": "call_reserved",
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "detail": "{\"attempt_id\":\"055fa061-2233-4719-be56-a0914c101602\",\"automatic\":true,\"kind\":\"write\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266283933000,
+                  "kind": "reserve_applied",
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "detail": "{\"available\":8,\"reservation_key\":\"998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": null,
+                  "retry_contract": null,
+                  "key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "055fa061-2233-4719-be56-a0914c101602",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266281919000
+                },
+                {
+                  "attempt_id": "dd82d3ba-023e-4eaf-9d35-2bf5abf661ea",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266285012000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266281181000,
+                  "kind": "intent_saved",
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266282441000,
+                  "kind": "call_reserved",
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "detail": "{\"attempt_id\":\"055fa061-2233-4719-be56-a0914c101602\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266285154000,
+                  "kind": "call_reserved",
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "detail": "{\"attempt_id\":\"dd82d3ba-023e-4eaf-9d35-2bf5abf661ea\",\"automatic\":true,\"kind\":\"write\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 6
+              },
+              "reservations": [
+                {
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                },
+                {
+                  "operation_key": "ba8bc37f-ae2a-4184-a01d-7d6d4002d991",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "operation_key": "ba8bc37f-ae2a-4184-a01d-7d6d4002d991",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":6,\"reservation_key\":\"ba8bc37f-ae2a-4184-a01d-7d6d4002d991\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266283933000,
+                  "kind": "reserve_applied",
+                  "operation_key": "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+                  "detail": "{\"available\":8,\"reservation_key\":\"998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266285642000,
+                  "kind": "reserve_applied",
+                  "operation_key": "ba8bc37f-ae2a-4184-a01d-7d6d4002d991",
+                  "detail": "{\"available\":6,\"reservation_key\":\"ba8bc37f-ae2a-4184-a01d-7d6d4002d991\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        },
+        "wrong_attempt_keys": [
+          "998badb8-dd7e-4acc-b4b1-0d1d9e6d5d42",
+          "ba8bc37f-ae2a-4184-a01d-7d6d4002d991"
+        ]
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_01_normal_and_completed_restart",
+      "description": "A completed operation remains one reservation after another recovery.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0197,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "state": "succeeded"
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "first_success": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "2d0928a7-1014-434c-b2c0-5808d8a52798",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266300272000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266299040000,
+                  "kind": "intent_saved",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266299754000,
+                  "kind": "contract_bound",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266300423000,
+                  "kind": "call_reserved",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"attempt_id\":\"2d0928a7-1014-434c-b2c0-5808d8a52798\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266303991000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"available\":8,\"reservation_key\":\"a2bb00f5-b2c5-4884-a1c7-286467b53ed7\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"a2bb00f5-b2c5-4884-a1c7-286467b53ed7\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266302812000,
+                  "kind": "reserve_applied",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"available\":8,\"reservation_key\":\"a2bb00f5-b2c5-4884-a1c7-286467b53ed7\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "2d0928a7-1014-434c-b2c0-5808d8a52798",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266300272000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266299040000,
+                  "kind": "intent_saved",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266299754000,
+                  "kind": "contract_bound",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266300423000,
+                  "kind": "call_reserved",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"attempt_id\":\"2d0928a7-1014-434c-b2c0-5808d8a52798\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266303991000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"available\":8,\"reservation_key\":\"a2bb00f5-b2c5-4884-a1c7-286467b53ed7\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"a2bb00f5-b2c5-4884-a1c7-286467b53ed7\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266302812000,
+                  "kind": "reserve_applied",
+                  "operation_key": "a2bb00f5-b2c5-4884-a1c7-286467b53ed7",
+                  "detail": "{\"available\":8,\"reservation_key\":\"a2bb00f5-b2c5-4884-a1c7-286467b53ed7\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_02_committed_response_lost",
+      "description": "A lost response is reconciled, without a second business effect.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0266,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "state": "succeeded"
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 2,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "678402e9-36fc-43b1-af46-a556226ae5b0"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "498f66ff-44c0-47e8-872a-9c5dd908940d",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266321786000
+                },
+                {
+                  "attempt_id": "f42fb5a8-9b12-44f6-81d4-ed96c320de5a",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694266330317000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266320524000,
+                  "kind": "intent_saved",
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266321058000,
+                  "kind": "contract_bound",
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266321916000,
+                  "kind": "call_reserved",
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "detail": "{\"attempt_id\":\"498f66ff-44c0-47e8-872a-9c5dd908940d\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266329052000,
+                  "kind": "unknown",
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266330440000,
+                  "kind": "call_reserved",
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "detail": "{\"attempt_id\":\"f42fb5a8-9b12-44f6-81d4-ed96c320de5a\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694266332107000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "detail": "{\"available\":8,\"reservation_key\":\"678402e9-36fc-43b1-af46-a556226ae5b0\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"678402e9-36fc-43b1-af46-a556226ae5b0\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266326882000,
+                  "kind": "reserve_applied",
+                  "operation_key": "678402e9-36fc-43b1-af46-a556226ae5b0",
+                  "detail": "{\"available\":8,\"reservation_key\":\"678402e9-36fc-43b1-af46-a556226ae5b0\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_03_exit_after_tool_commit",
+      "description": "A real process exits after the tool commits and before its response.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.1067,
+      "evidence": {
+        "expected": {
+          "exit_code": 71,
+          "available": 8,
+          "reservations": 1,
+          "state": "succeeded"
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "after_process_exit_before_recovery": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "7a83d9f7-97fb-40af-ac39-5b84f07ccaee",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266426612000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266340018000,
+                  "kind": "intent_saved",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266425512000,
+                  "kind": "contract_bound",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266426782000,
+                  "kind": "call_reserved",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"attempt_id\":\"7a83d9f7-97fb-40af-ac39-5b84f07ccaee\",\"automatic\":true,\"kind\":\"write\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"ea1b2ce5-fd25-4482-ba54-ec1bfda0c454\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266427688000,
+                  "kind": "reserve_applied",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"available\":8,\"reservation_key\":\"ea1b2ce5-fd25-4482-ba54-ec1bfda0c454\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 2,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "7a83d9f7-97fb-40af-ac39-5b84f07ccaee",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266426612000
+                },
+                {
+                  "attempt_id": "086a7b7e-2d41-47db-8bfe-21a7a9df2ff3",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694266433698000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266340018000,
+                  "kind": "intent_saved",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266425512000,
+                  "kind": "contract_bound",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266426782000,
+                  "kind": "call_reserved",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"attempt_id\":\"7a83d9f7-97fb-40af-ac39-5b84f07ccaee\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266434202000,
+                  "kind": "call_reserved",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"attempt_id\":\"086a7b7e-2d41-47db-8bfe-21a7a9df2ff3\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266435800000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"available\":8,\"reservation_key\":\"ea1b2ce5-fd25-4482-ba54-ec1bfda0c454\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"ea1b2ce5-fd25-4482-ba54-ec1bfda0c454\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266427688000,
+                  "kind": "reserve_applied",
+                  "operation_key": "ea1b2ce5-fd25-4482-ba54-ec1bfda0c454",
+                  "detail": "{\"available\":8,\"reservation_key\":\"ea1b2ce5-fd25-4482-ba54-ec1bfda0c454\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        },
+        "process": {
+          "fault": "after-tool-commit",
+          "exit_code": 71,
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_04_exit_before_checkpoint",
+      "description": "A real process exits after success but before the Agent checkpoint.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.1347,
+      "evidence": {
+        "expected": {
+          "exit_code": 72,
+          "available": 8,
+          "reservations": 1,
+          "state": "succeeded"
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "after_process_exit_before_recovery": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "23f68179-b26c-494c-9cb9-2f5f742312d8",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266560923000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266458262000,
+                  "kind": "intent_saved",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266558897000,
+                  "kind": "contract_bound",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266561152000,
+                  "kind": "call_reserved",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"attempt_id\":\"23f68179-b26c-494c-9cb9-2f5f742312d8\",\"automatic\":true,\"kind\":\"write\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"ec6c9630-b712-4bc4-936e-81d86d98c7a5\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266564753000,
+                  "kind": "reserve_applied",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"available\":8,\"reservation_key\":\"ec6c9630-b712-4bc4-936e-81d86d98c7a5\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 2,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "23f68179-b26c-494c-9cb9-2f5f742312d8",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266560923000
+                },
+                {
+                  "attempt_id": "2357a9b1-abc9-4883-88d4-876035757cb1",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694266574237000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266458262000,
+                  "kind": "intent_saved",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266558897000,
+                  "kind": "contract_bound",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266561152000,
+                  "kind": "call_reserved",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"attempt_id\":\"23f68179-b26c-494c-9cb9-2f5f742312d8\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266574516000,
+                  "kind": "call_reserved",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"attempt_id\":\"2357a9b1-abc9-4883-88d4-876035757cb1\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266575925000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"available\":8,\"reservation_key\":\"ec6c9630-b712-4bc4-936e-81d86d98c7a5\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"ec6c9630-b712-4bc4-936e-81d86d98c7a5\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266564753000,
+                  "kind": "reserve_applied",
+                  "operation_key": "ec6c9630-b712-4bc4-936e-81d86d98c7a5",
+                  "detail": "{\"available\":8,\"reservation_key\":\"ec6c9630-b712-4bc4-936e-81d86d98c7a5\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        },
+        "process": {
+          "fault": "before-checkpoint",
+          "exit_code": 72,
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_05_two_workers_same_operation",
+      "description": "Two processes reach the same tool operation with an explicit barrier.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.3209,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "state": "succeeded",
+          "workers": 2
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 3,
+                  "max_calls": 8,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "4a438a32-ec01-4073-a42a-2c868a18d2fa"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "08887848-b8f5-4ee5-abc7-902869a42d01",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266858022000
+                },
+                {
+                  "attempt_id": "5b599b88-1bfe-44ef-8cda-f0ea7f3bb88c",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694266861473000
+                },
+                {
+                  "attempt_id": "a52bd5c4-cded-4dcb-a3c5-ee518acf21f9",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266863843000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266596456000,
+                  "kind": "intent_saved",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266856376000,
+                  "kind": "contract_bound",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266858869000,
+                  "kind": "call_reserved",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"attempt_id\":\"08887848-b8f5-4ee5-abc7-902869a42d01\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266861994000,
+                  "kind": "call_reserved",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"attempt_id\":\"5b599b88-1bfe-44ef-8cda-f0ea7f3bb88c\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266864646000,
+                  "kind": "call_reserved",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"attempt_id\":\"a52bd5c4-cded-4dcb-a3c5-ee518acf21f9\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694266871725000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"available\":8,\"reservation_key\":\"4a438a32-ec01-4073-a42a-2c868a18d2fa\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"4a438a32-ec01-4073-a42a-2c868a18d2fa\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266870084000,
+                  "kind": "reserve_applied",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"available\":8,\"reservation_key\":\"4a438a32-ec01-4073-a42a-2c868a18d2fa\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266871079000,
+                  "kind": "deduplicated",
+                  "operation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                  "detail": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}"
+                }
+              ]
+            }
+          }
+        },
+        "worker_exit_codes": [
+          0,
+          0
+        ],
+        "worker_results": [
+          {
+            "ok": true,
+            "operation": {
+              "operation_id": "op-1",
+              "params": {
+                "order_id": "order-17",
+                "qty": 2,
+                "sku": "SKU-A"
+              },
+              "state": "succeeded",
+              "calls": 3,
+              "max_calls": 8,
+              "result": {
+                "available": 8,
+                "reservation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                "status": "succeeded"
+              },
+              "halt_reason": null,
+              "retry_contract": "durable_idempotency",
+              "key": "4a438a32-ec01-4073-a42a-2c868a18d2fa"
+            }
+          },
+          {
+            "ok": true,
+            "operation": {
+              "operation_id": "op-1",
+              "params": {
+                "order_id": "order-17",
+                "qty": 2,
+                "sku": "SKU-A"
+              },
+              "state": "succeeded",
+              "calls": 3,
+              "max_calls": 8,
+              "result": {
+                "available": 8,
+                "reservation_key": "4a438a32-ec01-4073-a42a-2c868a18d2fa",
+                "status": "succeeded"
+              },
+              "halt_reason": null,
+              "retry_contract": "durable_idempotency",
+              "key": "4a438a32-ec01-4073-a42a-2c868a18d2fa"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_06_late_unknown_cannot_erase_success",
+      "description": "A stale worker's timeout does not overwrite a confirmed success.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0187,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "state": "succeeded",
+          "late_unknown_ignored": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "before_stale_write": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "66bd012f-cfeb-4dca-8900-66a29acbd057",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266919386000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266916061000,
+                  "kind": "intent_saved",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266917992000,
+                  "kind": "contract_bound",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266919794000,
+                  "kind": "call_reserved",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"attempt_id\":\"66bd012f-cfeb-4dca-8900-66a29acbd057\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266921496000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"available\":8,\"reservation_key\":\"f1df8630-65ad-4ada-b733-b2a8d36ecfaa\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"f1df8630-65ad-4ada-b733-b2a8d36ecfaa\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266920626000,
+                  "kind": "reserve_applied",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"available\":8,\"reservation_key\":\"f1df8630-65ad-4ada-b733-b2a8d36ecfaa\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "66bd012f-cfeb-4dca-8900-66a29acbd057",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266919386000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266916061000,
+                  "kind": "intent_saved",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266917992000,
+                  "kind": "contract_bound",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266919794000,
+                  "kind": "call_reserved",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"attempt_id\":\"66bd012f-cfeb-4dca-8900-66a29acbd057\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266921496000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"available\":8,\"reservation_key\":\"f1df8630-65ad-4ada-b733-b2a8d36ecfaa\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266923351000,
+                  "kind": "late_unknown_ignored",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"reason\":\"late timeout\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"f1df8630-65ad-4ada-b733-b2a8d36ecfaa\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266920626000,
+                  "kind": "reserve_applied",
+                  "operation_key": "f1df8630-65ad-4ada-b733-b2a8d36ecfaa",
+                  "detail": "{\"available\":8,\"reservation_key\":\"f1df8630-65ad-4ada-b733-b2a8d36ecfaa\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_07_same_key_different_parameters",
+      "description": "Changing quantity, order or SKU under an existing key is a conflict.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0301,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "conflicts": 3
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "original_success": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "fixed-key",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "fixed-key",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"fixed-key\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266949444000,
+                  "kind": "reserve_applied",
+                  "operation_key": "fixed-key",
+                  "detail": "{\"available\":8,\"reservation_key\":\"fixed-key\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "fixed-key",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "fixed-key",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"fixed-key\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266949444000,
+                  "kind": "reserve_applied",
+                  "operation_key": "fixed-key",
+                  "detail": "{\"available\":8,\"reservation_key\":\"fixed-key\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_08_prepared_key_and_parameters_are_stable",
+      "description": "A restart reuses the operation key; changing prepared parameters fails.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0114,
+      "evidence": {
+        "expected": {
+          "available": 10,
+          "reservations": 0,
+          "same_key": true,
+          "parameter_conflict": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "prepared",
+                  "calls": 0,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": null,
+                  "retry_contract": null,
+                  "key": "ee16f190-394f-475e-b882-b264ed099812"
+                }
+              ],
+              "attempts": [],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266966877000,
+                  "kind": "intent_saved",
+                  "operation_key": "ee16f190-394f-475e-b882-b264ed099812",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_09_different_orders_are_not_deduplicated",
+      "description": "Two orders produce two distinct reservations, not one SKU-level hit.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0188,
+      "evidence": {
+        "expected": {
+          "available": 6,
+          "reservations": 2,
+          "successful_operations": 2,
+          "replayed_original_available": 8
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae"
+                },
+                {
+                  "operation_id": "op-2",
+                  "params": {
+                    "order_id": "order-18",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 6,
+                    "reservation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "4957bc73-597c-4b05-bc7f-1a9547e7256a"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "b291ba41-441c-4435-a6c6-5cec77837f9b",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266977106000
+                },
+                {
+                  "attempt_id": "f9cd59ca-d47b-4dda-a00e-821f58f5957e",
+                  "operation_id": "op-2",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266980014000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266975817000,
+                  "kind": "intent_saved",
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266976285000,
+                  "kind": "intent_saved",
+                  "operation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                  "detail": "{\"operation_id\":\"op-2\",\"params\":{\"order_id\":\"order-18\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266976691000,
+                  "kind": "contract_bound",
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266977225000,
+                  "kind": "call_reserved",
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "detail": "{\"attempt_id\":\"b291ba41-441c-4435-a6c6-5cec77837f9b\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266979109000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "detail": "{\"available\":8,\"reservation_key\":\"4d2614e9-969d-4ac3-9f70-90eefd7a8fae\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694266979604000,
+                  "kind": "contract_bound",
+                  "operation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694266980127000,
+                  "kind": "call_reserved",
+                  "operation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                  "detail": "{\"attempt_id\":\"f9cd59ca-d47b-4dda-a00e-821f58f5957e\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 8,
+                  "time_ns": 1791694266982124000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                  "detail": "{\"available\":6,\"reservation_key\":\"4957bc73-597c-4b05-bc7f-1a9547e7256a\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 6
+              },
+              "reservations": [
+                {
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                },
+                {
+                  "operation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                  "order_id": "order-18",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"4d2614e9-969d-4ac3-9f70-90eefd7a8fae\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "operation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                  "params": "{\"order_id\":\"order-18\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":6,\"reservation_key\":\"4957bc73-597c-4b05-bc7f-1a9547e7256a\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266978529000,
+                  "kind": "reserve_applied",
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "detail": "{\"available\":8,\"reservation_key\":\"4d2614e9-969d-4ac3-9f70-90eefd7a8fae\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266981497000,
+                  "kind": "reserve_applied",
+                  "operation_key": "4957bc73-597c-4b05-bc7f-1a9547e7256a",
+                  "detail": "{\"available\":6,\"reservation_key\":\"4957bc73-597c-4b05-bc7f-1a9547e7256a\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266986010000,
+                  "kind": "deduplicated",
+                  "operation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+                  "detail": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}"
+                }
+              ]
+            }
+          }
+        },
+        "replayed_original_result": {
+          "available": 8,
+          "reservation_key": "4d2614e9-969d-4ac3-9f70-90eefd7a8fae",
+          "status": "succeeded"
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_10_one_order_can_have_two_legitimate_operations",
+      "description": "A new explicit business operation on the same order is not a retry.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0207,
+      "evidence": {
+        "expected": {
+          "available": 6,
+          "reservations": 2,
+          "same_order_distinct_operations": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "two_legitimate_operations": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "reserve-first",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "8248e786-f79a-4249-a88c-6b880471c267"
+                },
+                {
+                  "operation_id": "reserve-additional",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 6,
+                    "reservation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "9680aeca-f48f-4c94-923a-716a6f37a8c4"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "1099e131-1508-4a88-90e6-895e90878491",
+                  "operation_id": "reserve-first",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266994945000
+                },
+                {
+                  "attempt_id": "d7eebf13-bb20-4b65-99cc-748daa4e1614",
+                  "operation_id": "reserve-additional",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267002825000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266993498000,
+                  "kind": "intent_saved",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"operation_id\":\"reserve-first\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266993971000,
+                  "kind": "intent_saved",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"operation_id\":\"reserve-additional\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266994467000,
+                  "kind": "contract_bound",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266995068000,
+                  "kind": "call_reserved",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"attempt_id\":\"1099e131-1508-4a88-90e6-895e90878491\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266998542000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"available\":8,\"reservation_key\":\"8248e786-f79a-4249-a88c-6b880471c267\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694266999078000,
+                  "kind": "contract_bound",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267002942000,
+                  "kind": "call_reserved",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"attempt_id\":\"d7eebf13-bb20-4b65-99cc-748daa4e1614\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 8,
+                  "time_ns": 1791694267003973000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"available\":6,\"reservation_key\":\"9680aeca-f48f-4c94-923a-716a6f37a8c4\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 6
+              },
+              "reservations": [
+                {
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                },
+                {
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"8248e786-f79a-4249-a88c-6b880471c267\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":6,\"reservation_key\":\"9680aeca-f48f-4c94-923a-716a6f37a8c4\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266998011000,
+                  "kind": "reserve_applied",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"available\":8,\"reservation_key\":\"8248e786-f79a-4249-a88c-6b880471c267\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267003446000,
+                  "kind": "reserve_applied",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"available\":6,\"reservation_key\":\"9680aeca-f48f-4c94-923a-716a6f37a8c4\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "reserve-first",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "8248e786-f79a-4249-a88c-6b880471c267"
+                },
+                {
+                  "operation_id": "reserve-additional",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 6,
+                    "reservation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "9680aeca-f48f-4c94-923a-716a6f37a8c4"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "1099e131-1508-4a88-90e6-895e90878491",
+                  "operation_id": "reserve-first",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694266994945000
+                },
+                {
+                  "attempt_id": "d7eebf13-bb20-4b65-99cc-748daa4e1614",
+                  "operation_id": "reserve-additional",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267002825000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266993498000,
+                  "kind": "intent_saved",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"operation_id\":\"reserve-first\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694266993971000,
+                  "kind": "intent_saved",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"operation_id\":\"reserve-additional\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694266994467000,
+                  "kind": "contract_bound",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694266995068000,
+                  "kind": "call_reserved",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"attempt_id\":\"1099e131-1508-4a88-90e6-895e90878491\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694266998542000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"available\":8,\"reservation_key\":\"8248e786-f79a-4249-a88c-6b880471c267\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694266999078000,
+                  "kind": "contract_bound",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267002942000,
+                  "kind": "call_reserved",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"attempt_id\":\"d7eebf13-bb20-4b65-99cc-748daa4e1614\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 8,
+                  "time_ns": 1791694267003973000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"available\":6,\"reservation_key\":\"9680aeca-f48f-4c94-923a-716a6f37a8c4\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 6
+              },
+              "reservations": [
+                {
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                },
+                {
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"8248e786-f79a-4249-a88c-6b880471c267\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":6,\"reservation_key\":\"9680aeca-f48f-4c94-923a-716a6f37a8c4\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694266998011000,
+                  "kind": "reserve_applied",
+                  "operation_key": "8248e786-f79a-4249-a88c-6b880471c267",
+                  "detail": "{\"available\":8,\"reservation_key\":\"8248e786-f79a-4249-a88c-6b880471c267\",\"status\":\"succeeded\"}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267003446000,
+                  "kind": "reserve_applied",
+                  "operation_key": "9680aeca-f48f-4c94-923a-716a6f37a8c4",
+                  "detail": "{\"available\":6,\"reservation_key\":\"9680aeca-f48f-4c94-923a-716a6f37a8c4\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_11_permanent_error_stops",
+      "description": "Insufficient stock is a definite rejection, with no business effect.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0132,
+      "evidence": {
+        "expected": {
+          "available": 10,
+          "reservations": 0,
+          "state": "failed",
+          "no_retry_after_failure": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "permanent_failure": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 11,
+                    "sku": "SKU-A"
+                  },
+                  "state": "failed",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "reason": "insufficient_stock",
+                    "status": "failed"
+                  },
+                  "halt_reason": "insufficient_stock",
+                  "retry_contract": "durable_idempotency",
+                  "key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "80661496-974b-47e2-a514-34a18c4c8fb2",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267015807000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267013627000,
+                  "kind": "intent_saved",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":11,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267015293000,
+                  "kind": "contract_bound",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267015924000,
+                  "kind": "call_reserved",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"attempt_id\":\"80661496-974b-47e2-a514-34a18c4c8fb2\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267018223000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"reason\":\"insufficient_stock\",\"status\":\"failed\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [
+                {
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":11,\"sku\":\"SKU-A\"}",
+                  "result": "{\"reason\":\"insufficient_stock\",\"status\":\"failed\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267016358000,
+                  "kind": "reserve_rejected",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"reason\":\"insufficient_stock\",\"status\":\"failed\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 11,
+                    "sku": "SKU-A"
+                  },
+                  "state": "failed",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": {
+                    "reason": "insufficient_stock",
+                    "status": "failed"
+                  },
+                  "halt_reason": "insufficient_stock",
+                  "retry_contract": "durable_idempotency",
+                  "key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "80661496-974b-47e2-a514-34a18c4c8fb2",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267015807000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267013627000,
+                  "kind": "intent_saved",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":11,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267015293000,
+                  "kind": "contract_bound",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267015924000,
+                  "kind": "call_reserved",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"attempt_id\":\"80661496-974b-47e2-a514-34a18c4c8fb2\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267018223000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"reason\":\"insufficient_stock\",\"status\":\"failed\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [
+                {
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":11,\"sku\":\"SKU-A\"}",
+                  "result": "{\"reason\":\"insufficient_stock\",\"status\":\"failed\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267016358000,
+                  "kind": "reserve_rejected",
+                  "operation_key": "a6ee7a1d-d34b-4a8c-8159-a016be1c2083",
+                  "detail": "{\"reason\":\"insufficient_stock\",\"status\":\"failed\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_12_committed_but_budget_exhausted_is_unknown",
+      "description": "Exhausted reconciliation budget does not turn a committed result into failure.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0264,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "state": "unknown",
+          "calls": 2
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "budget_exhausted": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "79592f22-d78c-4504-b63a-76916349f42c"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "55915f5b-1cd0-4220-9723-305d68622e72",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267028553000
+                },
+                {
+                  "attempt_id": "ccb92a26-8abf-440d-8e4b-ef437d5196e2",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267033167000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267027301000,
+                  "kind": "intent_saved",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267027714000,
+                  "kind": "contract_bound",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267028670000,
+                  "kind": "call_reserved",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"attempt_id\":\"55915f5b-1cd0-4220-9723-305d68622e72\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267030332000,
+                  "kind": "unknown",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267033314000,
+                  "kind": "call_reserved",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"attempt_id\":\"ccb92a26-8abf-440d-8e4b-ef437d5196e2\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267033897000,
+                  "kind": "unknown",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267034328000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"calls\":2}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"79592f22-d78c-4504-b63a-76916349f42c\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267029116000,
+                  "kind": "reserve_applied",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"available\":8,\"reservation_key\":\"79592f22-d78c-4504-b63a-76916349f42c\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "79592f22-d78c-4504-b63a-76916349f42c"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "55915f5b-1cd0-4220-9723-305d68622e72",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267028553000
+                },
+                {
+                  "attempt_id": "ccb92a26-8abf-440d-8e4b-ef437d5196e2",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267033167000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267027301000,
+                  "kind": "intent_saved",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267027714000,
+                  "kind": "contract_bound",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267028670000,
+                  "kind": "call_reserved",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"attempt_id\":\"55915f5b-1cd0-4220-9723-305d68622e72\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267030332000,
+                  "kind": "unknown",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267033314000,
+                  "kind": "call_reserved",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"attempt_id\":\"ccb92a26-8abf-440d-8e4b-ef437d5196e2\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267033897000,
+                  "kind": "unknown",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267034328000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"calls\":2}"
+                },
+                {
+                  "id": 8,
+                  "time_ns": 1791694267039688000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"calls\":2}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"79592f22-d78c-4504-b63a-76916349f42c\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267029116000,
+                  "kind": "reserve_applied",
+                  "operation_key": "79592f22-d78c-4504-b63a-76916349f42c",
+                  "detail": "{\"available\":8,\"reservation_key\":\"79592f22-d78c-4504-b63a-76916349f42c\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_13_uncommitted_timeout_is_still_unknown",
+      "description": "Without an authoritative result, no side effect does not imply known failure.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0392,
+      "evidence": {
+        "expected": {
+          "available": 10,
+          "reservations": 0,
+          "state": "unknown",
+          "calls": 2
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "09045083-0067-4ddb-9499-3c6301145dd9",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267074909000
+                },
+                {
+                  "attempt_id": "196b6e2a-9298-43f0-b6b5-6bca6995df7c",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267076390000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267073698000,
+                  "kind": "intent_saved",
+                  "operation_key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267074252000,
+                  "kind": "contract_bound",
+                  "operation_key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267075070000,
+                  "kind": "call_reserved",
+                  "operation_key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11",
+                  "detail": "{\"attempt_id\":\"09045083-0067-4ddb-9499-3c6301145dd9\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267075827000,
+                  "kind": "unknown",
+                  "operation_key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267076534000,
+                  "kind": "call_reserved",
+                  "operation_key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11",
+                  "detail": "{\"attempt_id\":\"196b6e2a-9298-43f0-b6b5-6bca6995df7c\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267080088000,
+                  "kind": "unknown",
+                  "operation_key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267086198000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "a7827f62-d0e6-4887-a7c9-fbb41129aa11",
+                  "detail": "{\"calls\":2}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_14_no_contract_does_not_blindly_retry",
+      "description": "Even two prepared readers get one unsafe write, followed by reconciliation.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.2605,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "state": "unknown",
+          "no_second_automatic_call": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "unknown_without_contract": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": "no_safe_retry_contract; reconcile_required",
+                  "retry_contract": "no_safe_retry",
+                  "key": "5b11c871-21d8-401d-ac6a-67cedc386e58"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "9460c7e7-174b-4234-9452-a0129fd18bac",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267300375000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267098805000,
+                  "kind": "intent_saved",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267297221000,
+                  "kind": "contract_bound",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"retry_contract\":\"no_safe_retry\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267300923000,
+                  "kind": "call_reserved",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"attempt_id\":\"9460c7e7-174b-4234-9452-a0129fd18bac\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267305095000,
+                  "kind": "unknown",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267308880000,
+                  "kind": "unknown",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"reason\":\"no_safe_retry_contract; reconcile_required\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "4870389e-3d5c-4cac-90a2-93c0377228ec",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "4870389e-3d5c-4cac-90a2-93c0377228ec",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"4870389e-3d5c-4cac-90a2-93c0377228ec\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267304091000,
+                  "kind": "reserve_applied",
+                  "operation_key": "4870389e-3d5c-4cac-90a2-93c0377228ec",
+                  "detail": "{\"available\":8,\"reservation_key\":\"4870389e-3d5c-4cac-90a2-93c0377228ec\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": "no_safe_retry_contract; reconcile_required",
+                  "retry_contract": "no_safe_retry",
+                  "key": "5b11c871-21d8-401d-ac6a-67cedc386e58"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "9460c7e7-174b-4234-9452-a0129fd18bac",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267300375000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267098805000,
+                  "kind": "intent_saved",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267297221000,
+                  "kind": "contract_bound",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"retry_contract\":\"no_safe_retry\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267300923000,
+                  "kind": "call_reserved",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"attempt_id\":\"9460c7e7-174b-4234-9452-a0129fd18bac\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267305095000,
+                  "kind": "unknown",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267308880000,
+                  "kind": "unknown",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"reason\":\"no_safe_retry_contract; reconcile_required\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267344254000,
+                  "kind": "unknown",
+                  "operation_key": "5b11c871-21d8-401d-ac6a-67cedc386e58",
+                  "detail": "{\"reason\":\"no_safe_retry_contract; reconcile_required\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "4870389e-3d5c-4cac-90a2-93c0377228ec",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "4870389e-3d5c-4cac-90a2-93c0377228ec",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"4870389e-3d5c-4cac-90a2-93c0377228ec\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267304091000,
+                  "kind": "reserve_applied",
+                  "operation_key": "4870389e-3d5c-4cac-90a2-93c0377228ec",
+                  "detail": "{\"available\":8,\"reservation_key\":\"4870389e-3d5c-4cac-90a2-93c0377228ec\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        },
+        "worker_exit_codes": [
+          0,
+          0
+        ],
+        "worker_results": [
+          {
+            "ok": true,
+            "operation": {
+              "operation_id": "op-1",
+              "params": {
+                "order_id": "order-17",
+                "qty": 2,
+                "sku": "SKU-A"
+              },
+              "state": "unknown",
+              "calls": 1,
+              "max_calls": 4,
+              "result": null,
+              "halt_reason": "no_safe_retry_contract; reconcile_required",
+              "retry_contract": "no_safe_retry",
+              "key": "5b11c871-21d8-401d-ac6a-67cedc386e58"
+            }
+          },
+          {
+            "ok": true,
+            "operation": {
+              "operation_id": "op-1",
+              "params": {
+                "order_id": "order-17",
+                "qty": 2,
+                "sku": "SKU-A"
+              },
+              "state": "unknown",
+              "calls": 1,
+              "max_calls": 4,
+              "result": null,
+              "halt_reason": "no_safe_retry_contract; reconcile_required",
+              "retry_contract": "no_safe_retry",
+              "key": "5b11c871-21d8-401d-ac6a-67cedc386e58"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_15_manual_reconciliation_is_audited",
+      "description": "Explicit reconciliation can learn success without resetting the automatic budget.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0241,
+      "evidence": {
+        "expected": {
+          "available": 8,
+          "reservations": 1,
+          "state": "succeeded",
+          "automatic_calls": 2,
+          "manual_audit_added": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "before_manual_reconciliation": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "df1999ff-3b34-4833-9649-fb09b0191be1"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "d03f1072-958c-405a-a9ec-f71d96a81d32",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267362285000
+                },
+                {
+                  "attempt_id": "d3bc4a37-0f0e-4e13-9929-14451fda8d4d",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267363715000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267361333000,
+                  "kind": "intent_saved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267361833000,
+                  "kind": "contract_bound",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267362401000,
+                  "kind": "call_reserved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"attempt_id\":\"d03f1072-958c-405a-a9ec-f71d96a81d32\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267363281000,
+                  "kind": "unknown",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267364160000,
+                  "kind": "call_reserved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"attempt_id\":\"d3bc4a37-0f0e-4e13-9929-14451fda8d4d\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267364803000,
+                  "kind": "unknown",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267365201000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"calls\":2}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"df1999ff-3b34-4833-9649-fb09b0191be1\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267362856000,
+                  "kind": "reserve_applied",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"available\":8,\"reservation_key\":\"df1999ff-3b34-4833-9649-fb09b0191be1\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "df1999ff-3b34-4833-9649-fb09b0191be1"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "d03f1072-958c-405a-a9ec-f71d96a81d32",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267362285000
+                },
+                {
+                  "attempt_id": "d3bc4a37-0f0e-4e13-9929-14451fda8d4d",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267363715000
+                },
+                {
+                  "attempt_id": "c8f2c5e0-c501-4311-9c9e-023c5fa17350",
+                  "operation_id": "op-1",
+                  "kind": "manual_query",
+                  "automatic": 0,
+                  "time_ns": 1791694267368177000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267361333000,
+                  "kind": "intent_saved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267361833000,
+                  "kind": "contract_bound",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267362401000,
+                  "kind": "call_reserved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"attempt_id\":\"d03f1072-958c-405a-a9ec-f71d96a81d32\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267363281000,
+                  "kind": "unknown",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267364160000,
+                  "kind": "call_reserved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"attempt_id\":\"d3bc4a37-0f0e-4e13-9929-14451fda8d4d\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267364803000,
+                  "kind": "unknown",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267365201000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"calls\":2}"
+                },
+                {
+                  "id": 8,
+                  "time_ns": 1791694267368590000,
+                  "kind": "call_reserved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"attempt_id\":\"c8f2c5e0-c501-4311-9c9e-023c5fa17350\",\"automatic\":false,\"kind\":\"manual_query\"}"
+                },
+                {
+                  "id": 9,
+                  "time_ns": 1791694267369342000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"available\":8,\"reservation_key\":\"df1999ff-3b34-4833-9649-fb09b0191be1\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"df1999ff-3b34-4833-9649-fb09b0191be1\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267362856000,
+                  "kind": "reserve_applied",
+                  "operation_key": "df1999ff-3b34-4833-9649-fb09b0191be1",
+                  "detail": "{\"available\":8,\"reservation_key\":\"df1999ff-3b34-4833-9649-fb09b0191be1\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_16_tool_transaction_rolls_back",
+      "description": "Failure inside the transaction leaves neither a deduction nor a reservation.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0111,
+      "evidence": {
+        "expected": {
+          "after_fault": {
+            "available": 10,
+            "reservations": 0
+          },
+          "after_retry": {
+            "available": 8,
+            "reservations": 1
+          }
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "after_transaction_fault": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "atomic-key",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "atomic-key",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"atomic-key\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267382148000,
+                  "kind": "reserve_applied",
+                  "operation_key": "atomic-key",
+                  "detail": "{\"available\":8,\"reservation_key\":\"atomic-key\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_17_budget_claim_is_atomic_across_processes",
+      "description": "Two workers cannot both consume the last persistent remote-call allowance.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.2361,
+      "evidence": {
+        "expected": {
+          "available": 10,
+          "reservations": 0,
+          "successful_claims": 1,
+          "calls": 1
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 1,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": null,
+                  "key": "072a8b0a-9828-4532-bc2f-55ca3e4b7b43"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "4cbb906f-102c-4d35-8f56-c67c074bf2a7",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267594058000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267389379000,
+                  "kind": "intent_saved",
+                  "operation_key": "072a8b0a-9828-4532-bc2f-55ca3e4b7b43",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267594350000,
+                  "kind": "call_reserved",
+                  "operation_key": "072a8b0a-9828-4532-bc2f-55ca3e4b7b43",
+                  "detail": "{\"attempt_id\":\"4cbb906f-102c-4d35-8f56-c67c074bf2a7\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267595460000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "072a8b0a-9828-4532-bc2f-55ca3e4b7b43",
+                  "detail": "{\"calls\":1}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          }
+        },
+        "worker_exit_codes": [
+          0,
+          0
+        ],
+        "worker_results": [
+          {
+            "ok": true,
+            "attempt_id": "4cbb906f-102c-4d35-8f56-c67c074bf2a7"
+          },
+          {
+            "ok": true,
+            "attempt_id": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_18_reprepare_does_not_reset_budget",
+      "description": "Opening an existing operation cannot refresh its consumed call allowance.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0093,
+      "evidence": {
+        "expected": {
+          "available": 10,
+          "reservations": 0,
+          "calls": 1,
+          "max_calls": 1,
+          "same_key": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "budget_consumed": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 1,
+                  "result": null,
+                  "halt_reason": null,
+                  "retry_contract": null,
+                  "key": "2e1111b2-c87d-4f7c-b8c8-1f579befd8d2"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "191aa095-06cb-4f4f-82a9-d5dd22108508",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267626222000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267625247000,
+                  "kind": "intent_saved",
+                  "operation_key": "2e1111b2-c87d-4f7c-b8c8-1f579befd8d2",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267626600000,
+                  "kind": "call_reserved",
+                  "operation_key": "2e1111b2-c87d-4f7c-b8c8-1f579befd8d2",
+                  "detail": "{\"attempt_id\":\"191aa095-06cb-4f4f-82a9-d5dd22108508\",\"automatic\":true,\"kind\":\"write\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 1,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": null,
+                  "key": "2e1111b2-c87d-4f7c-b8c8-1f579befd8d2"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "191aa095-06cb-4f4f-82a9-d5dd22108508",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267626222000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267625247000,
+                  "kind": "intent_saved",
+                  "operation_key": "2e1111b2-c87d-4f7c-b8c8-1f579befd8d2",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267626600000,
+                  "kind": "call_reserved",
+                  "operation_key": "2e1111b2-c87d-4f7c-b8c8-1f579befd8d2",
+                  "detail": "{\"attempt_id\":\"191aa095-06cb-4f4f-82a9-d5dd22108508\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267627816000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "2e1111b2-c87d-4f7c-b8c8-1f579befd8d2",
+                  "detail": "{\"calls\":1}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_19_contract_cannot_change_after_unknown_write",
+      "description": "Changing either persisted retry contract is refused before another call.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 0.0481,
+      "evidence": {
+        "expected": {
+          "each_direction": {
+            "available": 8,
+            "reservations": 1,
+            "state": "unknown"
+          },
+          "contract_conflicts": 4,
+          "no_additional_calls": true
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "contract_False_initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "contract_False_before_change": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "no_safe_retry_contract; reconcile_required",
+                  "retry_contract": "no_safe_retry",
+                  "key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "5679b97e-706f-4861-b5d3-2c0a7c067f87",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267640710000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267637728000,
+                  "kind": "intent_saved",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267639233000,
+                  "kind": "contract_bound",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"retry_contract\":\"no_safe_retry\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267641336000,
+                  "kind": "call_reserved",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"attempt_id\":\"5679b97e-706f-4861-b5d3-2c0a7c067f87\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267642778000,
+                  "kind": "unknown",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267643325000,
+                  "kind": "unknown",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"reason\":\"no_safe_retry_contract; reconcile_required\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "75d77155-0d8b-46cf-9d4c-434051cda5ed",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "75d77155-0d8b-46cf-9d4c-434051cda5ed",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"75d77155-0d8b-46cf-9d4c-434051cda5ed\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267642257000,
+                  "kind": "reserve_applied",
+                  "operation_key": "75d77155-0d8b-46cf-9d4c-434051cda5ed",
+                  "detail": "{\"available\":8,\"reservation_key\":\"75d77155-0d8b-46cf-9d4c-434051cda5ed\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "contract_False_after_rejection": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "no_safe_retry_contract; reconcile_required",
+                  "retry_contract": "no_safe_retry",
+                  "key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "5679b97e-706f-4861-b5d3-2c0a7c067f87",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267640710000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267637728000,
+                  "kind": "intent_saved",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267639233000,
+                  "kind": "contract_bound",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"retry_contract\":\"no_safe_retry\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267641336000,
+                  "kind": "call_reserved",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"attempt_id\":\"5679b97e-706f-4861-b5d3-2c0a7c067f87\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267642778000,
+                  "kind": "unknown",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267643325000,
+                  "kind": "unknown",
+                  "operation_key": "9275aae7-1c2a-40af-86ab-4a16e916f5c2",
+                  "detail": "{\"reason\":\"no_safe_retry_contract; reconcile_required\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "75d77155-0d8b-46cf-9d4c-434051cda5ed",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "75d77155-0d8b-46cf-9d4c-434051cda5ed",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"75d77155-0d8b-46cf-9d4c-434051cda5ed\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267642257000,
+                  "kind": "reserve_applied",
+                  "operation_key": "75d77155-0d8b-46cf-9d4c-434051cda5ed",
+                  "detail": "{\"available\":8,\"reservation_key\":\"75d77155-0d8b-46cf-9d4c-434051cda5ed\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "contract_True_initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "contract_True_before_change": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "bc32e2f5-f706-4181-9078-1465d1e57e2a"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "78ba620d-2f10-4bfb-a3e0-ac7e34d117ca",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267665182000
+                },
+                {
+                  "attempt_id": "59d1c61e-879d-4570-a40a-ad5d9a35132f",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267666718000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267659808000,
+                  "kind": "intent_saved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267664427000,
+                  "kind": "contract_bound",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267665314000,
+                  "kind": "call_reserved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"attempt_id\":\"78ba620d-2f10-4bfb-a3e0-ac7e34d117ca\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267666261000,
+                  "kind": "unknown",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267666830000,
+                  "kind": "call_reserved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"attempt_id\":\"59d1c61e-879d-4570-a40a-ad5d9a35132f\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267668506000,
+                  "kind": "unknown",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267670157000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"calls\":2}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"bc32e2f5-f706-4181-9078-1465d1e57e2a\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267665842000,
+                  "kind": "reserve_applied",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"available\":8,\"reservation_key\":\"bc32e2f5-f706-4181-9078-1465d1e57e2a\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "contract_True_after_rejection": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "bc32e2f5-f706-4181-9078-1465d1e57e2a"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "78ba620d-2f10-4bfb-a3e0-ac7e34d117ca",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267665182000
+                },
+                {
+                  "attempt_id": "59d1c61e-879d-4570-a40a-ad5d9a35132f",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267666718000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267659808000,
+                  "kind": "intent_saved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267664427000,
+                  "kind": "contract_bound",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267665314000,
+                  "kind": "call_reserved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"attempt_id\":\"78ba620d-2f10-4bfb-a3e0-ac7e34d117ca\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267666261000,
+                  "kind": "unknown",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267666830000,
+                  "kind": "call_reserved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"attempt_id\":\"59d1c61e-879d-4570-a40a-ad5d9a35132f\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267668506000,
+                  "kind": "unknown",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267670157000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"calls\":2}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"bc32e2f5-f706-4181-9078-1465d1e57e2a\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267665842000,
+                  "kind": "reserve_applied",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"available\":8,\"reservation_key\":\"bc32e2f5-f706-4181-9078-1465d1e57e2a\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 2,
+                  "max_calls": 2,
+                  "result": null,
+                  "halt_reason": "budget_exhausted; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "bc32e2f5-f706-4181-9078-1465d1e57e2a"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "78ba620d-2f10-4bfb-a3e0-ac7e34d117ca",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267665182000
+                },
+                {
+                  "attempt_id": "59d1c61e-879d-4570-a40a-ad5d9a35132f",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694267666718000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267659808000,
+                  "kind": "intent_saved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267664427000,
+                  "kind": "contract_bound",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267665314000,
+                  "kind": "call_reserved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"attempt_id\":\"78ba620d-2f10-4bfb-a3e0-ac7e34d117ca\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694267666261000,
+                  "kind": "unknown",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"reason\":\"write_outcome_unknown\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694267666830000,
+                  "kind": "call_reserved",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"attempt_id\":\"59d1c61e-879d-4570-a40a-ad5d9a35132f\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694267668506000,
+                  "kind": "unknown",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"reason\":\"query_unavailable\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694267670157000,
+                  "kind": "budget_exhausted",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"calls\":2}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"bc32e2f5-f706-4181-9078-1465d1e57e2a\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267665842000,
+                  "kind": "reserve_applied",
+                  "operation_key": "bc32e2f5-f706-4181-9078-1465d1e57e2a",
+                  "detail": "{\"available\":8,\"reservation_key\":\"bc32e2f5-f706-4181-9078-1465d1e57e2a\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_recovery.RecoveryTests.test_20_tool_storage_lock_leaves_recoverable_unknown",
+      "description": "A real SQLite write lock fails within its budget, then recovery succeeds.",
+      "status": "passed",
+      "diagnostics": [],
+      "duration_seconds": 5.3626,
+      "evidence": {
+        "expected": {
+          "while_locked": {
+            "available": 10,
+            "reservations": 0,
+            "state": "unknown",
+            "halt_reason": "storage_locked; reconcile_required"
+          },
+          "after_release": {
+            "available": 8,
+            "reservations": 1,
+            "state": "succeeded"
+          }
+        },
+        "observations": {
+          "initial": {
+            "agent": {
+              "operations": [],
+              "attempts": [],
+              "events": []
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "after_bounded_storage_error": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "unknown",
+                  "calls": 1,
+                  "max_calls": 4,
+                  "result": null,
+                  "halt_reason": "storage_locked; reconcile_required",
+                  "retry_contract": "durable_idempotency",
+                  "key": "2a124aff-8903-43b5-b14d-88709f5a24bd"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "a73b8333-a1e6-432f-a9d0-5d7faad631d3",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267687435000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267684294000,
+                  "kind": "intent_saved",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267686154000,
+                  "kind": "contract_bound",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267688080000,
+                  "kind": "call_reserved",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"attempt_id\":\"a73b8333-a1e6-432f-a9d0-5d7faad631d3\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694273022654000,
+                  "kind": "unknown",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"reason\":\"storage_locked; reconcile_required\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 10
+              },
+              "reservations": [],
+              "requests": [],
+              "events": []
+            }
+          },
+          "final": {
+            "agent": {
+              "operations": [
+                {
+                  "operation_id": "op-1",
+                  "params": {
+                    "order_id": "order-17",
+                    "qty": 2,
+                    "sku": "SKU-A"
+                  },
+                  "state": "succeeded",
+                  "calls": 3,
+                  "max_calls": 4,
+                  "result": {
+                    "available": 8,
+                    "reservation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                    "status": "succeeded"
+                  },
+                  "halt_reason": null,
+                  "retry_contract": "durable_idempotency",
+                  "key": "2a124aff-8903-43b5-b14d-88709f5a24bd"
+                }
+              ],
+              "attempts": [
+                {
+                  "attempt_id": "a73b8333-a1e6-432f-a9d0-5d7faad631d3",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694267687435000
+                },
+                {
+                  "attempt_id": "ed005463-6563-4f9e-a6cb-e7dd804412d1",
+                  "operation_id": "op-1",
+                  "kind": "query",
+                  "automatic": 1,
+                  "time_ns": 1791694273026107000
+                },
+                {
+                  "attempt_id": "4e5c609b-d402-448b-bd81-1f868e904ac3",
+                  "operation_id": "op-1",
+                  "kind": "write",
+                  "automatic": 1,
+                  "time_ns": 1791694273028226000
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694267684294000,
+                  "kind": "intent_saved",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"operation_id\":\"op-1\",\"params\":{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}}"
+                },
+                {
+                  "id": 2,
+                  "time_ns": 1791694267686154000,
+                  "kind": "contract_bound",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"retry_contract\":\"durable_idempotency\"}"
+                },
+                {
+                  "id": 3,
+                  "time_ns": 1791694267688080000,
+                  "kind": "call_reserved",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"attempt_id\":\"a73b8333-a1e6-432f-a9d0-5d7faad631d3\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 4,
+                  "time_ns": 1791694273022654000,
+                  "kind": "unknown",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"reason\":\"storage_locked; reconcile_required\"}"
+                },
+                {
+                  "id": 5,
+                  "time_ns": 1791694273026530000,
+                  "kind": "call_reserved",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"attempt_id\":\"ed005463-6563-4f9e-a6cb-e7dd804412d1\",\"automatic\":true,\"kind\":\"query\"}"
+                },
+                {
+                  "id": 6,
+                  "time_ns": 1791694273028671000,
+                  "kind": "call_reserved",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"attempt_id\":\"4e5c609b-d402-448b-bd81-1f868e904ac3\",\"automatic\":true,\"kind\":\"write\"}"
+                },
+                {
+                  "id": 7,
+                  "time_ns": 1791694273037875000,
+                  "kind": "checkpoint_saved",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"available\":8,\"reservation_key\":\"2a124aff-8903-43b5-b14d-88709f5a24bd\",\"status\":\"succeeded\"}"
+                }
+              ]
+            },
+            "tool": {
+              "stock": {
+                "SKU-A": 8
+              },
+              "reservations": [
+                {
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "order_id": "order-17",
+                  "sku": "SKU-A",
+                  "qty": 2
+                }
+              ],
+              "requests": [
+                {
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "params": "{\"order_id\":\"order-17\",\"qty\":2,\"sku\":\"SKU-A\"}",
+                  "result": "{\"available\":8,\"reservation_key\":\"2a124aff-8903-43b5-b14d-88709f5a24bd\",\"status\":\"succeeded\"}"
+                }
+              ],
+              "events": [
+                {
+                  "id": 1,
+                  "time_ns": 1791694273034804000,
+                  "kind": "reserve_applied",
+                  "operation_key": "2a124aff-8903-43b5-b14d-88709f5a24bd",
+                  "detail": "{\"available\":8,\"reservation_key\":\"2a124aff-8903-43b5-b14d-88709f5a24bd\",\"status\":\"succeeded\"}"
+                }
+              ]
+            }
+          }
+        },
+        "lock_wait_seconds": 5.3381
+      }
+    }
+  ]
+}

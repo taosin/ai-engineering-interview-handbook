@@ -276,7 +276,12 @@
       "id": "L01",
       "slug": "recovery-after-tool-commit",
       "title": "工具已经成功，重启后却又执行一次",
-      "status": "specification",
+      "status": "reference-implementation",
+      "implementation": {
+        "path": "examples/l01_recovery/README.md",
+        "run_command": "python3 examples/l01_recovery/run.py",
+        "test_command": "python3 -m unittest discover -s examples/l01_recovery -p \"test_*.py\" -v"
+      },
       "question_ids": [
         "Q027",
         "Q035",
@@ -289,7 +294,7 @@
       "scenario": "在本地库存模拟中制造“外部提交成功、Agent 记录未保存”的间隙，验证恢复是否重复扣减。",
       "setup": [
         "全部为合成数据。每个独立用例开始时，SKU-A 的 available=10，没有预留记录；订单 order-17 需要预留 2 件。每个用例重置数据，不把前一用例的库存带入下一用例。",
-        "工具 reserve(order_id, sku, qty, idempotency_key) 支持同键查询原结果；同键不同参数返回冲突。需要自行实现这些语义，不能靠函数名称假定已经满足。",
+        "工具 reserve(order_id, sku, qty, idempotency_key) 支持同键查询原结果；同键不同参数返回冲突。附带的本地参考实现展示这些语义；自行实现或修改时仍需用断言验证，不能靠函数名称假定已经满足。",
         "Agent 任务为 run-01；逻辑操作标识与每次网络尝试标识分别记录。两个不同订单各预留 2 件作为对照。"
       ],
       "inject": [
