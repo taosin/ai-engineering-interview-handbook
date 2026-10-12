@@ -2,7 +2,7 @@
 
 # 学习资料与适用边界
 
-**内容类型：原创学习与成长规划** · 更新于 2026-10-11。
+**内容类型：原创学习与成长规划** · 更新于 2026-10-12。
 
 [路线总览](README.md) · [入口自测](start.md) · [能力阶段](milestones.md) · [学习与复习](review.md) · [面试前冲刺](interview-sprint.md) · [长期成长](growth.md) · [学习资料](resources.md)
 

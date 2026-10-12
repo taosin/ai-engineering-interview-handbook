@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "原创研习内容",
-  "updated": "2026-10-11",
+  "updated": "2026-10-12",
   "technical_sources": [
     {
       "title": "LangGraph — Checkpointers",
@@ -342,7 +342,7 @@
       "id": "L02",
       "slug": "stream-replay-and-cancellation",
       "title": "重连后文字重复，旧任务还在更新界面",
-      "status": "specification",
+      "status": "reference-implementation",
       "question_ids": [
         "Q031",
         "Q032",
@@ -398,7 +398,12 @@
           "points": 2,
           "full_credit": "游标、快照和内容的对应关系可从记录复核。"
         }
-      ]
+      ],
+      "implementation": {
+        "path": "examples/l02_streaming/README.md",
+        "run_command": "python3 examples/l02_streaming/run.py",
+        "test_command": "python3 -m unittest discover -s examples/l02_streaming -p \"test_*.py\" -v"
+      }
     },
     {
       "id": "L03",
@@ -473,7 +478,7 @@
       "id": "L04",
       "slug": "evaluation-missing-failures",
       "title": "报告写着全胜，失败任务却没被统计",
-      "status": "specification",
+      "status": "reference-implementation",
       "question_ids": [
         "Q024",
         "Q041",
@@ -531,7 +536,12 @@
           "points": 2,
           "full_credit": "门槛判断可追溯，并明确合成数据与小样本限制。"
         }
-      ]
+      ],
+      "implementation": {
+        "path": "examples/l04_evaluation/README.md",
+        "run_command": "python3 examples/l04_evaluation/run.py",
+        "test_command": "python3 -m unittest discover -s examples/l04_evaluation -p \"test_*.py\" -v"
+      }
     }
   ]
 }

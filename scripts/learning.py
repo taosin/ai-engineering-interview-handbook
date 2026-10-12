@@ -155,7 +155,7 @@ def render_learning(data, qlink):
     file = 'learning/README.md'
     for guide in data['guides']:
         lines += [f"| [{guide['id']} · {guide['title']}](guides/{guide['slug']}.md) | " + ' · '.join(qlink(file, qid) for qid in guide['question_ids']) + ' |']
-    lines += ['', '## 故障练习', '']
+    lines += ['', '逐题练习可进入[原创解析目录](answers/README.md)，查看简答、深入展开、追问、反例和练习。需要完整限时表达时，进入[岗位模拟面试](../interviews/README.md)；先作答，再查看复盘判据。', '', '## 故障练习', '']
     lines += [f"- [{lab['id']} · {lab['title']}](labs/{lab['slug']}.md)：{lab['scenario']}（{'附本地可运行参考实现' if lab['status'] == 'reference-implementation' else '练习规范，尚无参考实现'}）" for lab in data['labs']]
     lines += ['', '## 一次练习怎么完成', '',
               '1. 先写目标、已知条件和需要澄清的假设，记录未看指南时的方案。',

@@ -33,7 +33,7 @@ python3 scripts/build.py --check
 面经题仍只放入 `questions.json`，原创研习使用 `data/learning.json`，不能互相混用来源或数量：
 
 - **G 指南**：独立撰写回答思路、展开要点、误区和验证材料，关联已有 Q 题号。用 T 技术资料支撑机制解释，注明核实日期及支持范围。
-- **L 练习**：给出合成输入、故障注入、产物、明确断言及合计 10 分的自评标准。仅有规范时使用 `specification`；附可运行参考实现时使用 `reference-implementation`，并提供 `implementation` 的仓库内说明路径、运行命令和测试命令。当前 L01、L03 附实现，L02、L04 保持规范。实现存在不等于全部断言已运行通过。
+- **L 练习**：给出合成输入、故障注入、产物、明确断言及合计 10 分的自评标准。仅有规范时使用 `specification`；附可运行参考实现时使用 `reference-implementation`，并提供 `implementation` 的仓库内说明路径、运行命令和测试命令。当前 L01–L04 均附本地参考实现。实现存在不等于全部断言已运行通过。
 - **T 技术资料**：使用官方文档或原始研究，记录精确链接；不当作“某公司出过题”的证据，不混入 S 面经来源。
 - **模板**：`templates/` 的复盘模板直接编辑 Markdown，强调真实证据、实际职责和未验证部分。
 
@@ -60,3 +60,13 @@ python3 scripts/build.py --check
 公开内容编辑 `data/assessment.json`，派生页面数据和手工版通过 `scripts/build.py` 生成。修改判据须保留稳定任务/判据与答案暴露标识，说明可比条件，升级规则版本；不得用改版本清除看过答案的事实。每条补课建议关联已有 Q/G/L/M 和稳定阶段验收 ID。
 
 修改后运行 `node --test tests/assessment.test.mjs`，并实际检查完整提交、草稿恢复、已暴露练习、降档、导入失败、移动布局与键盘流程。运行 L03 使用 `python3 -m unittest discover -s examples/l03_retrieval -p "test_*.py" -v`。提交的展示数据必须明确为合成内容，个人答案、项目摘录和导出备份不要进入公共仓库。
+
+
+## 逐题解析、覆盖与模拟面试
+
+- 逐题解析编辑 data/answers.json；先核对原 Q 题干，再独立写短答、展开、追问、反例、判据与练习。不能把原创追问回填为原帖实问。
+- 技术依据使用原始论文或官方文档，给出精确支持范围与实际检查日期；允许满足约束的替代方案，不强制唯一技术栈。
+- 覆盖矩阵编辑 data/coverage.json；显式保留未补内容，核心/拓展与目标难度说明为编者建议。题目数不代表完整度。
+- 模拟面试编辑 data/interviews.json；候选页必须自带必要输入，不能要求先读含答案的材料才能作答。给出时间、产物、边界与原始观察。
+- 运行 python3 -m unittest discover -s tests -p "test_*.py" -v；涉及实验时再运行对应 examples 目录的测试。所有内容更新后统一 build、validate、build --check。
+- 四个参考实验的验证都采用合成或本地模拟条件；完整应用、真实模型效果及个人独立表现分别验证。

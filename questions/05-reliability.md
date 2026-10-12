@@ -42,6 +42,8 @@
 
 - [S09 · 名创优品 Agent 开发实习一面](../SOURCES.md#s09) — 第 4 项：外部任务成功、checkpoint 前宕机。
 
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/side-effect-recovery.md)。难度与判据均为编者建议。
+
 **原创答题指南**：[G01 · Agent 执行恢复与幂等](../learning/guides/execution-recovery.md)
 
 ## Q028

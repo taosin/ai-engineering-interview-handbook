@@ -22,6 +22,8 @@
 
 - [S13 · 商汤大模型算法应用实习面经（已 offer）](../SOURCES.md#s13) — 一面第 2 项。
 
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/self-attention-shapes.md)。难度与判据均为编者建议。
+
 ## Q050
 
 LoRA 怎样更新模型参数？你会调整哪些超参数、选择哪些模块？
@@ -29,6 +31,8 @@ LoRA 怎样更新模型参数？你会调整哪些超参数、选择哪些模块
 **题型**：原理与比较 · **适用岗位（编者建议）**：LLM 应用开发
 
 - [S13 · 商汤大模型算法应用实习面经（已 offer）](../SOURCES.md#s13) — 一面第 1 项。
+
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/lora-parameters-and-tradeoffs.md)。难度与判据均为编者建议。
 
 ## Q051
 
@@ -57,5 +61,7 @@ Prompt Caching 与 KV Cache 分别指什么？
 **来源支持的追问变体（不单独计题）**：如何提升模型缓存命中率，Spring AI 应用侧需要怎样配合？
 
 来源：[S27](../SOURCES.md#s27) — 正文第 6 项后半。
+
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/prompt-cache-versus-kv-cache.md)。难度与判据均为编者建议。
 
 **原创答题指南**：[G06 · 分清缓存层次，再证明成本和延迟收益](../learning/guides/prompt-kv-cache-latency-cost.md)

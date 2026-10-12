@@ -26,6 +26,8 @@
 
 - [S07 · 某中厂 AI 全栈工程师社招一面](../SOURCES.md#s07) — 第 4 项：混合检索与融合。
 
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/hybrid-retrieval-fusion.md)。难度与判据均为编者建议。
+
 **原创答题指南**：[G05 · 用证据验证分块和检索的取舍](../learning/guides/rag-chunking-retrieval-evaluation.md)
 
 ## Q020

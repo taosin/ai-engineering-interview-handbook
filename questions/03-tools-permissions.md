@@ -47,6 +47,8 @@
 
 - [S05 · 深信服 Agent 开发一面](../SOURCES.md#s05) — 正文：模型扫库与权限泄露。
 
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/database-tool-authorization.md)。难度与判据均为编者建议。
+
 **原创答题指南**：[G02 · 工具与 MCP 的授权边界](../learning/guides/tool-authorization.md)
 
 ## Q016

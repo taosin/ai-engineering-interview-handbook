@@ -4,13 +4,26 @@
 
 **内容类型：原创故障练习**。场景、数据与评分均为编者设计；不计入面经题数。
 
-**执行状态：练习规范（specification）**。本页提供要求与预期断言，尚未附可运行参考实现，也未宣称这些故障用例已经执行通过。
+**执行状态：可运行参考实现（reference-implementation，本地模拟）**。仓库附运行入口与标准库测试；实际结果以对应代码版本、运行命令和原始输出为准。参考实现通过测试不代表学习者已独立掌握，也不代表 M4 全部验收通过。
 
 修复一个漏掉超时、重复副作用和重试成本的离线对比报告。
 
 关联题目：[Q024](../../questions/04-rag-knowledge.md#q024) · [Q041](../../questions/10-evaluation.md#q041) · [Q042](../../questions/10-evaluation.md#q042) · [Q071](../../questions/10-evaluation.md#q071) · [Q085](../../questions/10-evaluation.md#q085) · [Q100](../../questions/10-evaluation.md#q100)
 
 阅读准备：[G03 · 评测与回归：把改进变成可检查的证据](../guides/evaluation-regression.md)
+
+## 本地运行
+
+[参考实现与验收说明](../../examples/l04_evaluation/README.md)
+
+在仓库根目录运行：
+
+```sh
+python3 examples/l04_evaluation/run.py
+python3 -m unittest discover -s examples/l04_evaluation -p "test_*.py" -v
+```
+
+这里只验证实现所列的本地模拟场景。恢复结果、权限检查与完整项目回归分别报告；未覆盖项仍为待验证。
 
 ## 给定条件
 

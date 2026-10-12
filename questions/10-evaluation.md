@@ -23,6 +23,8 @@
 
 - [S01 · 火山引擎 Managed Agent 一面](../SOURCES.md#s01) — 二、项目经历深挖：同环境 benchmark。
 
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/controlled-agent-comparison.md)。难度与判据均为编者建议。
+
 **原创答题指南**：[G03 · 评测与回归：把改进变成可检查的证据](../learning/guides/evaluation-regression.md)
 
 ## Q042

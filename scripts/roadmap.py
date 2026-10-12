@@ -390,7 +390,7 @@ def render_roadmap(data, qlink, guide_link, lab_link):
     finish('roadmap/review.md', lines)
 
     lines = page('面试前冲刺：用证据修补关键缺口')
-    lines += [data['sprint_body'], '', '把模拟面试暴露的缺口放回[复习记录](../templates/review-log.csv)，实践问题回到对应[能力阶段](milestones.md)的验收条件。已有但讲不清的作品，使用[项目证据模板](../templates/project-evidence.md)整理责任、取舍与原始记录。']
+    lines += [data['sprint_body'], '', '选一套[60 分钟岗位模拟](../interviews/README.md)，先看候选人页计时作答，再用主持页逐项复盘。结合[岗位覆盖矩阵](../docs/coverage-matrix.md)选下一个薄弱模块，避免只重复已熟悉的题。', '', '把模拟面试暴露的缺口放回[复习记录](../templates/review-log.csv)，实践问题回到对应[能力阶段](milestones.md)的验收条件。已有但讲不清的作品，使用[项目证据模板](../templates/project-evidence.md)整理责任、取舍与原始记录。']
     finish('roadmap/interview-sprint.md', lines)
 
     lines = page('长期成长：从做出功能到负责系统')

@@ -1,0 +1,1230 @@
+{
+  "schema_version": 1,
+  "kind": "编者覆盖规划",
+  "updated": "2026-10-12",
+  "levels": {
+    "基础": "能解释条件并完成小例子，不映射工作年限。",
+    "进阶": "能比较方案、分析边界并给出验证。",
+    "综合": "能跨模块设计、故障回退与基于证据作取舍。"
+  },
+  "modules": [
+    {
+      "id": "engineering",
+      "name": "全栈基础与数据一致性"
+    },
+    {
+      "id": "model",
+      "name": "模型机制与适配"
+    },
+    {
+      "id": "runtime",
+      "name": "Agent 执行与编排"
+    },
+    {
+      "id": "context",
+      "name": "记忆与上下文"
+    },
+    {
+      "id": "tools",
+      "name": "工具契约与授权"
+    },
+    {
+      "id": "retrieval",
+      "name": "知识检索与证据"
+    },
+    {
+      "id": "recovery",
+      "name": "可靠性与业务副作用"
+    },
+    {
+      "id": "streaming",
+      "name": "流式交互与任务状态"
+    },
+    {
+      "id": "evaluation",
+      "name": "评测与成本取舍"
+    },
+    {
+      "id": "coding",
+      "name": "现场编码与边界"
+    },
+    {
+      "id": "delivery",
+      "name": "AI 研发与项目交付"
+    },
+    {
+      "id": "operations",
+      "name": "部署、容量与运维"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "COV-101",
+      "role_id": "ai-fullstack",
+      "module_id": "engineering",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q032",
+        "Q035",
+        "Q036",
+        "Q060",
+        "Q061",
+        "Q062",
+        "Q066",
+        "Q068",
+        "Q074",
+        "Q075"
+      ],
+      "lab_ids": [],
+      "gap": "网络与鉴权基础、索引执行计划、前端状态与测试尚未形成连续训练。"
+    },
+    {
+      "id": "COV-102",
+      "role_id": "ai-fullstack",
+      "module_id": "model",
+      "priority": "拓展",
+      "target_level": "进阶",
+      "required_types": [
+        "concept",
+        "coding"
+      ],
+      "question_ids": [
+        "Q049",
+        "Q050",
+        "Q051",
+        "Q055",
+        "Q102"
+      ],
+      "lab_ids": [],
+      "gap": "Attention、LoRA、RLHF、采样与缓存已有题；分词、位置编码、量化和微调数据验收仍需补充。"
+    },
+    {
+      "id": "COV-103",
+      "role_id": "ai-fullstack",
+      "module_id": "runtime",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q001",
+        "Q002",
+        "Q003",
+        "Q004",
+        "Q005",
+        "Q052",
+        "Q084",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "需要更多有输入输出约束的执行循环编码，以及框架无关的状态迁移反例。"
+    },
+    {
+      "id": "COV-104",
+      "role_id": "ai-fullstack",
+      "module_id": "context",
+      "priority": "拓展",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q007",
+        "Q008",
+        "Q009",
+        "Q010",
+        "Q011",
+        "Q012",
+        "Q083",
+        "Q088",
+        "Q093",
+        "Q098",
+        "Q099"
+      ],
+      "lab_ids": [],
+      "gap": "尚无独立的记忆冲突、压缩损失与删除传播可运行练习。"
+    },
+    {
+      "id": "COV-105",
+      "role_id": "ai-fullstack",
+      "module_id": "tools",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q013",
+        "Q014",
+        "Q015",
+        "Q016",
+        "Q017",
+        "Q018",
+        "Q026",
+        "Q081",
+        "Q082",
+        "Q094"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "本地权限模拟不覆盖真实身份提供方、令牌生命周期与协议兼容矩阵。"
+    },
+    {
+      "id": "COV-106",
+      "role_id": "ai-fullstack",
+      "module_id": "retrieval",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q019",
+        "Q020",
+        "Q021",
+        "Q022",
+        "Q023",
+        "Q024",
+        "Q056",
+        "Q089"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "版本/租户已有练习；仍缺真实语料检索基线、召回/重排消融和引用忠实度人工复核。"
+    },
+    {
+      "id": "COV-107",
+      "role_id": "ai-fullstack",
+      "module_id": "recovery",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q027",
+        "Q028",
+        "Q029",
+        "Q030",
+        "Q035",
+        "Q036",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "本地恢复需进一步接入真实外部服务契约和完整应用回归。"
+    },
+    {
+      "id": "COV-108",
+      "role_id": "ai-fullstack",
+      "module_id": "streaming",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q031",
+        "Q032",
+        "Q033",
+        "Q062",
+        "Q065",
+        "Q073"
+      ],
+      "lab_ids": [
+        "L02"
+      ],
+      "gap": "本地事件协议需补浏览器/真实网络、代理缓冲、网络抖动与交互可访问性验收。"
+    },
+    {
+      "id": "COV-109",
+      "role_id": "ai-fullstack",
+      "module_id": "evaluation",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "evaluation",
+        "coding"
+      ],
+      "question_ids": [
+        "Q024",
+        "Q041",
+        "Q042",
+        "Q053",
+        "Q058",
+        "Q071",
+        "Q085",
+        "Q100",
+        "Q102"
+      ],
+      "lab_ids": [
+        "L04"
+      ],
+      "gap": "合成报告可复算仍不代表线上收益；需真实样本、分层错误分析和不确定性分析。"
+    },
+    {
+      "id": "COV-110",
+      "role_id": "ai-fullstack",
+      "module_id": "coding",
+      "priority": "核心",
+      "target_level": "基础",
+      "required_types": [
+        "coding"
+      ],
+      "question_ids": [
+        "Q043",
+        "Q044",
+        "Q045",
+        "Q046",
+        "Q047",
+        "Q048"
+      ],
+      "lab_ids": [],
+      "gap": "多数编码题还缺独立测试集、参考实现与限时复盘；AI 工程专用编码题较少。"
+    },
+    {
+      "id": "COV-111",
+      "role_id": "ai-fullstack",
+      "module_id": "delivery",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "project",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q037",
+        "Q038",
+        "Q039",
+        "Q040",
+        "Q057",
+        "Q058",
+        "Q059",
+        "Q063",
+        "Q064",
+        "Q069",
+        "Q070",
+        "Q072",
+        "Q076",
+        "Q079",
+        "Q080"
+      ],
+      "lab_ids": [],
+      "gap": "需要贯穿需求、测试、发布与回滚的作品，以及个人职责可定位的复盘。"
+    },
+    {
+      "id": "COV-112",
+      "role_id": "ai-fullstack",
+      "module_id": "operations",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q005",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [],
+      "gap": "目前相关题只覆盖排错、并发、故障切换和重启；容器、灰度、回滚、容量与配额未成专题。"
+    },
+    {
+      "id": "COV-201",
+      "role_id": "agent-engineer",
+      "module_id": "engineering",
+      "priority": "拓展",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q032",
+        "Q035",
+        "Q036",
+        "Q060",
+        "Q061",
+        "Q062",
+        "Q066",
+        "Q068",
+        "Q074",
+        "Q075"
+      ],
+      "lab_ids": [],
+      "gap": "网络与鉴权基础、索引执行计划、前端状态与测试尚未形成连续训练。"
+    },
+    {
+      "id": "COV-202",
+      "role_id": "agent-engineer",
+      "module_id": "model",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "concept",
+        "coding"
+      ],
+      "question_ids": [
+        "Q049",
+        "Q050",
+        "Q051",
+        "Q055",
+        "Q102"
+      ],
+      "lab_ids": [],
+      "gap": "Attention、LoRA、RLHF、采样与缓存已有题；分词、位置编码、量化和微调数据验收仍需补充。"
+    },
+    {
+      "id": "COV-203",
+      "role_id": "agent-engineer",
+      "module_id": "runtime",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q001",
+        "Q002",
+        "Q003",
+        "Q004",
+        "Q005",
+        "Q052",
+        "Q084",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "需要更多有输入输出约束的执行循环编码，以及框架无关的状态迁移反例。"
+    },
+    {
+      "id": "COV-204",
+      "role_id": "agent-engineer",
+      "module_id": "context",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q007",
+        "Q008",
+        "Q009",
+        "Q010",
+        "Q011",
+        "Q012",
+        "Q083",
+        "Q088",
+        "Q093",
+        "Q098",
+        "Q099"
+      ],
+      "lab_ids": [],
+      "gap": "尚无独立的记忆冲突、压缩损失与删除传播可运行练习。"
+    },
+    {
+      "id": "COV-205",
+      "role_id": "agent-engineer",
+      "module_id": "tools",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q013",
+        "Q014",
+        "Q015",
+        "Q016",
+        "Q017",
+        "Q018",
+        "Q026",
+        "Q081",
+        "Q082",
+        "Q094"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "本地权限模拟不覆盖真实身份提供方、令牌生命周期与协议兼容矩阵。"
+    },
+    {
+      "id": "COV-206",
+      "role_id": "agent-engineer",
+      "module_id": "retrieval",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q019",
+        "Q020",
+        "Q021",
+        "Q022",
+        "Q023",
+        "Q024",
+        "Q056",
+        "Q089"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "版本/租户已有练习；仍缺真实语料检索基线、召回/重排消融和引用忠实度人工复核。"
+    },
+    {
+      "id": "COV-207",
+      "role_id": "agent-engineer",
+      "module_id": "recovery",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q027",
+        "Q028",
+        "Q029",
+        "Q030",
+        "Q035",
+        "Q036",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "本地恢复需进一步接入真实外部服务契约和完整应用回归。"
+    },
+    {
+      "id": "COV-208",
+      "role_id": "agent-engineer",
+      "module_id": "streaming",
+      "priority": "拓展",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q031",
+        "Q032",
+        "Q033",
+        "Q062",
+        "Q065",
+        "Q073"
+      ],
+      "lab_ids": [
+        "L02"
+      ],
+      "gap": "本地事件协议需补浏览器/真实网络、代理缓冲、网络抖动与交互可访问性验收。"
+    },
+    {
+      "id": "COV-209",
+      "role_id": "agent-engineer",
+      "module_id": "evaluation",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "evaluation",
+        "coding"
+      ],
+      "question_ids": [
+        "Q024",
+        "Q041",
+        "Q042",
+        "Q053",
+        "Q058",
+        "Q071",
+        "Q085",
+        "Q100",
+        "Q102"
+      ],
+      "lab_ids": [
+        "L04"
+      ],
+      "gap": "合成报告可复算仍不代表线上收益；需真实样本、分层错误分析和不确定性分析。"
+    },
+    {
+      "id": "COV-210",
+      "role_id": "agent-engineer",
+      "module_id": "coding",
+      "priority": "核心",
+      "target_level": "基础",
+      "required_types": [
+        "coding"
+      ],
+      "question_ids": [
+        "Q043",
+        "Q044",
+        "Q045",
+        "Q046",
+        "Q047",
+        "Q048"
+      ],
+      "lab_ids": [],
+      "gap": "多数编码题还缺独立测试集、参考实现与限时复盘；AI 工程专用编码题较少。"
+    },
+    {
+      "id": "COV-211",
+      "role_id": "agent-engineer",
+      "module_id": "delivery",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "project",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q037",
+        "Q038",
+        "Q039",
+        "Q040",
+        "Q057",
+        "Q058",
+        "Q059",
+        "Q063",
+        "Q064",
+        "Q069",
+        "Q070",
+        "Q072",
+        "Q076",
+        "Q079",
+        "Q080"
+      ],
+      "lab_ids": [],
+      "gap": "需要贯穿需求、测试、发布与回滚的作品，以及个人职责可定位的复盘。"
+    },
+    {
+      "id": "COV-212",
+      "role_id": "agent-engineer",
+      "module_id": "operations",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q005",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [],
+      "gap": "目前相关题只覆盖排错、并发、故障切换和重启；容器、灰度、回滚、容量与配额未成专题。"
+    },
+    {
+      "id": "COV-301",
+      "role_id": "llm-application",
+      "module_id": "engineering",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q032",
+        "Q035",
+        "Q036",
+        "Q060",
+        "Q061",
+        "Q062",
+        "Q066",
+        "Q068",
+        "Q074",
+        "Q075"
+      ],
+      "lab_ids": [],
+      "gap": "网络与鉴权基础、索引执行计划、前端状态与测试尚未形成连续训练。"
+    },
+    {
+      "id": "COV-302",
+      "role_id": "llm-application",
+      "module_id": "model",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "concept",
+        "coding"
+      ],
+      "question_ids": [
+        "Q049",
+        "Q050",
+        "Q051",
+        "Q055",
+        "Q102"
+      ],
+      "lab_ids": [],
+      "gap": "Attention、LoRA、RLHF、采样与缓存已有题；分词、位置编码、量化和微调数据验收仍需补充。"
+    },
+    {
+      "id": "COV-303",
+      "role_id": "llm-application",
+      "module_id": "runtime",
+      "priority": "拓展",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q001",
+        "Q002",
+        "Q003",
+        "Q004",
+        "Q005",
+        "Q052",
+        "Q084",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "需要更多有输入输出约束的执行循环编码，以及框架无关的状态迁移反例。"
+    },
+    {
+      "id": "COV-304",
+      "role_id": "llm-application",
+      "module_id": "context",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q007",
+        "Q008",
+        "Q009",
+        "Q010",
+        "Q011",
+        "Q012",
+        "Q083",
+        "Q088",
+        "Q093",
+        "Q098",
+        "Q099"
+      ],
+      "lab_ids": [],
+      "gap": "尚无独立的记忆冲突、压缩损失与删除传播可运行练习。"
+    },
+    {
+      "id": "COV-305",
+      "role_id": "llm-application",
+      "module_id": "tools",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q013",
+        "Q014",
+        "Q015",
+        "Q016",
+        "Q017",
+        "Q018",
+        "Q026",
+        "Q081",
+        "Q082",
+        "Q094"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "本地权限模拟不覆盖真实身份提供方、令牌生命周期与协议兼容矩阵。"
+    },
+    {
+      "id": "COV-306",
+      "role_id": "llm-application",
+      "module_id": "retrieval",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q019",
+        "Q020",
+        "Q021",
+        "Q022",
+        "Q023",
+        "Q024",
+        "Q056",
+        "Q089"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "版本/租户已有练习；仍缺真实语料检索基线、召回/重排消融和引用忠实度人工复核。"
+    },
+    {
+      "id": "COV-307",
+      "role_id": "llm-application",
+      "module_id": "recovery",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q027",
+        "Q028",
+        "Q029",
+        "Q030",
+        "Q035",
+        "Q036",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "本地恢复需进一步接入真实外部服务契约和完整应用回归。"
+    },
+    {
+      "id": "COV-308",
+      "role_id": "llm-application",
+      "module_id": "streaming",
+      "priority": "核心",
+      "target_level": "进阶",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q031",
+        "Q032",
+        "Q033",
+        "Q062",
+        "Q065",
+        "Q073"
+      ],
+      "lab_ids": [
+        "L02"
+      ],
+      "gap": "本地事件协议需补浏览器/真实网络、代理缓冲、网络抖动与交互可访问性验收。"
+    },
+    {
+      "id": "COV-309",
+      "role_id": "llm-application",
+      "module_id": "evaluation",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "evaluation",
+        "coding"
+      ],
+      "question_ids": [
+        "Q024",
+        "Q041",
+        "Q042",
+        "Q053",
+        "Q058",
+        "Q071",
+        "Q085",
+        "Q100",
+        "Q102"
+      ],
+      "lab_ids": [
+        "L04"
+      ],
+      "gap": "合成报告可复算仍不代表线上收益；需真实样本、分层错误分析和不确定性分析。"
+    },
+    {
+      "id": "COV-310",
+      "role_id": "llm-application",
+      "module_id": "coding",
+      "priority": "拓展",
+      "target_level": "基础",
+      "required_types": [
+        "coding"
+      ],
+      "question_ids": [
+        "Q043",
+        "Q044",
+        "Q045",
+        "Q046",
+        "Q047",
+        "Q048"
+      ],
+      "lab_ids": [],
+      "gap": "多数编码题还缺独立测试集、参考实现与限时复盘；AI 工程专用编码题较少。"
+    },
+    {
+      "id": "COV-311",
+      "role_id": "llm-application",
+      "module_id": "delivery",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "project",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q037",
+        "Q038",
+        "Q039",
+        "Q040",
+        "Q057",
+        "Q058",
+        "Q059",
+        "Q063",
+        "Q064",
+        "Q069",
+        "Q070",
+        "Q072",
+        "Q076",
+        "Q079",
+        "Q080"
+      ],
+      "lab_ids": [],
+      "gap": "需要贯穿需求、测试、发布与回滚的作品，以及个人职责可定位的复盘。"
+    },
+    {
+      "id": "COV-312",
+      "role_id": "llm-application",
+      "module_id": "operations",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q005",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [],
+      "gap": "目前相关题只覆盖排错、并发、故障切换和重启；容器、灰度、回滚、容量与配额未成专题。"
+    },
+    {
+      "id": "COV-401",
+      "role_id": "agent-infra",
+      "module_id": "engineering",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q032",
+        "Q035",
+        "Q036",
+        "Q060",
+        "Q061",
+        "Q062",
+        "Q066",
+        "Q068",
+        "Q074",
+        "Q075"
+      ],
+      "lab_ids": [],
+      "gap": "网络与鉴权基础、索引执行计划、前端状态与测试尚未形成连续训练。"
+    },
+    {
+      "id": "COV-402",
+      "role_id": "agent-infra",
+      "module_id": "model",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "concept",
+        "coding"
+      ],
+      "question_ids": [
+        "Q049",
+        "Q050",
+        "Q051",
+        "Q055",
+        "Q102"
+      ],
+      "lab_ids": [],
+      "gap": "Attention、LoRA、RLHF、采样与缓存已有题；分词、位置编码、量化和微调数据验收仍需补充。"
+    },
+    {
+      "id": "COV-403",
+      "role_id": "agent-infra",
+      "module_id": "runtime",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q001",
+        "Q002",
+        "Q003",
+        "Q004",
+        "Q005",
+        "Q052",
+        "Q084",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "需要更多有输入输出约束的执行循环编码，以及框架无关的状态迁移反例。"
+    },
+    {
+      "id": "COV-404",
+      "role_id": "agent-infra",
+      "module_id": "context",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q007",
+        "Q008",
+        "Q009",
+        "Q010",
+        "Q011",
+        "Q012",
+        "Q083",
+        "Q088",
+        "Q093",
+        "Q098",
+        "Q099"
+      ],
+      "lab_ids": [],
+      "gap": "尚无独立的记忆冲突、压缩损失与删除传播可运行练习。"
+    },
+    {
+      "id": "COV-405",
+      "role_id": "agent-infra",
+      "module_id": "tools",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q013",
+        "Q014",
+        "Q015",
+        "Q016",
+        "Q017",
+        "Q018",
+        "Q026",
+        "Q081",
+        "Q082",
+        "Q094"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "本地权限模拟不覆盖真实身份提供方、令牌生命周期与协议兼容矩阵。"
+    },
+    {
+      "id": "COV-406",
+      "role_id": "agent-infra",
+      "module_id": "retrieval",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q019",
+        "Q020",
+        "Q021",
+        "Q022",
+        "Q023",
+        "Q024",
+        "Q056",
+        "Q089"
+      ],
+      "lab_ids": [
+        "L03"
+      ],
+      "gap": "版本/租户已有练习；仍缺真实语料检索基线、召回/重排消融和引用忠实度人工复核。"
+    },
+    {
+      "id": "COV-407",
+      "role_id": "agent-infra",
+      "module_id": "recovery",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q027",
+        "Q028",
+        "Q029",
+        "Q030",
+        "Q035",
+        "Q036",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [
+        "L01"
+      ],
+      "gap": "本地恢复需进一步接入真实外部服务契约和完整应用回归。"
+    },
+    {
+      "id": "COV-408",
+      "role_id": "agent-infra",
+      "module_id": "streaming",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q031",
+        "Q032",
+        "Q033",
+        "Q062",
+        "Q065",
+        "Q073"
+      ],
+      "lab_ids": [
+        "L02"
+      ],
+      "gap": "本地事件协议需补浏览器/真实网络、代理缓冲、网络抖动与交互可访问性验收。"
+    },
+    {
+      "id": "COV-409",
+      "role_id": "agent-infra",
+      "module_id": "evaluation",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "evaluation",
+        "coding"
+      ],
+      "question_ids": [
+        "Q024",
+        "Q041",
+        "Q042",
+        "Q053",
+        "Q058",
+        "Q071",
+        "Q085",
+        "Q100",
+        "Q102"
+      ],
+      "lab_ids": [
+        "L04"
+      ],
+      "gap": "合成报告可复算仍不代表线上收益；需真实样本、分层错误分析和不确定性分析。"
+    },
+    {
+      "id": "COV-410",
+      "role_id": "agent-infra",
+      "module_id": "coding",
+      "priority": "核心",
+      "target_level": "基础",
+      "required_types": [
+        "coding"
+      ],
+      "question_ids": [
+        "Q043",
+        "Q044",
+        "Q045",
+        "Q046",
+        "Q047",
+        "Q048"
+      ],
+      "lab_ids": [],
+      "gap": "多数编码题还缺独立测试集、参考实现与限时复盘；AI 工程专用编码题较少。"
+    },
+    {
+      "id": "COV-411",
+      "role_id": "agent-infra",
+      "module_id": "delivery",
+      "priority": "拓展",
+      "target_level": "综合",
+      "required_types": [
+        "project",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q037",
+        "Q038",
+        "Q039",
+        "Q040",
+        "Q057",
+        "Q058",
+        "Q059",
+        "Q063",
+        "Q064",
+        "Q069",
+        "Q070",
+        "Q072",
+        "Q076",
+        "Q079",
+        "Q080"
+      ],
+      "lab_ids": [],
+      "gap": "需要贯穿需求、测试、发布与回滚的作品，以及个人职责可定位的复盘。"
+    },
+    {
+      "id": "COV-412",
+      "role_id": "agent-infra",
+      "module_id": "operations",
+      "priority": "核心",
+      "target_level": "综合",
+      "required_types": [
+        "design",
+        "debugging"
+      ],
+      "question_ids": [
+        "Q025",
+        "Q005",
+        "Q054",
+        "Q087"
+      ],
+      "lab_ids": [],
+      "gap": "目前相关题只覆盖排错、并发、故障切换和重启；容器、灰度、回滚、容量与配额未成专题。"
+    }
+  ]
+}

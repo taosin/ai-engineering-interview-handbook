@@ -16,6 +16,9 @@
 
 | 你想做什么 | 入口 |
 | --- | --- |
+| 查覆盖与薄弱环节 | [岗位 × 模块 × 题型 × 难度](docs/coverage-matrix.md) |
+| 深入练习核心题 | [12 份原创逐题解析](learning/answers/README.md) |
+| 做一轮完整模拟面试 | [4 套岗位模拟：题面与复盘](interviews/README.md) |
 | 不知道从哪里开始 | [学习与成长总览](roadmap/README.md) · [起点自测](roadmap/start.md) |
 | 按阶段完成一个项目 | [能力里程碑与验收](roadmap/milestones.md) |
 | 做一次六维能力自检 | [在线自检试用版](https://privacy.iamtaoxin.com/ai-engineering-interview-handbook/) · [手工版](assessment/manual.md) · [使用说明](assessment/README.md) |
@@ -25,7 +28,7 @@
 | 查找具体问题 | [全部题目](questions/README.md) |
 | 练设计、排障、评测或编码 | [按题型练习](indexes/by-type.md) |
 | 理清回答、用故障验证方案 | [原创答题指南与练习](learning/README.md) |
-| 动手验证恢复与权限 | [L01 重复副作用](examples/l01_recovery/README.md) · [L03 租户与版本](examples/l03_retrieval/README.md) |
+| 动手验证工程边界 | [L01 恢复](examples/l01_recovery/README.md) · [L02 流式](examples/l02_streaming/README.md) · [L03 权限](examples/l03_retrieval/README.md) · [L04 评测](examples/l04_evaluation/README.md) |
 | 查看完成范围与后续缺口 | [实现与验收状态](docs/completion-status.md) |
 | 准备可核对的项目经历 | [项目复盘模板](templates/project-evidence.md) |
 | 检查原帖及日期 | [来源档案](SOURCES.md) |
@@ -48,9 +51,11 @@
 
 ## 资料范围
 
-最新整理日期：**2026-10-11**。本轮目标检索窗口为 **2026-04-11—2026-10-11**；首版窗口为 **2026-04-08—2026-10-08**。保留历史材料及边界说明，不将全部旧来源的核实日期批量改成今天。
+最新整理日期：**2026-10-12**。本轮目标检索窗口为 **2026-04-12—2026-10-12**；首版窗口为 **2026-04-08—2026-10-08**。保留历史材料及边界说明，不将全部旧来源的核实日期批量改成今天。
 
 原帖的发布时间、编辑时间与面试发生时间分别标注。新增材料包含 10 月记录，但不能据此宣称每道题都是最近半年实际出题。S03 为 6 月发布的 4—5 月复盘，单场日期不明，仍作边界补充。
+
+2026-10-12 补源核查没有新增符合条件的面经来源，详见[候选筛选记录](docs/source-review-2026-10-12.md)；逐题解析、模拟面试与实验不计入 102 道来源题。
 
 本项目不是企业官方题库，也不是招聘市场的代表性统计，不承诺“最高频”或“必考”。部分原帖访问不稳定，搜索索引、平台展示与原帖正文在[来源档案](SOURCES.md)中分开标记。
 

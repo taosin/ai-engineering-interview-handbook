@@ -1,6 +1,6 @@
 # 数据结构（题库 v2；研习 v1；成长路线 v1）
 
-五个 UTF-8 JSON 文件是题目、来源、分类、原创研习与成长路线的内容源。`scripts/build.py` 生成 Markdown；`scripts/validate.py` 检查引用与局部结构；`scripts/build.py --check` 检查视图是否同步。`templates/` 中的 Markdown 和 CSV 模板直接编辑。
+UTF-8 JSON 文件是题目、来源、分类、研习、成长、自检、逐题解析与模拟面试的内容源。`scripts/build.py` 生成 Markdown；`scripts/validate.py` 检查引用与局部结构；`scripts/build.py --check` 检查视图是否同步。`templates/` 中的 Markdown 和 CSV 模板直接编辑。
 
 ## questions.json
 
@@ -63,8 +63,8 @@
 
 指南的 `question_ids` 只能引用已有 Q 题，`reference_ids` 只能引用 T 技术资料。练习的 `guide_ids` 只能引用 G 指南。`status` 支持两种状态：
 
-- `specification`：提供练习规范，没有可运行参考实现，禁止声明 `implementation`。当前 L02、L04 属于此类。
-- `reference-implementation`：附可运行的本地参考实现，必须提供 `implementation` 对象。当前 L01、L03 属于此类；状态表示存在实现，不代替实际执行记录或学习者能力验收。
+- `specification`：提供练习规范，没有可运行参考实现，禁止声明 `implementation`。当前四个练习均已附实现，保留此状态用于未来只有规范的新练习。
+- `reference-implementation`：附可运行的本地参考实现，必须提供 `implementation` 对象。当前 L01–L04 均属于此类；状态表示存在实现，不代替实际执行记录或学习者能力验收。
 
 `implementation` 仅含 `path`、`run_command`、`test_command`。`path` 是仓库根目录下 `examples/` 内已存在文件的相对路径，不得使用绝对路径、目录穿越或指向目录外的符号链接；命令是在仓库根目录运行的单行说明，由页面展示，数据校验与构建不会执行它们。CI 单独运行明确配置的标准库测试。`rubric` 的每项含 `dimension`、正整数 `points`、`full_credit`，合计 10 分。
 
@@ -111,3 +111,18 @@ python3 scripts/practice.py --query SSE
 情境包含两个明确改变约束的 `variants`，保留稳定 `exposure_key` 与可比组；实践包含基础断言和 `transfer` 的变化约束/回归/取舍断言。每条 `criterion` 有固定 ID、判据、关键失败标记及 `recommendation`，建议只引用已存在的 Q/G/L/M 和阶段验收 ID。
 
 Python 校验内容引用后，从同一源生成 `assessment/manual.md` 与 `assessment/definition.json`。后者附源定义规范 JSON（UTF-8、键排序、无额外空格）的 SHA-256，以及由现有目录计算的可信 GitHub 导航链接；导航链接不参与评分规则哈希。JS 核心负责作答校验、派生档位、历史和个人备份导入，不读取导入文件声明的分数作为依据。个人记录与公开定义使用不同结构，不能将备份作为公开规则导入。
+
+
+## answers.json
+
+原创逐题解析独立保存，关联现有 question_id，不改变 Q/S 计数。每题包含短答、深入要点、追问及回答、错误反例、按证据判断的检查点和小练习；level 是编者难度建议。ARef 技术引用只支持机制解释，不证明原帖实际作答。通过 scripts/answers.py 校验和生成，原 Q 页面反向链接。
+
+## coverage.json
+
+schema v1、kind 为“编者覆盖规划”。modules 定义模块，requirements 显式列出每个岗位/模块组合、核心或拓展、目标层次、目标题型、相关 Q/L 及具体缺口。题型统计与逐题解析数从实际关联生成，不把指南或实验自动折算为题解，不生成完整度百分比。
+
+## interviews.json
+
+schema v1、kind 为“原创岗位模拟面试”。每个岗位一套，各环节有正整数分钟、题面、产物、关联 Q/L、主持检查点、追问和错误信号；分钟总和必须等于总时长。候选页不渲染主持追问与判据，但公开仓库不能保证答案未被提前看过。
+
+新增模块用 scripts/curriculum.py 校验引用、角色覆盖、稳定编号、难度和时长，再统一生成覆盖矩阵及模拟页面。个人填过的记录模板与备份不进入数据文件。

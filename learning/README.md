@@ -19,12 +19,14 @@
 | [G05 · 用证据验证分块和检索的取舍](guides/rag-chunking-retrieval-evaluation.md) | [Q019](../questions/04-rag-knowledge.md#q019) · [Q022](../questions/04-rag-knowledge.md#q022) · [Q023](../questions/04-rag-knowledge.md#q023) · [Q024](../questions/04-rag-knowledge.md#q024) · [Q056](../questions/04-rag-knowledge.md#q056) |
 | [G06 · 分清缓存层次，再证明成本和延迟收益](guides/prompt-kv-cache-latency-cost.md) | [Q053](../questions/01-agent-architecture.md#q053) · [Q102](../questions/09-llm-foundations.md#q102) |
 
+逐题练习可进入[原创解析目录](answers/README.md)，查看简答、深入展开、追问、反例和练习。需要完整限时表达时，进入[岗位模拟面试](../interviews/README.md)；先作答，再查看复盘判据。
+
 ## 故障练习
 
 - [L01 · 工具已经成功，重启后却又执行一次](labs/recovery-after-tool-commit.md)：在本地库存模拟中制造“外部提交成功、Agent 记录未保存”的间隙，验证恢复是否重复扣减。（附本地可运行参考实现）
-- [L02 · 重连后文字重复，旧任务还在更新界面](labs/stream-replay-and-cancellation.md)：用一条短事件流同时检验重放、任务隔离、过期游标和取消确认。（练习规范，尚无参考实现）
+- [L02 · 重连后文字重复，旧任务还在更新界面](labs/stream-replay-and-cancellation.md)：用一条短事件流同时检验重放、任务隔离、过期游标和取消确认。（附本地可运行参考实现）
 - [L03 · 相似内容排第一，却不属于这个用户](labs/retrieval-tenant-and-version.md)：用三个合成知识片段，检查 RAG 在租户、日期和证据不足时是否保持正确边界。（附本地可运行参考实现）
-- [L04 · 报告写着全胜，失败任务却没被统计](labs/evaluation-missing-failures.md)：修复一个漏掉超时、重复副作用和重试成本的离线对比报告。（练习规范，尚无参考实现）
+- [L04 · 报告写着全胜，失败任务却没被统计](labs/evaluation-missing-failures.md)：修复一个漏掉超时、重复副作用和重试成本的离线对比报告。（附本地可运行参考实现）
 
 ## 一次练习怎么完成
 

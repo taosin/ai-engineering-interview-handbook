@@ -33,6 +33,8 @@ SSE 与 WebSocket 如何选择？业务需要什么通信能力？
 
 - [S10 · 字节 Agent 开发一面](../SOURCES.md#s10) — 第 4 项：SSE 与 WebSocket。
 
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/sse-websocket-tradeoffs.md)。难度与判据均为编者建议。
+
 **原创答题指南**：[G04 · 流式任务的断线恢复与取消](../learning/guides/streaming-reconnect-cancellation.md)
 
 ## Q032
@@ -68,6 +70,8 @@ SSE 与 WebSocket 如何选择？业务需要什么通信能力？
 **题型**：方案设计 · **适用岗位（编者建议）**：AI 全栈、Agent 工程师、Agent Infra
 
 - [S11 · 后端／全栈面经一次性放出](../SOURCES.md#s11) — 二面（一个小时 8 分钟）段：并发读写与 Lua 原子裁决。
+
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/concurrent-state-updates.md)。难度与判据均为编者建议。
 
 ## Q036
 

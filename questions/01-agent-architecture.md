@@ -33,6 +33,8 @@
 
 - [S01 · 火山引擎 Managed Agent 一面](../SOURCES.md#s01) — 三、Agent 原理：完整请求链路。
 
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/agent-request-lifecycle.md)。难度与判据均为编者建议。
+
 ## Q002
 
 模型决定调用工具后，工具结果怎样进入下一轮推理？
@@ -48,6 +50,8 @@ Agent 循环何时继续、何时结束？完成条件怎么判断？
 **题型**：原理与比较 · **适用岗位（编者建议）**：AI 全栈、Agent 工程师、LLM 应用开发、Agent Infra
 
 - [S01 · 火山引擎 Managed Agent 一面](../SOURCES.md#s01) — 三、Agent 原理：循环继续与结束。
+
+**原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/agent-stop-conditions.md)。难度与判据均为编者建议。
 
 ## Q004
 

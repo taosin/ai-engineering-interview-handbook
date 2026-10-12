@@ -4,13 +4,26 @@
 
 **内容类型：原创故障练习**。场景、数据与评分均为编者设计；不计入面经题数。
 
-**执行状态：练习规范（specification）**。本页提供要求与预期断言，尚未附可运行参考实现，也未宣称这些故障用例已经执行通过。
+**执行状态：可运行参考实现（reference-implementation，本地模拟）**。仓库附运行入口与标准库测试；实际结果以对应代码版本、运行命令和原始输出为准。参考实现通过测试不代表学习者已独立掌握，也不代表 M4 全部验收通过。
 
 用一条短事件流同时检验重放、任务隔离、过期游标和取消确认。
 
 关联题目：[Q031](../../questions/06-fullstack.md#q031) · [Q032](../../questions/06-fullstack.md#q032) · [Q033](../../questions/06-fullstack.md#q033) · [Q062](../../questions/06-fullstack.md#q062) · [Q065](../../questions/06-fullstack.md#q065)
 
 阅读准备：[G04 · 流式任务的断线恢复与取消](../guides/streaming-reconnect-cancellation.md)
+
+## 本地运行
+
+[参考实现与验收说明](../../examples/l02_streaming/README.md)
+
+在仓库根目录运行：
+
+```sh
+python3 examples/l02_streaming/run.py
+python3 -m unittest discover -s examples/l02_streaming -p "test_*.py" -v
+```
+
+这里只验证实现所列的本地模拟场景。恢复结果、权限检查与完整项目回归分别报告；未覆盖项仍为待验证。
 
 ## 给定条件
 
