@@ -89,6 +89,11 @@
 | [Q097](../questions/05-reliability.md#q097) | 合同原文不完整或有歧义时，怎样输出审核结论，并让读者区分确定关系与疑似关系？ | 可靠性与运行恢复 | 方案设计 |
 | [Q098](../questions/02-memory-context.md#q098) | 将数百页合同拆给子 Agent 后，汇总结果仍超出上下文窗口，怎样继续处理到最终结果？ | 记忆与上下文 | 方案设计 |
 | [Q099](../questions/02-memory-context.md#q099) | 渐进式披露如何用于长合同分析，让 Agent 在需要时再获取相关细节？ | 记忆与上下文 | 方案设计 |
+| [Q103](../questions/01-agent-architecture.md#q103) | 怎样定义领域本体与Action，并在存量系统中权衡领域建模和直接用CLI加Skill开放能力？ | Agent 架构与编排 | 方案设计 |
+| [Q104](../questions/01-agent-architecture.md#q104) | Agent正在执行时，同一会话中其他成员补充指令，或发起者反复修改需求，应怎样处理？ | Agent 架构与编排 | 方案设计 |
+| [Q105](../questions/04-rag-knowledge.md#q105) | RAG回答引用多个知识片段，其中一段出错引发整体点踩时，怎样把反馈权重分摊到各片段？ | RAG 与知识质量 | 方案设计 |
+| [Q106](../questions/03-tools-permissions.md#q106) | 补丁等待人工审批时，目标文件被修改，怎样检测变化并让审批失效？为什么不能只靠行号校验？ | 工具、MCP 与权限 | 方案设计 |
+| [Q108](../questions/04-rag-knowledge.md#q108) | 检索得到两段相互冲突的 chunk，交给模型时应怎样选择？ | RAG 与知识质量 | 方案设计 |
 
 ## 故障定位
 
@@ -96,6 +101,7 @@
 | --- | --- | --- | --- |
 | [Q025](../questions/05-reliability.md#q025) | 一个通常几分钟完成的任务突然慢了数倍，如何定位原因？ | 可靠性与运行恢复 | 故障定位 |
 | [Q067](../questions/06-fullstack.md#q067) | 线上 JVM 出现高 CPU 或内存泄漏时如何排查？高 CPU 场景下，怎样从进程进一步定位问题线程？ | 全栈交互与后端工程 | 故障定位 |
+| [Q107](../questions/10-evaluation.md#q107) | RAGAS 评测结果出现 NaN 时，你会怎样排查？ | 评测与效果验证 | 故障定位 |
 
 ## 项目与实践复盘
 
@@ -111,6 +117,7 @@
 | [Q076](../questions/07-ai-coding-evaluation.md#q076) | 进入不熟悉的业务领域时，怎样借助AI推进工作并辨别其回答错误？ | AI Coding 与研发交付 | 项目与实践复盘 |
 | [Q090](../questions/01-agent-architecture.md#q090) | 考察一个新的 Agent Harness 时，你会怎样判断它能否融入现有系统，以及是否值得替换现有方案？ | Agent 架构与编排 | 项目与实践复盘 |
 | [Q093](../questions/02-memory-context.md#q093) | 你的 Agent 提示词由哪些内容组成，实际输入规模大约有多大？ | 记忆与上下文 | 项目与实践复盘 |
+| [Q109](../questions/06-fullstack.md#q109) | React Native Web 页面适配遇到过什么问题？怎样支持从站外页面拉起客户端？ | 全栈交互与后端工程 | 项目与实践复盘 |
 
 ## 验证与评测
 
@@ -124,6 +131,8 @@
 | [Q071](../questions/10-evaluation.md#q071) | 如何量化意图识别效果，并区分措辞相似而实际目的不同的请求？ | 评测与效果验证 | 验证与评测 |
 | [Q085](../questions/10-evaluation.md#q085) | 原本需要人验收的 Agent 流程改为自动交付时，你会怎样保证结果可靠？ | 评测与效果验证 | 验证与评测 |
 | [Q100](../questions/10-evaluation.md#q100) | 用另一个 Agent 评审结论时，评审者也可能产生幻觉，怎样结合非模型校验确认事实依据？ | 评测与效果验证 | 验证与评测 |
+| [Q110](../questions/07-ai-coding-evaluation.md#q110) | AI 生成页面后，怎样验收设计稿还原度？图层是怎样还原的？ | AI Coding 与研发交付 | 验证与评测 |
+| [Q112](../questions/10-evaluation.md#q112) | 怎样定义和评测提示注入防护的攻击成功率？是否同时统计了正常任务的通过率和误拒率，结果如何？ | 评测与效果验证 | 验证与评测 |
 
 ## 现场编码
 
@@ -135,5 +144,6 @@
 | [Q046](../questions/08-coding.md#q046) | 用数组实现映射结构，解释冲突与扩容。 | 现场编码与数据结构 | 现场编码 |
 | [Q047](../questions/08-coding.md#q047) | 按不同值类型合并嵌套 JSON，且保留原输入不变。 | 现场编码与数据结构 | 现场编码 |
 | [Q048](../questions/08-coding.md#q048) | 从给定数字集合构造小于指定整数的最大数。 | 现场编码与数据结构 | 现场编码 |
+| [Q111](../questions/08-coding.md#q111) | 在给定的 Python 工程中实现一个最小 Agent：接收问题，并调用另一个文件中提供的 LLM 函数；该 LLM 可使用工具。 | 现场编码与数据结构 | 现场编码 |
 
 [返回首页](../README.md)

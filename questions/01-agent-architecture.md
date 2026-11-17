@@ -2,7 +2,7 @@
 
 # Agent 架构与编排
 
-16 道题 · [全部题目](README.md) · [岗位路线](../paths/README.md) · [题型索引](../indexes/by-type.md)
+18 道题 · [全部题目](README.md) · [岗位路线](../paths/README.md) · [题型索引](../indexes/by-type.md)
 
 **准备目标（编者建议）**：用一次完整执行解释规划、行动、观察与终止；说明为何选择单 Agent、多 Agent 或工作流。
 
@@ -24,6 +24,8 @@
 - [Q092](01-agent-architecture.md#q092) 自动审核系统中，哪些判断交给规则，哪些交给 AI？为什么不能只依赖模型？
 - [Q095](01-agent-architecture.md#q095) 为长视频设计内容安全审核流程时，你会怎样组织处理步骤？
 - [Q096](01-agent-architecture.md#q096) 怎样设计一个能满足不同用户要求的内容审核框架？
+- [Q103](01-agent-architecture.md#q103) 怎样定义领域本体与Action，并在存量系统中权衡领域建模和直接用CLI加Skill开放能力？
+- [Q104](01-agent-architecture.md#q104) Agent正在执行时，同一会话中其他成员补充指令，或发起者反复修改需求，应怎样处理？
 
 ## Q001
 
@@ -158,3 +160,19 @@ Planner、Executor、Critic 各承担什么职责，与 ReAct 如何取舍？
 **题型**：方案设计 · **适用岗位（编者建议）**：AI 全栈、Agent 工程师
 
 - [S25 · Agent 开发面经](../SOURCES.md#s25) — 一面第11题。
+
+## Q103
+
+怎样定义领域本体与Action，并在存量系统中权衡领域建模和直接用CLI加Skill开放能力？
+
+**题型**：方案设计 · **适用岗位（编者建议）**：Agent 工程师、AI 全栈、Agent Infra
+
+- [S28 · 秋招 字节 后端/agent开发 三面 面经](../SOURCES.md#s28) — 十一、完整问题清单第14—18题：本体与Action定义、业务概念、Action粒度、领域建模与CLI加Skill取舍及存量系统重构成本。
+
+## Q104
+
+Agent正在执行时，同一会话中其他成员补充指令，或发起者反复修改需求，应怎样处理？
+
+**题型**：方案设计 · **适用岗位（编者建议）**：Agent 工程师、AI 全栈、Agent Infra
+
+- [S29 · 百度后端实习二面面经](../SOURCES.md#s29) — 正文原编号第11—12题：飞书话题会话执行中其他成员补充指令，以及同一发起者连续修改需求。

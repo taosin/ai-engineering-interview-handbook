@@ -130,6 +130,8 @@ LLM-1通过后，把检索基线与证据标注并入主线作品；先建立可
 - [Q023](../questions/04-rag-knowledge.md#q023) 如何选择重排模型、召回数量和相关性阈值？
 - [Q024](../questions/04-rag-knowledge.md#q024) 如何用检索指标证明改进有效？大量合成测试样本会带来什么偏差？
 - [Q056](../questions/04-rag-knowledge.md#q056) 文档按语义分块时，怎样避免把完整句子截断？
+- [Q105](../questions/04-rag-knowledge.md#q105) RAG回答引用多个知识片段，其中一段出错引发整体点踩时，怎样把反馈权重分摊到各片段？
+- [Q108](../questions/04-rag-knowledge.md#q108) 检索得到两段相互冲突的 chunk，交给模型时应怎样选择？
 
 ### 专题 2：应用链路
 
@@ -153,18 +155,20 @@ LLM-1通过后，把检索基线与证据标注并入主线作品；先建立可
 - [Q030](../questions/05-reliability.md#q030) 从失败案例生成 Skill 时，如何防止错误经验或恶意内容污染后续执行？
 - [Q041](../questions/10-evaluation.md#q041) 比较两个 Agent 方案时，怎样保证测试环境和任务条件一致？
 - [Q042](../questions/10-evaluation.md#q042) 修改 Skill 后，如何证明效果提高，而不是只在少数示例上变好？
+- [Q107](../questions/10-evaluation.md#q107) RAGAS 评测结果出现 NaN 时，你会怎样排查？
 
 ## 全部适用题
 
-共 33 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
+共 38 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
 
 - **Agent 架构与编排**：[Q001](../questions/01-agent-architecture.md#q001) · [Q002](../questions/01-agent-architecture.md#q002) · [Q003](../questions/01-agent-architecture.md#q003) · [Q053](../questions/01-agent-architecture.md#q053) · [Q077](../questions/01-agent-architecture.md#q077) · [Q095](../questions/01-agent-architecture.md#q095)
 - **记忆与上下文**：[Q012](../questions/02-memory-context.md#q012) · [Q088](../questions/02-memory-context.md#q088) · [Q093](../questions/02-memory-context.md#q093) · [Q099](../questions/02-memory-context.md#q099)
-- **RAG 与知识质量**：[Q019](../questions/04-rag-knowledge.md#q019) · [Q020](../questions/04-rag-knowledge.md#q020) · [Q021](../questions/04-rag-knowledge.md#q021) · [Q022](../questions/04-rag-knowledge.md#q022) · [Q023](../questions/04-rag-knowledge.md#q023) · [Q024](../questions/04-rag-knowledge.md#q024) · [Q056](../questions/04-rag-knowledge.md#q056) · [Q078](../questions/04-rag-knowledge.md#q078) · [Q089](../questions/04-rag-knowledge.md#q089)
+- **RAG 与知识质量**：[Q019](../questions/04-rag-knowledge.md#q019) · [Q020](../questions/04-rag-knowledge.md#q020) · [Q021](../questions/04-rag-knowledge.md#q021) · [Q022](../questions/04-rag-knowledge.md#q022) · [Q023](../questions/04-rag-knowledge.md#q023) · [Q024](../questions/04-rag-knowledge.md#q024) · [Q056](../questions/04-rag-knowledge.md#q056) · [Q078](../questions/04-rag-knowledge.md#q078) · [Q089](../questions/04-rag-knowledge.md#q089) · [Q105](../questions/04-rag-knowledge.md#q105) · [Q108](../questions/04-rag-knowledge.md#q108)
 - **可靠性与运行恢复**：[Q025](../questions/05-reliability.md#q025) · [Q026](../questions/05-reliability.md#q026) · [Q030](../questions/05-reliability.md#q030) · [Q097](../questions/05-reliability.md#q097)
 - **全栈交互与后端工程**：[Q031](../questions/06-fullstack.md#q031) · [Q032](../questions/06-fullstack.md#q032)
+- **现场编码与数据结构**：[Q111](../questions/08-coding.md#q111)
 - **模型基础与推理性能**：[Q049](../questions/09-llm-foundations.md#q049) · [Q050](../questions/09-llm-foundations.md#q050) · [Q051](../questions/09-llm-foundations.md#q051) · [Q055](../questions/09-llm-foundations.md#q055)
-- **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q071](../questions/10-evaluation.md#q071) · [Q100](../questions/10-evaluation.md#q100)
+- **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q071](../questions/10-evaluation.md#q071) · [Q100](../questions/10-evaluation.md#q100) · [Q107](../questions/10-evaluation.md#q107) · [Q112](../questions/10-evaluation.md#q112)
 
 ## 回答与验证
 

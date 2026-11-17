@@ -217,12 +217,20 @@
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-08",
+    "last_curated": "2026-11-18",
     "question_type": "design",
     "source_locators": {
       "S04": "八股第 5 项：轮次增加时的上下文处理"
     },
-    "metadata_updated": "2026-10-11"
+    "metadata_updated": "2026-11-18",
+    "follow_ups": [
+      {
+        "question": "压缩上下文时，工具调用仍在执行，或压缩位置落在调用与返回之间，应怎样处理？",
+        "source_id": "S33",
+        "locator": "一、技术问题第6—7项：多级压缩触发条件及工具仍在执行的边界。",
+        "origin": "来源支持的追问变体"
+      }
+    ]
   },
   {
     "id": "Q012",
@@ -554,16 +562,18 @@
       "Agent Infra"
     ],
     "source_ids": [
-      "S09"
+      "S09",
+      "S33"
     ],
     "type": "面经问题归纳",
     "temporal_scope": "检索范围内材料",
     "last_curated": "2026-10-08",
     "question_type": "design",
     "source_locators": {
-      "S09": "第 4 项：外部任务成功、checkpoint 前宕机"
+      "S09": "第 4 项：外部任务成功、checkpoint 前宕机",
+      "S33": "一、技术问题第3项：工具调用成功后、结果未保存到检查点之前进程崩溃；如何恢复并避免重复副作用。"
     },
-    "metadata_updated": "2026-10-11"
+    "metadata_updated": "2026-11-18"
   },
   {
     "id": "Q028",
@@ -2084,5 +2094,209 @@
         "origin": "来源支持的追问变体"
       }
     ]
+  },
+  {
+    "id": "Q103",
+    "topic": "agent-architecture",
+    "question": "怎样定义领域本体与Action，并在存量系统中权衡领域建模和直接用CLI加Skill开放能力？",
+    "roles": [
+      "Agent 工程师",
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S28"
+    ],
+    "source_locators": {
+      "S28": "十一、完整问题清单第14—18题：本体与Action定义、业务概念、Action粒度、领域建模与CLI加Skill取舍及存量系统重构成本。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q104",
+    "topic": "agent-architecture",
+    "question": "Agent正在执行时，同一会话中其他成员补充指令，或发起者反复修改需求，应怎样处理？",
+    "roles": [
+      "Agent 工程师",
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S29"
+    ],
+    "source_locators": {
+      "S29": "正文原编号第11—12题：飞书话题会话执行中其他成员补充指令，以及同一发起者连续修改需求。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q105",
+    "topic": "rag-knowledge",
+    "question": "RAG回答引用多个知识片段，其中一段出错引发整体点踩时，怎样把反馈权重分摊到各片段？",
+    "roles": [
+      "LLM 应用开发",
+      "Agent 工程师",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S29"
+    ],
+    "source_locators": {
+      "S29": "正文原编号第15—16题：整条回答的点赞点踩，以及多知识片段引用中的错误反馈权重分摊。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q106",
+    "topic": "tools-permissions",
+    "question": "补丁等待人工审批时，目标文件被修改，怎样检测变化并让审批失效？为什么不能只靠行号校验？",
+    "roles": [
+      "Agent 工程师",
+      "AI 全栈",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S29"
+    ],
+    "source_locators": {
+      "S29": "正文原编号第17—18题：补丁与目标版本绑定、行号校验的限制，以及审批等待期间IDE保存引发审批失效。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q107",
+    "topic": "evaluation",
+    "question": "RAGAS 评测结果出现 NaN 时，你会怎样排查？",
+    "roles": [
+      "LLM 应用开发",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S30"
+    ],
+    "source_locators": {
+      "S30": "正文编号第5项：RAGAS评测出现NaN"
+    },
+    "type": "面经问题归纳",
+    "question_type": "debugging",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q108",
+    "topic": "rag-knowledge",
+    "question": "检索得到两段相互冲突的 chunk，交给模型时应怎样选择？",
+    "roles": [
+      "LLM 应用开发",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S30"
+    ],
+    "source_locators": {
+      "S30": "正文编号第6项：给模型的两段chunk存在冲突时如何选择"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q109",
+    "topic": "fullstack",
+    "question": "React Native Web 页面适配遇到过什么问题？怎样支持从站外页面拉起客户端？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S31"
+    ],
+    "source_locators": {
+      "S31": "项目提问列表第2—4项：React Native Web选型、适配问题、端外打开页面后拉起客户端"
+    },
+    "type": "面经问题归纳",
+    "question_type": "project",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q110",
+    "topic": "ai-coding-evaluation",
+    "question": "AI 生成页面后，怎样验收设计稿还原度？图层是怎样还原的？",
+    "roles": [
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S31"
+    ],
+    "source_locators": {
+      "S31": "项目提问列表第7—9项：设计还原验收、实现方式及图层还原"
+    },
+    "type": "面经问题归纳",
+    "question_type": "evaluation",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q111",
+    "topic": "coding",
+    "question": "在给定的 Python 工程中实现一个最小 Agent：接收问题，并调用另一个文件中提供的 LLM 函数；该 LLM 可使用工具。",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师",
+      "LLM 应用开发"
+    ],
+    "source_ids": [
+      "S32"
+    ],
+    "source_locators": {
+      "S32": "正文 Coding 段第一项；原帖未提供代码、函数签名、输出契约或测试要求，作者说明得到提示后完成。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "coding",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q112",
+    "topic": "evaluation",
+    "question": "怎样定义和评测提示注入防护的攻击成功率？是否同时统计了正常任务的通过率和误拒率，结果如何？",
+    "roles": [
+      "Agent 工程师",
+      "LLM 应用开发",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S33"
+    ],
+    "source_locators": {
+      "S33": "一、技术问题第10、11项：追问候选人声称的攻击成功率指标及正常任务通过率、误拒率；不将自述实验结果视为已独立核实。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "evaluation",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
   }
 ]

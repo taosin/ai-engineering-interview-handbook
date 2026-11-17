@@ -692,5 +692,172 @@
     "interview_date": null,
     "reported_role": "AI 全栈",
     "recruitment_type": "原帖未明确"
+  },
+  {
+    "id": "S28",
+    "title": "秋招 字节 后端/agent开发 三面 面经",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/2f9a0b6dc0d34384b6c7f1719b6ed462",
+    "date_label": "2026-11-14",
+    "date_kind": "公开SSR创建时间",
+    "notes": "候选人按项目复盘并列出完整问题清单；只归纳清单中明确问题，不采用评论、推荐区或作者解释作为新增题。",
+    "last_checked": "2026-11-17",
+    "evidence": "公开候选人秋招三面复盘；未经企业独立确认。",
+    "date_caveat": "11月14日是发布日期。作者只称面试在10天之内且不便透露具体日期，无法确定准确面试日；interview_date保留为空。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-17",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/2f9a0b6dc0d34384b6c7f1719b6ed462",
+      "note": "2026-11-17用web读取原帖正文：页面日期与面试说明在第44—61行；“十一、完整问题清单”第14—18题在第112—116行。普通HTTPS curl读取同一规范URL的公开SSR，本文createdAt=1794668659000、editTime=1794668659000；按Asia/Shanghai换算。"
+    },
+    "date_evidence": {
+      "raw_label": "页面：11-14 23:04；正文：面试日期不便透露，10天之内；SSR：createdAt=1794668659000，editTime=1794668659000",
+      "year_basis": "公开原帖SSR的createdAt、editTime均换算为2026-11-14T23:04:19+08:00；不把发布时间当面试时间。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-11-14T23:04:19+08:00",
+    "edited_at": "2026-11-14T23:04:19+08:00",
+    "reported_role": "后端开发／Agent开发（标题）；正文称与一面方向相同",
+    "recruitment_type": "秋招；三面"
+  },
+  {
+    "id": "S29",
+    "title": "百度后端实习二面面经",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/0266edb5c1864353a22807cd44219244",
+    "date_label": "2026-11-02",
+    "date_kind": "公开SSR创建时间",
+    "notes": "岗位是后端实习；本次只选其中Agent项目与审批机制的明确追问，不将岗位改称Agent工程师，不采用评论中的解答。",
+    "last_checked": "2026-11-17",
+    "evidence": "公开候选人后端实习二面记录；未经企业独立确认。",
+    "date_caveat": "原帖未给出面试日期。页面显示11月3日为编辑时间；公开SSR创建时间为11月2日，不能把编辑日或发布日期写为面试日。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-17",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/0266edb5c1864353a22807cd44219244",
+      "note": "2026-11-17用web读取原帖正文：第44—52行显示作者、编辑月日、岗位标题；原编号第11—12、15—18题在第59—66行。普通HTTPS curl读取同一规范URL的公开SSR，本文createdAt=1793621018000、editTime=1793680445000；按Asia/Shanghai换算。"
+    },
+    "date_evidence": {
+      "raw_label": "页面：11-03 12:34 已编辑；SSR：createdAt=1793621018000，editTime=1793680445000",
+      "year_basis": "公开原帖SSR创建时间换算为2026-11-02T20:03:38+08:00，编辑时间换算为2026-11-03T12:34:05+08:00；面试具体日期未披露。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-11-02T20:03:38+08:00",
+    "edited_at": "2026-11-03T12:34:05+08:00",
+    "reported_role": "后端开发实习",
+    "recruitment_type": "实习；二面"
+  },
+  {
+    "id": "S30",
+    "title": "记录小厂一面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/939580601693229056",
+    "date_label": "2026-10-13",
+    "date_kind": "公开SSR创建时间",
+    "notes": "作者自述当天上午参加一面，并提醒回忆可能有出入；公司和正式岗位名称未披露。只归纳正文第5、6项提问，不采用第11项中有争议的哈希名称，也不采用评论区补充内容。",
+    "last_checked": "2026-11-17",
+    "evidence": "已读公开原帖SSR正文，包含候选人一面经历与编号提问；不构成企业对面试经历的独立确认。",
+    "date_caveat": "页面显示10-13 17:57，公开SSR创建和编辑时间均对应2026-10-13。正文只说当天上午一面，未单列面试年月日，interview_date保留为空。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-17",
+      "evidence_url": "https://www.nowcoder.com/discuss/939580601693229056",
+      "note": "2026-11-17通过普通HTTPS读取原帖SSR，正文第5项为RAGAS评测NaN问题，第6项为两段冲突chunk的选择问题。主帖createTime和editTime均对应2026-10-13T17:57:52+08:00；未采用相关推荐的时间或题目。"
+    },
+    "date_evidence": {
+      "raw_label": "页面：10-13 17:57；正文自述当天上午一面",
+      "year_basis": "原帖公开SSR主帖createTime、editTime均对应2026-10-13T17:57:52+08:00，年份与发布日可确认；面试日仍是根据自述的相对时间推定。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-10-13T17:57:52+08:00",
+    "edited_at": "2026-10-13T17:57:52+08:00",
+    "reported_role": "Agent / RAG相关开发方向（按提问内容归类）；正式岗位名称未披露",
+    "recruitment_type": "招聘类型未披露；一面"
+  },
+  {
+    "id": "S31",
+    "title": "美团keeta ai-全栈秋招一面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/941292912061521920",
+    "date_label": "2026-10-18",
+    "date_kind": "公开SSR创建时间",
+    "notes": "候选人自述美团Keeta AI全栈秋招一面，约一小时，项目追问偏前端；本文只提取跨端适配、站外拉起客户端、AI页面设计还原与图层追问。未把作者未写明条件的AI Coding现场题补成完整题目。",
+    "last_checked": "2026-11-17",
+    "evidence": "已读公开原帖SSR正文，包括明确的面试日期、项目提问及候选人面后复盘；不构成企业对面试经历的独立确认。",
+    "date_caveat": "10月18日是发帖日；正文明确记载面试时间为2026-10-14，二者分别记录。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-17",
+      "evidence_url": "https://www.nowcoder.com/discuss/941292912061521920?sourceSSR=home",
+      "note": "2026-11-17通过普通HTTPS读取原帖SSR。正文Time标明2026-10-14；项目提问列表第2—4项涉及React Native Web、适配及端外拉起客户端，第7—9项涉及设计还原验收和图层还原。主帖createTime、editTime均对应2026-10-18T11:21:59+08:00。"
+    },
+    "date_evidence": {
+      "raw_label": "页面：10-18 11:21；正文：Time: 2026-10-14",
+      "year_basis": "公开SSR主帖创建与编辑时间均为2026-10-18T11:21:59+08:00；面试日期由正文直接给出完整年月日。",
+      "precision": "day"
+    },
+    "interview_date": "2026-10-14",
+    "published_at": "2026-10-18T11:21:59+08:00",
+    "edited_at": "2026-10-18T11:21:59+08:00",
+    "reported_role": "AI 全栈开发；美团Keeta",
+    "recruitment_type": "秋招；一面"
+  },
+  {
+    "id": "S32",
+    "title": "AI Engineering 实习校招：Python 仓库现场编码与 Agent 设计",
+    "platform": "Reddit",
+    "url": "https://www.reddit.com/r/PlacementsPrep/comments/1wtyguu/my_interview_experience_for_ai_engineering/",
+    "date_label": "2026-09-30",
+    "date_kind": "公开帖子创建时间（UTC）",
+    "notes": "r/PlacementsPrep 候选人以第一人称复盘某跨国公司 AI Engineering Intern+PPO 校招；未披露公司，未采用评论中的公司猜测。作者说明 mini Agent 编码获提示后完成。此帖是本轮补漏，不是11月新发布的面经。",
+    "last_checked": "2026-11-17",
+    "evidence": "公开候选人自述；未经企业独立确认。",
+    "date_caveat": "精确发布日期来自公开帖子 JSON；具体面试日期未披露。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-17",
+      "evidence_url": "https://www.reddit.com/r/PlacementsPrep/comments/1wtyguu.json",
+      "note": "已核对原帖正文及公开 JSON 中帖子 t3_1wtyguu：created=1790752845.0。仅归纳 Coding 段第一项；作者未提供原始代码、函数签名、测试要求或输出契约，未自行补写。Debugging 段未披露具体缺陷，不作为独立题目。"
+    },
+    "date_evidence": {
+      "raw_label": "公开帖子 JSON：created=1790752845.0",
+      "year_basis": "Unix 秒时间戳转换为 2026-09-30T07:20:45+00:00；该字段属于原始帖子，不是评论。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-09-30T07:20:45+00:00",
+    "edited_at": null,
+    "reported_role": "AI Engineering Intern+PPO",
+    "recruitment_type": "校园招聘；实习及转正机会"
+  },
+  {
+    "id": "S33",
+    "title": "小厂 AI 应用开发面试",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/c9dd06bab88247348a5c42fd89646f3b",
+    "date_label": "2026-11-07",
+    "date_kind": "公开 SSR 创建时间",
+    "notes": "作者「不失业」的候选人复盘，公司未披露。正文标注面试月日为11月5号。新增题归纳技术问题第10、11项；第3项补充Q027来源，第6—7项补充Q011追问；简历中声称的306条攻击任务、0%攻击成功率不是本仓库核实过的实验结果。",
+    "last_checked": "2026-11-17",
+    "evidence": "公开候选人复盘；未经企业独立确认。",
+    "date_caveat": "发布日期和面试日期分开记录；面试年份由2026年11月的帖子创建时间及正文上下文推定，正文仅写11月5号。后续编辑时间未当作初次发表日期。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-17",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/c9dd06bab88247348a5c42fd89646f3b?sourceSSR=enterprise",
+      "note": "已读取牛客原帖技术与非技术问题分节及公开 SSR，帖子 createdAt=1794018207000；技术第10项询问攻击成功率的定义和评测，第11项询问正常任务通过率与误拒率。未采用推荐区或评论内容。 第3项支持恢复题，第6—7项支持上下文压缩追问。"
+    },
+    "date_evidence": {
+      "raw_label": "正文：11月5号；公开 SSR：createdAt=1794018207000",
+      "year_basis": "创建时间戳转换为 2026-11-07T10:23:27+08:00；面试年份按同月正文上下文推定。",
+      "precision": "day"
+    },
+    "interview_date": "2026-11-05",
+    "published_at": "2026-11-07T10:23:27+08:00",
+    "reported_role": "AI 应用开发",
+    "recruitment_type": "正文未明确"
   }
 ]
