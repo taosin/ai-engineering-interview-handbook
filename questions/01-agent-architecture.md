@@ -2,7 +2,7 @@
 
 # Agent 架构与编排
 
-18 道题 · [全部题目](README.md) · [岗位路线](../paths/README.md) · [题型索引](../indexes/by-type.md)
+19 道题 · [全部题目](README.md) · [岗位路线](../paths/README.md) · [题型索引](../indexes/by-type.md)
 
 **准备目标（编者建议）**：用一次完整执行解释规划、行动、观察与终止；说明为何选择单 Agent、多 Agent 或工作流。
 
@@ -26,6 +26,7 @@
 - [Q096](01-agent-architecture.md#q096) 怎样设计一个能满足不同用户要求的内容审核框架？
 - [Q103](01-agent-architecture.md#q103) 怎样定义领域本体与Action，并在存量系统中权衡领域建模和直接用CLI加Skill开放能力？
 - [Q104](01-agent-architecture.md#q104) Agent正在执行时，同一会话中其他成员补充指令，或发起者反复修改需求，应怎样处理？
+- [Q116](01-agent-architecture.md#q116) 模型能力持续增强时，Agent Harness 还承担什么职责，与模型是什么关系，未来会怎样演进？
 
 ## Q001
 
@@ -176,3 +177,11 @@ Agent正在执行时，同一会话中其他成员补充指令，或发起者反
 **题型**：方案设计 · **适用岗位（编者建议）**：Agent 工程师、AI 全栈、Agent Infra
 
 - [S29 · 百度后端实习二面面经](../SOURCES.md#s29) — 正文原编号第11—12题：飞书话题会话执行中其他成员补充指令，以及同一发起者连续修改需求。
+
+## Q116
+
+模型能力持续增强时，Agent Harness 还承担什么职责，与模型是什么关系，未来会怎样演进？
+
+**题型**：原理与比较 · **适用岗位（编者建议）**：Agent 工程师、Agent Infra、AI 全栈
+
+- [S36 · 秋招 科大讯飞 后端/agent开发 二面 面经](../SOURCES.md#s36) — 八、Agent趋势与Harness的关键追问第3题；十、完整问题清单第21题。

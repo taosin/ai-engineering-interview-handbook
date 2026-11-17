@@ -859,5 +859,89 @@
     "published_at": "2026-11-07T10:23:27+08:00",
     "reported_role": "AI 应用开发",
     "recruitment_type": "正文未明确"
+  },
+  {
+    "id": "S34",
+    "title": "秋招 阿里集团 后端开发/agent开发 一面 面经",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/e2d7d87cab1c41c6a70d9eef166ec1c1",
+    "date_label": "2026-11-12",
+    "date_kind": "原帖公开SSR创建时间",
+    "notes": "作者雾已散声宜慢与S28相同，不视为独立候选人样本；本次只取十一、完整问题清单第31—39项，未采六节中假设的继续追问。",
+    "last_checked": "2026-11-18",
+    "evidence": "候选人公开复盘，未经企业独立确认。",
+    "date_caveat": "作者只称面试在发帖前十天内，具体日期未披露。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-18",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/e2d7d87cab1c41c6a70d9eef166ec1c1",
+      "note": "通过普通HTTPS读取原帖SSR正文及主帖createdAt=1794412821000、editTime=1794412821000；时间按Asia/Shanghai换算，不采用推荐区时间。第三方索引仅用于发现原帖链接。"
+    },
+    "date_evidence": {
+      "raw_label": "主帖createdAt=1794412821000，editTime=1794412821000",
+      "year_basis": "原帖主记录Unix毫秒字段转换为2026-11-12T00:00:21+08:00；非第三方抓取或更新时间。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-11-12T00:00:21+08:00",
+    "edited_at": "2026-11-12T00:00:21+08:00",
+    "reported_role": "后端开发／Agent 开发；阿里云",
+    "recruitment_type": "秋招；一面"
+  },
+  {
+    "id": "S35",
+    "title": "阿里云 AI 评测工程师 MaaS 评测 二面",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/2cce296790c846ef8ddf4a1e657045fc",
+    "date_label": "2026-11-12",
+    "date_kind": "原帖公开SSR创建时间",
+    "notes": "原帖混排提问与作答，本次仅取第4—6项的提问部分；baseline、引用量、领域分布及n-gram等为作者回答，不转写为面试官要求。",
+    "last_checked": "2026-11-18",
+    "evidence": "候选人公开复盘，未经企业独立确认。",
+    "date_caveat": "未披露具体面试日期；发布日期不能替代面试日。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-18",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/2cce296790c846ef8ddf4a1e657045fc",
+      "note": "通过普通HTTPS读取原帖SSR正文及主帖createdAt=1794487309000、editTime=1794487309000；时间按Asia/Shanghai换算，不采用推荐区时间。第三方索引仅用于发现原帖链接。"
+    },
+    "date_evidence": {
+      "raw_label": "主帖createdAt=1794487309000，editTime=1794487309000",
+      "year_basis": "原帖主记录Unix毫秒字段转换为2026-11-12T20:41:49+08:00；非第三方抓取或更新时间。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-11-12T20:41:49+08:00",
+    "edited_at": "2026-11-12T20:41:49+08:00",
+    "reported_role": "AI 评测工程师；MaaS 评测",
+    "recruitment_type": "二面；招聘类型未明确"
+  },
+  {
+    "id": "S36",
+    "title": "秋招 科大讯飞 后端/agent开发 二面 面经",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/745d905b852a4e6a9a236e533fa62995",
+    "date_label": "2026-11-16",
+    "date_kind": "原帖公开SSR创建时间",
+    "notes": "作者雾已散声宜慢与S28、S34相同，不计为独立候选人样本。本次只取Harness职责与演进的明确追问，未将作者回答或反问扩成新题。",
+    "last_checked": "2026-11-18",
+    "evidence": "候选人公开二面复盘，未经企业独立确认。",
+    "date_caveat": "面试仅称在发帖前十天内，具体面试日期未知。部分搜索展示使用今天或昨天等相对日期，采用原帖创建时间核定发帖日。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-18",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/745d905b852a4e6a9a236e533fa62995?sourceSSR=users",
+      "note": "已读取原帖正文八节第3题及十节完整清单第21题；普通HTTPS读取公开SSR主帖createdAt=1794763835000、editTime=1794763835000，并换算Asia/Shanghai时间。"
+    },
+    "date_evidence": {
+      "raw_label": "原帖11-16 01:30；主帖createdAt=1794763835000，editTime=1794763835000",
+      "year_basis": "主帖Unix毫秒字段转换为2026-11-16T01:30:35+08:00；不将检索索引相对日期当作新发布日期。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-11-16T01:30:35+08:00",
+    "edited_at": "2026-11-16T01:30:35+08:00",
+    "reported_role": "后端开发／Agent 开发",
+    "recruitment_type": "秋招；二面"
   }
 ]

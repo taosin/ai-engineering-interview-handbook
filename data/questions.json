@@ -2298,5 +2298,88 @@
     "temporal_scope": "检索范围内材料",
     "last_curated": "2026-11-18",
     "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q113",
+    "topic": "fullstack",
+    "question": "模型输出快、下游消费慢时，SSE 如何设计会话缓冲与背压，并按资源水位限流、处理慢消费者？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S34"
+    ],
+    "source_locators": {
+      "S34": "十一、完整问题清单第31—37项：背压、缓冲区大小、会话队列、资源指标限流、连接取舍及慢消费者。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q114",
+    "topic": "reliability",
+    "question": "大模型服务怎样弹性扩容并跨分片迁移请求？KV Cache 为什么会影响迁移？",
+    "roles": [
+      "Agent Infra",
+      "Agent 工程师"
+    ],
+    "source_ids": [
+      "S34"
+    ],
+    "source_locators": {
+      "S34": "十一、完整问题清单第38—39项：集群弹性扩容、跨分片迁移与KV Cache影响。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "design",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q115",
+    "topic": "evaluation",
+    "question": "项目评测如何选择 Benchmark、自建评测集，并判断评测集质量？",
+    "roles": [
+      "LLM 应用开发",
+      "Agent 工程师",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S35"
+    ],
+    "source_locators": {
+      "S35": "正文第4—6项的提问部分；其后的baseline、引用量、分布和统计特征是作者回答，不作为新增题目条件。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "evaluation",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
+  },
+  {
+    "id": "Q116",
+    "topic": "agent-architecture",
+    "question": "模型能力持续增强时，Agent Harness 还承担什么职责，与模型是什么关系，未来会怎样演进？",
+    "roles": [
+      "Agent 工程师",
+      "Agent Infra",
+      "AI 全栈"
+    ],
+    "source_ids": [
+      "S36"
+    ],
+    "source_locators": {
+      "S36": "八、Agent趋势与Harness的关键追问第3题；十、完整问题清单第21题。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-18",
+    "metadata_updated": "2026-11-18"
   }
 ]

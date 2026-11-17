@@ -27,6 +27,7 @@
 | [Q091](../questions/03-tools-permissions.md#q091) | Computer Use 如何把模型决策转为电脑操作？操控本地电脑与云端电脑有什么差别？ | 工具、MCP 与权限 | 原理与比较 |
 | [Q101](../questions/03-tools-permissions.md#q101) | 以低延迟为目标开放业务能力给 Agent 时，CLI、MCP 与 Skill 的接入和执行方式怎样选择？ | 工具、MCP 与权限 | 原理与比较 |
 | [Q102](../questions/09-llm-foundations.md#q102) | Prompt Caching 与 KV Cache 分别指什么？ | 模型基础与推理性能 | 原理与比较 |
+| [Q116](../questions/01-agent-architecture.md#q116) | 模型能力持续增强时，Agent Harness 还承担什么职责，与模型是什么关系，未来会怎样演进？ | Agent 架构与编排 | 原理与比较 |
 
 ## 方案设计
 
@@ -94,6 +95,8 @@
 | [Q105](../questions/04-rag-knowledge.md#q105) | RAG回答引用多个知识片段，其中一段出错引发整体点踩时，怎样把反馈权重分摊到各片段？ | RAG 与知识质量 | 方案设计 |
 | [Q106](../questions/03-tools-permissions.md#q106) | 补丁等待人工审批时，目标文件被修改，怎样检测变化并让审批失效？为什么不能只靠行号校验？ | 工具、MCP 与权限 | 方案设计 |
 | [Q108](../questions/04-rag-knowledge.md#q108) | 检索得到两段相互冲突的 chunk，交给模型时应怎样选择？ | RAG 与知识质量 | 方案设计 |
+| [Q113](../questions/06-fullstack.md#q113) | 模型输出快、下游消费慢时，SSE 如何设计会话缓冲与背压，并按资源水位限流、处理慢消费者？ | 全栈交互与后端工程 | 方案设计 |
+| [Q114](../questions/05-reliability.md#q114) | 大模型服务怎样弹性扩容并跨分片迁移请求？KV Cache 为什么会影响迁移？ | 可靠性与运行恢复 | 方案设计 |
 
 ## 故障定位
 
@@ -133,6 +136,7 @@
 | [Q100](../questions/10-evaluation.md#q100) | 用另一个 Agent 评审结论时，评审者也可能产生幻觉，怎样结合非模型校验确认事实依据？ | 评测与效果验证 | 验证与评测 |
 | [Q110](../questions/07-ai-coding-evaluation.md#q110) | AI 生成页面后，怎样验收设计稿还原度？图层是怎样还原的？ | AI Coding 与研发交付 | 验证与评测 |
 | [Q112](../questions/10-evaluation.md#q112) | 怎样定义和评测提示注入防护的攻击成功率？是否同时统计了正常任务的通过率和误拒率，结果如何？ | 评测与效果验证 | 验证与评测 |
+| [Q115](../questions/10-evaluation.md#q115) | 项目评测如何选择 Benchmark、自建评测集，并判断评测集质量？ | 评测与效果验证 | 验证与评测 |
 
 ## 现场编码
 

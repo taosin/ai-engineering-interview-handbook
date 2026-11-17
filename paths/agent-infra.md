@@ -130,6 +130,7 @@ INF-1通过后，把可恢复执行链和崩溃证据带回主线验收；多工
 - [Q016](../questions/03-tools-permissions.md#q016) 接入多个 MCP Server 时，如何处理协议版本兼容？
 - [Q017](../questions/03-tools-permissions.md#q017) 如何适配 stdio、SSE 和 Streamable HTTP 等通信方式？
 - [Q106](../questions/03-tools-permissions.md#q106) 补丁等待人工审批时，目标文件被修改，怎样检测变化并让审批失效？为什么不能只靠行号校验？
+- [Q116](../questions/01-agent-architecture.md#q116) 模型能力持续增强时，Agent Harness 还承担什么职责，与模型是什么关系，未来会怎样演进？
 
 ### 专题 2：恢复与并发
 
@@ -143,6 +144,8 @@ INF-1通过后，把可恢复执行链和崩溃证据带回主线验收；多工
 - [Q036](../questions/06-fullstack.md#q036) 缓存写入成功后异步落库，如何应对消息丢失、重复消费和最终状态不一致？
 - [Q087](../questions/05-reliability.md#q087) 云端 Agent 的运行容器重启或迁移以后，会话与任务上下文怎样恢复？
 - [Q104](../questions/01-agent-architecture.md#q104) Agent正在执行时，同一会话中其他成员补充指令，或发起者反复修改需求，应怎样处理？
+- [Q113](../questions/06-fullstack.md#q113) 模型输出快、下游消费慢时，SSE 如何设计会话缓冲与背压，并按资源水位限流、处理慢消费者？
+- [Q114](../questions/05-reliability.md#q114) 大模型服务怎样弹性扩容并跨分片迁移请求？KV Cache 为什么会影响迁移？
 
 ### 专题 3：评测与资源
 
@@ -156,20 +159,21 @@ INF-1通过后，把可恢复执行链和崩溃证据带回主线验收；多工
 - [Q046](../questions/08-coding.md#q046) 用数组实现映射结构，解释冲突与扩容。
 - [Q102](../questions/09-llm-foundations.md#q102) Prompt Caching 与 KV Cache 分别指什么？
 - [Q112](../questions/10-evaluation.md#q112) 怎样定义和评测提示注入防护的攻击成功率？是否同时统计了正常任务的通过率和误拒率，结果如何？
+- [Q115](../questions/10-evaluation.md#q115) 项目评测如何选择 Benchmark、自建评测集，并判断评测集质量？
 
 ## 全部适用题
 
-共 46 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
+共 50 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
 
-- **Agent 架构与编排**：[Q003](../questions/01-agent-architecture.md#q003) · [Q005](../questions/01-agent-architecture.md#q005) · [Q053](../questions/01-agent-architecture.md#q053) · [Q084](../questions/01-agent-architecture.md#q084) · [Q090](../questions/01-agent-architecture.md#q090) · [Q103](../questions/01-agent-architecture.md#q103) · [Q104](../questions/01-agent-architecture.md#q104)
+- **Agent 架构与编排**：[Q003](../questions/01-agent-architecture.md#q003) · [Q005](../questions/01-agent-architecture.md#q005) · [Q053](../questions/01-agent-architecture.md#q053) · [Q084](../questions/01-agent-architecture.md#q084) · [Q090](../questions/01-agent-architecture.md#q090) · [Q103](../questions/01-agent-architecture.md#q103) · [Q104](../questions/01-agent-architecture.md#q104) · [Q116](../questions/01-agent-architecture.md#q116)
 - **记忆与上下文**：[Q007](../questions/02-memory-context.md#q007) · [Q008](../questions/02-memory-context.md#q008) · [Q009](../questions/02-memory-context.md#q009) · [Q010](../questions/02-memory-context.md#q010) · [Q011](../questions/02-memory-context.md#q011) · [Q012](../questions/02-memory-context.md#q012) · [Q083](../questions/02-memory-context.md#q083) · [Q098](../questions/02-memory-context.md#q098)
 - **工具、MCP 与权限**：[Q013](../questions/03-tools-permissions.md#q013) · [Q014](../questions/03-tools-permissions.md#q014) · [Q015](../questions/03-tools-permissions.md#q015) · [Q016](../questions/03-tools-permissions.md#q016) · [Q017](../questions/03-tools-permissions.md#q017) · [Q018](../questions/03-tools-permissions.md#q018) · [Q081](../questions/03-tools-permissions.md#q081) · [Q086](../questions/03-tools-permissions.md#q086) · [Q094](../questions/03-tools-permissions.md#q094) · [Q101](../questions/03-tools-permissions.md#q101) · [Q106](../questions/03-tools-permissions.md#q106)
 - **RAG 与知识质量**：[Q024](../questions/04-rag-knowledge.md#q024)
-- **可靠性与运行恢复**：[Q025](../questions/05-reliability.md#q025) · [Q026](../questions/05-reliability.md#q026) · [Q027](../questions/05-reliability.md#q027) · [Q028](../questions/05-reliability.md#q028) · [Q029](../questions/05-reliability.md#q029) · [Q030](../questions/05-reliability.md#q030) · [Q054](../questions/05-reliability.md#q054) · [Q087](../questions/05-reliability.md#q087)
-- **全栈交互与后端工程**：[Q035](../questions/06-fullstack.md#q035) · [Q036](../questions/06-fullstack.md#q036) · [Q067](../questions/06-fullstack.md#q067) · [Q068](../questions/06-fullstack.md#q068) · [Q074](../questions/06-fullstack.md#q074) · [Q075](../questions/06-fullstack.md#q075)
+- **可靠性与运行恢复**：[Q025](../questions/05-reliability.md#q025) · [Q026](../questions/05-reliability.md#q026) · [Q027](../questions/05-reliability.md#q027) · [Q028](../questions/05-reliability.md#q028) · [Q029](../questions/05-reliability.md#q029) · [Q030](../questions/05-reliability.md#q030) · [Q054](../questions/05-reliability.md#q054) · [Q087](../questions/05-reliability.md#q087) · [Q114](../questions/05-reliability.md#q114)
+- **全栈交互与后端工程**：[Q035](../questions/06-fullstack.md#q035) · [Q036](../questions/06-fullstack.md#q036) · [Q067](../questions/06-fullstack.md#q067) · [Q068](../questions/06-fullstack.md#q068) · [Q074](../questions/06-fullstack.md#q074) · [Q075](../questions/06-fullstack.md#q075) · [Q113](../questions/06-fullstack.md#q113)
 - **现场编码与数据结构**：[Q046](../questions/08-coding.md#q046)
 - **模型基础与推理性能**：[Q102](../questions/09-llm-foundations.md#q102)
-- **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q112](../questions/10-evaluation.md#q112)
+- **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q112](../questions/10-evaluation.md#q112) · [Q115](../questions/10-evaluation.md#q115)
 
 ## 回答与验证
 
