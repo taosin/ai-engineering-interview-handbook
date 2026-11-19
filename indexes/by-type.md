@@ -97,6 +97,8 @@
 | [Q108](../questions/04-rag-knowledge.md#q108) | 检索得到两段相互冲突的 chunk，交给模型时应怎样选择？ | RAG 与知识质量 | 方案设计 |
 | [Q113](../questions/06-fullstack.md#q113) | 模型输出快、下游消费慢时，SSE 如何设计会话缓冲与背压，并按资源水位限流、处理慢消费者？ | 全栈交互与后端工程 | 方案设计 |
 | [Q114](../questions/05-reliability.md#q114) | 大模型服务怎样弹性扩容并跨分片迁移请求？KV Cache 为什么会影响迁移？ | 可靠性与运行恢复 | 方案设计 |
+| [Q117](../questions/02-memory-context.md#q117) | Agent 在什么情况下需要记忆？如何判断项目现有的记忆架构是否合理？ | 记忆与上下文 | 方案设计 |
+| [Q118](../questions/03-tools-permissions.md#q118) | 涉及全局上下文和 Skill 的工具提取流程，如何避免密钥泄露？ | 工具、MCP 与权限 | 方案设计 |
 
 ## 故障定位
 

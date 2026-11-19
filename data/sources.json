@@ -943,5 +943,61 @@
     "edited_at": "2026-11-16T01:30:35+08:00",
     "reported_role": "后端开发／Agent 开发",
     "recruitment_type": "秋招；二面"
+  },
+  {
+    "id": "S37",
+    "title": "27届 AI Agent 面经：被上下文压缩和记忆机制问穿了",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/discuss/952128712667901952?sourceSSR=home",
+    "date_label": "2026-11-17",
+    "date_kind": "原帖公开SSR创建时间",
+    "notes": "作者说明根据会后纪要整理，问题不是逐字还原。只取明确提问，不将现场调研时的猜测或个人复盘扩成事实。",
+    "last_checked": "2026-11-20",
+    "evidence": "候选人公开复盘，未经企业独立确认。",
+    "date_caveat": "具体面试日期未披露；发布日期不替代面试日期。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-20",
+      "evidence_url": "https://www.nowcoder.com/discuss/952128712667901952?sourceSSR=home",
+      "note": "普通HTTPS读取主帖正文及createTime=1794877175000、editTime=1794877175000；排除推荐帖子和评论时间。"
+    },
+    "date_evidence": {
+      "raw_label": "主帖createTime=1794877175000，editTime=1794877175000",
+      "year_basis": "主帖Unix毫秒时间按Asia/Shanghai换算为2026-11-17T08:59:35+08:00。",
+      "precision": "day"
+    },
+    "interview_date": null,
+    "published_at": "2026-11-17T08:59:35+08:00",
+    "edited_at": "2026-11-17T08:59:35+08:00",
+    "reported_role": "AI 相关岗位；半导体公司 Agent 助手",
+    "recruitment_type": "正文未明确"
+  },
+  {
+    "id": "S38",
+    "title": "启云方 ai应用工程师 2面 | 11.18",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/a46abe372e4445bc8c16c3b6def34e56?sourceSSR=post",
+    "date_label": "2026-11-18",
+    "date_kind": "原帖公开SSR创建时间",
+    "notes": "只取正文第3项，不将评论区关于日志脱敏的建议作为面试官问题。标题面试月日与主帖发布年份结合定位。",
+    "last_checked": "2026-11-20",
+    "evidence": "候选人公开复盘，未经企业独立确认。",
+    "date_caveat": "标题写11.18，年份依据主帖2026年创建时间与同日复盘语境；不是标题显式标注的完整年份。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-20",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/a46abe372e4445bc8c16c3b6def34e56?sourceSSR=post",
+      "note": "普通HTTPS读取主帖正文及createdAt=1794993850000、editTime=1794993850000；排除推荐帖子和评论时间。"
+    },
+    "date_evidence": {
+      "raw_label": "主帖createdAt=1794993850000，editTime=1794993850000",
+      "year_basis": "主帖Unix毫秒时间按Asia/Shanghai换算为2026-11-18T17:24:10+08:00。",
+      "precision": "day"
+    },
+    "interview_date": "2026-11-18",
+    "published_at": "2026-11-18T17:24:10+08:00",
+    "edited_at": "2026-11-18T17:24:10+08:00",
+    "reported_role": "AI 应用工程师",
+    "recruitment_type": "二面；秋招话题"
   }
 ]
