@@ -999,5 +999,33 @@
     "edited_at": "2026-11-18T17:24:10+08:00",
     "reported_role": "AI 应用工程师",
     "recruitment_type": "二面；秋招话题"
+  },
+  {
+    "id": "S39",
+    "title": "字节日常实习 AI全栈 中国交易与广告",
+    "platform": "牛客",
+    "url": "https://www.nowcoder.com/feed/main/detail/406c2c0d878f4e2fb354b63d9a701bb8",
+    "date_label": "2026-11-19",
+    "date_kind": "原帖公开SSR创建时间",
+    "notes": "仅采主帖第3—7项的明确提问；作者关于面试官意图的括号内猜测不作为题目要求。评论、推荐帖不作为本场问题。",
+    "last_checked": "2026-11-21",
+    "evidence": "候选人公开一面复盘，未经企业独立确认。",
+    "date_caveat": "正文写11/19一面，年份结合主帖2026年发布时间推定；未披露模型、OCR/ASR供应商和计费规则，不能据此断言是否收取Token费用。",
+    "verification": {
+      "status": "original",
+      "checked_on": "2026-11-21",
+      "evidence_url": "https://www.nowcoder.com/feed/main/detail/406c2c0d878f4e2fb354b63d9a701bb8",
+      "note": "普通HTTPS读取主帖正文及createdAt=1795091622000、editTime=1795091622000；排除推荐记录的时间。"
+    },
+    "date_evidence": {
+      "raw_label": "主帖createdAt=1795091622000，editTime=1795091622000",
+      "year_basis": "主帖Unix毫秒时间按Asia/Shanghai换算为2026-11-19T20:33:42+08:00。",
+      "precision": "day"
+    },
+    "interview_date": "2026-11-19",
+    "published_at": "2026-11-19T20:33:42+08:00",
+    "edited_at": "2026-11-19T20:33:42+08:00",
+    "reported_role": "AI 全栈；中国交易与广告",
+    "recruitment_type": "日常实习；一面"
   }
 ]

@@ -160,7 +160,7 @@ FS-1通过后，把工作台和故障证据带回主线验收；FS-2/FS-3作为�
 
 ## 全部适用题
 
-共 73 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
+共 74 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
 
 - **Agent 架构与编排**：[Q001](../questions/01-agent-architecture.md#q001) · [Q002](../questions/01-agent-architecture.md#q002) · [Q003](../questions/01-agent-architecture.md#q003) · [Q004](../questions/01-agent-architecture.md#q004) · [Q005](../questions/01-agent-architecture.md#q005) · [Q006](../questions/01-agent-architecture.md#q006) · [Q077](../questions/01-agent-architecture.md#q077) · [Q079](../questions/01-agent-architecture.md#q079) · [Q080](../questions/01-agent-architecture.md#q080) · [Q092](../questions/01-agent-architecture.md#q092) · [Q096](../questions/01-agent-architecture.md#q096) · [Q103](../questions/01-agent-architecture.md#q103) · [Q104](../questions/01-agent-architecture.md#q104) · [Q116](../questions/01-agent-architecture.md#q116)
 - **工具、MCP 与权限**：[Q082](../questions/03-tools-permissions.md#q082) · [Q091](../questions/03-tools-permissions.md#q091) · [Q094](../questions/03-tools-permissions.md#q094) · [Q106](../questions/03-tools-permissions.md#q106) · [Q118](../questions/03-tools-permissions.md#q118)
@@ -169,7 +169,7 @@ FS-1通过后，把工作台和故障证据带回主线验收；FS-2/FS-3作为�
 - **全栈交互与后端工程**：[Q031](../questions/06-fullstack.md#q031) · [Q032](../questions/06-fullstack.md#q032) · [Q033](../questions/06-fullstack.md#q033) · [Q034](../questions/06-fullstack.md#q034) · [Q035](../questions/06-fullstack.md#q035) · [Q036](../questions/06-fullstack.md#q036) · [Q060](../questions/06-fullstack.md#q060) · [Q061](../questions/06-fullstack.md#q061) · [Q062](../questions/06-fullstack.md#q062) · [Q065](../questions/06-fullstack.md#q065) · [Q066](../questions/06-fullstack.md#q066) · [Q067](../questions/06-fullstack.md#q067) · [Q068](../questions/06-fullstack.md#q068) · [Q073](../questions/06-fullstack.md#q073) · [Q074](../questions/06-fullstack.md#q074) · [Q075](../questions/06-fullstack.md#q075) · [Q109](../questions/06-fullstack.md#q109) · [Q113](../questions/06-fullstack.md#q113)
 - **AI Coding 与研发交付**：[Q037](../questions/07-ai-coding-evaluation.md#q037) · [Q038](../questions/07-ai-coding-evaluation.md#q038) · [Q039](../questions/07-ai-coding-evaluation.md#q039) · [Q040](../questions/07-ai-coding-evaluation.md#q040) · [Q057](../questions/07-ai-coding-evaluation.md#q057) · [Q059](../questions/07-ai-coding-evaluation.md#q059) · [Q063](../questions/07-ai-coding-evaluation.md#q063) · [Q064](../questions/07-ai-coding-evaluation.md#q064) · [Q069](../questions/07-ai-coding-evaluation.md#q069) · [Q070](../questions/07-ai-coding-evaluation.md#q070) · [Q072](../questions/07-ai-coding-evaluation.md#q072) · [Q076](../questions/07-ai-coding-evaluation.md#q076) · [Q110](../questions/07-ai-coding-evaluation.md#q110)
 - **现场编码与数据结构**：[Q043](../questions/08-coding.md#q043) · [Q044](../questions/08-coding.md#q044) · [Q045](../questions/08-coding.md#q045) · [Q046](../questions/08-coding.md#q046) · [Q047](../questions/08-coding.md#q047) · [Q048](../questions/08-coding.md#q048) · [Q111](../questions/08-coding.md#q111)
-- **模型基础与推理性能**：[Q055](../questions/09-llm-foundations.md#q055) · [Q102](../questions/09-llm-foundations.md#q102)
+- **模型基础与推理性能**：[Q055](../questions/09-llm-foundations.md#q055) · [Q102](../questions/09-llm-foundations.md#q102) · [Q119](../questions/09-llm-foundations.md#q119)
 - **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q058](../questions/10-evaluation.md#q058) · [Q085](../questions/10-evaluation.md#q085)
 
 ## 回答与验证

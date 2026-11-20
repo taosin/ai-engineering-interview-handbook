@@ -28,6 +28,7 @@
 | [Q101](../questions/03-tools-permissions.md#q101) | 以低延迟为目标开放业务能力给 Agent 时，CLI、MCP 与 Skill 的接入和执行方式怎样选择？ | 工具、MCP 与权限 | 原理与比较 |
 | [Q102](../questions/09-llm-foundations.md#q102) | Prompt Caching 与 KV Cache 分别指什么？ | 模型基础与推理性能 | 原理与比较 |
 | [Q116](../questions/01-agent-architecture.md#q116) | 模型能力持续增强时，Agent Harness 还承担什么职责，与模型是什么关系，未来会怎样演进？ | Agent 架构与编排 | 原理与比较 |
+| [Q119](../questions/09-llm-foundations.md#q119) | 项目里的 OCR、ASR 是否消耗 Token？怎样说明整个 Agent 项目的 Token 消耗？ | 模型基础与推理性能 | 原理与比较 |
 
 ## 方案设计
 

@@ -2,7 +2,7 @@
 
 # 全部题目
 
-118 道题；题号稳定，按编号排列。可用页面搜索查关键词，也可从[岗位路线](../paths/README.md)或[题型索引](../indexes/by-type.md)开始。
+119 道题；题号稳定，按编号排列。可用页面搜索查关键词，也可从[岗位路线](../paths/README.md)或[题型索引](../indexes/by-type.md)开始。
 
 | 题号 | 问题 | 主题 | 题型 |
 | --- | --- | --- | --- |
@@ -124,5 +124,6 @@
 | [Q116](01-agent-architecture.md#q116) | 模型能力持续增强时，Agent Harness 还承担什么职责，与模型是什么关系，未来会怎样演进？ | Agent 架构与编排 | 原理与比较 |
 | [Q117](02-memory-context.md#q117) | Agent 在什么情况下需要记忆？如何判断项目现有的记忆架构是否合理？ | 记忆与上下文 | 方案设计 |
 | [Q118](03-tools-permissions.md#q118) | 涉及全局上下文和 Skill 的工具提取流程，如何避免密钥泄露？ | 工具、MCP 与权限 | 方案设计 |
+| [Q119](09-llm-foundations.md#q119) | 项目里的 OCR、ASR 是否消耗 Token？怎样说明整个 Agent 项目的 Token 消耗？ | 模型基础与推理性能 | 原理与比较 |
 
 [返回首页](../README.md)

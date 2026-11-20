@@ -2,7 +2,7 @@
 
 # 模型基础与推理性能
 
-5 道题 · [全部题目](README.md) · [岗位路线](../paths/README.md) · [题型索引](../indexes/by-type.md)
+6 道题 · [全部题目](README.md) · [岗位路线](../paths/README.md) · [题型索引](../indexes/by-type.md)
 
 **准备目标（编者建议）**：区分模型原理和系统优化，能解释成本、延迟、内存与效果之间的取舍。
 
@@ -13,6 +13,7 @@
 - [Q051](09-llm-foundations.md#q051) 基于 PPO 的 RLHF 各个模型分别承担什么职责，为何加入 KL 约束？
 - [Q055](09-llm-foundations.md#q055) 采样温度和 Top-k 分别控制生成过程的什么行为？
 - [Q102](09-llm-foundations.md#q102) Prompt Caching 与 KV Cache 分别指什么？
+- [Q119](09-llm-foundations.md#q119) 项目里的 OCR、ASR 是否消耗 Token？怎样说明整个 Agent 项目的 Token 消耗？
 
 ## Q049
 
@@ -65,3 +66,11 @@ Prompt Caching 与 KV Cache 分别指什么？
 **原创逐题解析**：[简答、深入展开、追问与反例](../learning/answers/prompt-cache-versus-kv-cache.md)。难度与判据均为编者建议。
 
 **原创答题指南**：[G06 · 分清缓存层次，再证明成本和延迟收益](../learning/guides/prompt-kv-cache-latency-cost.md)
+
+## Q119
+
+项目里的 OCR、ASR 是否消耗 Token？怎样说明整个 Agent 项目的 Token 消耗？
+
+**题型**：原理与比较 · **适用岗位（编者建议）**：AI 全栈、Agent 工程师、LLM 应用开发、Agent Infra
+
+- [S39 · 字节日常实习 AI全栈 中国交易与广告](../SOURCES.md#s39) — 正文第3—4项：项目Token消耗及OCR、ASR的追问；原帖未给出具体模型与计费方式。

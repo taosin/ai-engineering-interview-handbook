@@ -163,7 +163,7 @@ INF-1通过后，把可恢复执行链和崩溃证据带回主线验收；多工
 
 ## 全部适用题
 
-共 52 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
+共 53 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
 
 - **Agent 架构与编排**：[Q003](../questions/01-agent-architecture.md#q003) · [Q005](../questions/01-agent-architecture.md#q005) · [Q053](../questions/01-agent-architecture.md#q053) · [Q084](../questions/01-agent-architecture.md#q084) · [Q090](../questions/01-agent-architecture.md#q090) · [Q103](../questions/01-agent-architecture.md#q103) · [Q104](../questions/01-agent-architecture.md#q104) · [Q116](../questions/01-agent-architecture.md#q116)
 - **记忆与上下文**：[Q007](../questions/02-memory-context.md#q007) · [Q008](../questions/02-memory-context.md#q008) · [Q009](../questions/02-memory-context.md#q009) · [Q010](../questions/02-memory-context.md#q010) · [Q011](../questions/02-memory-context.md#q011) · [Q012](../questions/02-memory-context.md#q012) · [Q083](../questions/02-memory-context.md#q083) · [Q098](../questions/02-memory-context.md#q098) · [Q117](../questions/02-memory-context.md#q117)
@@ -172,7 +172,7 @@ INF-1通过后，把可恢复执行链和崩溃证据带回主线验收；多工
 - **可靠性与运行恢复**：[Q025](../questions/05-reliability.md#q025) · [Q026](../questions/05-reliability.md#q026) · [Q027](../questions/05-reliability.md#q027) · [Q028](../questions/05-reliability.md#q028) · [Q029](../questions/05-reliability.md#q029) · [Q030](../questions/05-reliability.md#q030) · [Q054](../questions/05-reliability.md#q054) · [Q087](../questions/05-reliability.md#q087) · [Q114](../questions/05-reliability.md#q114)
 - **全栈交互与后端工程**：[Q035](../questions/06-fullstack.md#q035) · [Q036](../questions/06-fullstack.md#q036) · [Q067](../questions/06-fullstack.md#q067) · [Q068](../questions/06-fullstack.md#q068) · [Q074](../questions/06-fullstack.md#q074) · [Q075](../questions/06-fullstack.md#q075) · [Q113](../questions/06-fullstack.md#q113)
 - **现场编码与数据结构**：[Q046](../questions/08-coding.md#q046)
-- **模型基础与推理性能**：[Q102](../questions/09-llm-foundations.md#q102)
+- **模型基础与推理性能**：[Q102](../questions/09-llm-foundations.md#q102) · [Q119](../questions/09-llm-foundations.md#q119)
 - **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q112](../questions/10-evaluation.md#q112) · [Q115](../questions/10-evaluation.md#q115)
 
 ## 回答与验证

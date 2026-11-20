@@ -160,7 +160,7 @@ LLM-1通过后，把检索基线与证据标注并入主线作品；先建立可
 
 ## 全部适用题
 
-共 41 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
+共 42 道。这里包含新增题，按主题定位，避免重复阅读多份题目正文。
 
 - **Agent 架构与编排**：[Q001](../questions/01-agent-architecture.md#q001) · [Q002](../questions/01-agent-architecture.md#q002) · [Q003](../questions/01-agent-architecture.md#q003) · [Q053](../questions/01-agent-architecture.md#q053) · [Q077](../questions/01-agent-architecture.md#q077) · [Q095](../questions/01-agent-architecture.md#q095)
 - **记忆与上下文**：[Q012](../questions/02-memory-context.md#q012) · [Q088](../questions/02-memory-context.md#q088) · [Q093](../questions/02-memory-context.md#q093) · [Q099](../questions/02-memory-context.md#q099) · [Q117](../questions/02-memory-context.md#q117)
@@ -169,7 +169,7 @@ LLM-1通过后，把检索基线与证据标注并入主线作品；先建立可
 - **可靠性与运行恢复**：[Q025](../questions/05-reliability.md#q025) · [Q026](../questions/05-reliability.md#q026) · [Q030](../questions/05-reliability.md#q030) · [Q097](../questions/05-reliability.md#q097)
 - **全栈交互与后端工程**：[Q031](../questions/06-fullstack.md#q031) · [Q032](../questions/06-fullstack.md#q032)
 - **现场编码与数据结构**：[Q111](../questions/08-coding.md#q111)
-- **模型基础与推理性能**：[Q049](../questions/09-llm-foundations.md#q049) · [Q050](../questions/09-llm-foundations.md#q050) · [Q051](../questions/09-llm-foundations.md#q051) · [Q055](../questions/09-llm-foundations.md#q055)
+- **模型基础与推理性能**：[Q049](../questions/09-llm-foundations.md#q049) · [Q050](../questions/09-llm-foundations.md#q050) · [Q051](../questions/09-llm-foundations.md#q051) · [Q055](../questions/09-llm-foundations.md#q055) · [Q119](../questions/09-llm-foundations.md#q119)
 - **评测与效果验证**：[Q041](../questions/10-evaluation.md#q041) · [Q042](../questions/10-evaluation.md#q042) · [Q071](../questions/10-evaluation.md#q071) · [Q100](../questions/10-evaluation.md#q100) · [Q107](../questions/10-evaluation.md#q107) · [Q112](../questions/10-evaluation.md#q112) · [Q115](../questions/10-evaluation.md#q115)
 
 ## 回答与验证

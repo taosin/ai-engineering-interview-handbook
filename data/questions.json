@@ -1114,8 +1114,16 @@
     "type": "面经问题归纳",
     "question_type": "design",
     "temporal_scope": "检索范围内材料",
-    "last_curated": "2026-10-11",
-    "metadata_updated": "2026-10-11"
+    "last_curated": "2026-11-21",
+    "metadata_updated": "2026-11-21",
+    "follow_ups": [
+      {
+        "question": "上传一段35分钟视频时，项目怎样处理？为什么不直接交给多模态大模型，视频解析缓存会影响这个选择吗？",
+        "source_id": "S39",
+        "locator": "正文第5—7项：35分钟视频的项目处理链路、多模态模型替代方案及缓存追问。",
+        "origin": "来源支持的追问变体"
+      }
+    ]
   },
   {
     "id": "Q054",
@@ -2430,5 +2438,27 @@
     "temporal_scope": "检索范围内材料",
     "last_curated": "2026-11-20",
     "metadata_updated": "2026-11-20"
+  },
+  {
+    "id": "Q119",
+    "topic": "llm-foundations",
+    "question": "项目里的 OCR、ASR 是否消耗 Token？怎样说明整个 Agent 项目的 Token 消耗？",
+    "roles": [
+      "AI 全栈",
+      "Agent 工程师",
+      "LLM 应用开发",
+      "Agent Infra"
+    ],
+    "source_ids": [
+      "S39"
+    ],
+    "source_locators": {
+      "S39": "正文第3—4项：项目Token消耗及OCR、ASR的追问；原帖未给出具体模型与计费方式。"
+    },
+    "type": "面经问题归纳",
+    "question_type": "concept",
+    "temporal_scope": "检索范围内材料",
+    "last_curated": "2026-11-21",
+    "metadata_updated": "2026-11-21"
   }
 ]
